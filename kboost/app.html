@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KBOOST — App Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #F8F7FF; }
+    #sidebar { width: 240px; min-width: 240px; background: #0D0820; transition: all 0.3s; }
+    .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 8px; cursor: pointer; color: #9CA3AF; font-size: 14px; font-weight: 500; transition: all 0.2s; margin: 2px 8px; }
+    .nav-item:hover { background: rgba(139,92,246,0.15); color: #fff; }
+    .nav-item.active { background: #7C3AED; color: #fff; }
+    .view { display: none; }
+    .view.active { display: block; }
+    .stat-card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+    .kanban-col { background: #F1F0F8; border-radius: 12px; padding: 12px; min-width: 220px; flex: 1; }
+    .kanban-card { background: #fff; border-radius: 10px; padding: 12px; margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); cursor: pointer; }
+    .kanban-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.1); transform: translateY(-1px); transition: all 0.15s; }
+    .badge { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    .badge-hot { background: #FEE2E2; color: #B91C1C; }
+    .badge-warm { background: #FEF3C7; color: #92400E; }
+    .badge-cold { background: #F3F4F6; color: #4B5563; }
+    .badge-new { background: #DBEAFE; color: #1D4ED8; }
+    .badge-sent { background: #DBEAFE; color: #1D4ED8; }
+    .badge-draft { background: #F3F4F6; color: #4B5563; }
+    .badge-accepted { background: #D1FAE5; color: #065F46; }
+    .badge-active { background: #D1FAE5; color: #065F46; }
+    .badge-paused { background: #FEF3C7; color: #92400E; }
+    .progress-bar { height: 6px; border-radius: 999px; background: #E5E3F5; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #7C3AED, #A78BFA); }
+    .proposal-preview { font-family: 'Courier New', monospace; background: #fff; border: 1px solid #E5E7EB; border-radius: 12px; padding: 24px; font-size: 13px; line-height: 1.8; }
+    .agent-card { background: #fff; border-radius: 12px; padding: 14px 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); flex: 1; min-width: 170px; }
+    .seq-step { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F3F4F6; }
+    .seq-step:last-child { border-bottom: none; }
+    #chartContainer { position: relative; height: 240px; }
+    .sidebar-collapsed #sidebar { width: 64px; min-width: 64px; }
+    .sidebar-collapsed #sidebar .nav-label { display: none; }
+    .sidebar-collapsed #sidebar .brand-text { display: none; }
+    .sidebar-collapsed #sidebar .user-info { display: none; }
+    @media (max-width: 768px) {
+      #sidebar { position: fixed; left: -240px; top: 0; bottom: 0; z-index: 50; }
+      #sidebar.mobile-open { left: 0; }
+      #main-content { margin-left: 0 !important; }
+      .overlay { display: block; }
+    }
+    .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 40; }
+    .table-row:hover { background: #FAFAFF; }
+    input, select, textarea { outline: none; }
+    input:focus, select:focus, textarea:focus { box-shadow: 0 0 0 2px rgba(124,58,237,0.25); border-color: #7C3AED !important; }
+    .spin { animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .fade-in { animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+<!-- Mobile Overlay -->
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<!-- SIDEBAR -->
+<aside id="sidebar" class="flex flex-col h-full z-50">
+  <!-- Brand -->
+  <div class="flex items-center gap-3 px-5 py-5 border-b border-white/10">
+    <div style="width:32px;height:32px;background:linear-gradient(135deg,#7C3AED,#A78BFA);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+      <span style="color:#fff;font-size:15px;font-weight:800;font-family:Inter,sans-serif;">K</span>
+    </div>
+    <span class="brand-text text-white font-bold text-lg tracking-tight">KBOOST</span>
+  </div>
+
+  <!-- Nav -->
+  <nav class="flex-1 py-4 overflow-y-auto">
+    <div class="nav-item active" onclick="switchView('dashboard', this)">
+      <span style="font-size:16px;">📊</span>
+      <span class="nav-label">Dashboard</span>
+    </div>
+    <div class="nav-item" onclick="switchView('leads', this)">
+      <span style="font-size:16px;">🔍</span>
+      <span class="nav-label">Lead Engine</span>
+    </div>
+    <div class="nav-item" onclick="switchView('outreach', this)">
+      <span style="font-size:16px;">📤</span>
+      <span class="nav-label">Outreach Engine</span>
+    </div>
+    <div class="nav-item" onclick="switchView('pipeline', this)">
+      <span style="font-size:16px;">📊</span>
+      <span class="nav-label">Pipeline</span>
+    </div>
+    <div class="nav-item" onclick="switchView('proposals', this)">
+      <span style="font-size:16px;">✍️</span>
+      <span class="nav-label">Proposals</span>
+    </div>
+    <div class="nav-item" onclick="switchView('settings', this)">
+      <span style="font-size:16px;">⚙️</span>
+      <span class="nav-label">Settings</span>
+    </div>
+  </nav>
+
+  <!-- User Info -->
+  <div class="border-t border-white/10 px-4 py-4">
+    <div class="user-info flex items-center gap-3">
+      <div style="width:34px;height:34px;background:linear-gradient(135deg,#7C3AED,#60A5FA);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <span style="color:#fff;font-size:13px;font-weight:700;">AS</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="text-white text-xs font-600 truncate font-semibold">Ahmad Saidi</div>
+        <div class="text-gray-400 text-xs truncate">Growth Plan</div>
+      </div>
+      <span style="background:#7C3AED;color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;">PRO</span>
+    </div>
+    <button class="user-info mt-3 w-full text-center text-xs font-semibold text-violet-400 border border-violet-700 rounded-lg py-2 hover:bg-violet-900/30 transition" onclick="">
+      ⚡ Upgrade Plan
+    </button>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<div id="main-content" class="flex-1 flex flex-col overflow-hidden" style="margin-left:0;">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border-b border-gray-100 px-6 py-3 flex items-center justify-between flex-shrink-0" style="height:60px;">
+    <div class="flex items-center gap-3">
+      <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleSidebar()">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="#374151" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div id="breadcrumb" class="text-sm text-gray-500">
+        <span class="text-gray-400">KBOOST</span>
+        <span class="mx-2 text-gray-300">/</span>
+        <span class="text-gray-700 font-medium" id="breadcrumb-current">Dashboard</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="relative p-2 rounded-lg hover:bg-gray-100" title="Notifications">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 00-6 6v3l-1.5 2.5A1 1 0 003.4 15H16.6a1 1 0 00.9-1.5L16 11V8a6 6 0 00-6-6z" stroke="#6B7280" stroke-width="1.6"/><path d="M8 15a2 2 0 004 0" stroke="#6B7280" stroke-width="1.6"/></svg>
+        <span style="position:absolute;top:6px;right:6px;width:8px;height:8px;background:#EF4444;border-radius:50%;border:1.5px solid #fff;"></span>
+      </button>
+      <div style="width:34px;height:34px;background:linear-gradient(135deg,#7C3AED,#60A5FA);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="color:#fff;font-size:13px;font-weight:700;">AS</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIEWS CONTAINER -->
+  <main class="flex-1 overflow-y-auto p-6">
+
+    <!-- ===== VIEW 1: DASHBOARD ===== -->
+    <div id="view-dashboard" class="view active">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">Good morning, Ahmad 👋</h1>
+          <p class="text-sm text-gray-500 mt-1">Wednesday, 4 June 2026 — Here's your growth snapshot</p>
+        </div>
+        <span class="text-xs bg-violet-100 text-violet-700 font-semibold px-3 py-1.5 rounded-full">Growth Plan</span>
+      </div>
+
+      <!-- Stat Cards Row -->
+      <div class="grid grid-cols-2 gap-4 mb-6" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="stat-card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">Leads Today</p>
+              <p class="text-3xl font-bold text-gray-900 mt-1">47</p>
+              <p class="text-xs text-emerald-600 font-semibold mt-1">▲ +23% vs yesterday</p>
+            </div>
+            <div style="background:#EDE9FE;border-radius:10px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-size:18px;">🔍</span>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">Active Pipeline</p>
+              <p class="text-3xl font-bold text-gray-900 mt-1">RM 124,500</p>
+              <p class="text-xs text-blue-600 font-semibold mt-1">12 active deals</p>
+            </div>
+            <div style="background:#DBEAFE;border-radius:10px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-size:18px;">💰</span>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">Revenue This Month</p>
+              <p class="text-3xl font-bold text-gray-900 mt-1">RM 24,500</p>
+              <p class="text-xs text-emerald-600 font-semibold mt-1">73% of monthly target</p>
+            </div>
+            <div style="background:#D1FAE5;border-radius:10px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-size:18px;">📈</span>
+            </div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">Proposals Sent</p>
+              <p class="text-3xl font-bold text-gray-900 mt-1">8</p>
+              <p class="text-xs text-amber-600 font-semibold mt-1">3 won this week 🎉</p>
+            </div>
+            <div style="background:#FEF3C7;border-radius:10px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-size:18px;">✍️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart + AI Insights Row -->
+      <div class="grid gap-5 mb-6" style="grid-template-columns: 1fr 360px;">
+        <!-- Revenue Chart -->
+        <div class="stat-card">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-base font-semibold text-gray-800">Monthly Revenue (RM)</h2>
+            <span class="text-xs text-gray-400">Jan – Jun 2026</span>
+          </div>
+          <div id="chartContainer"><canvas id="revenueChart"></canvas></div>
+        </div>
+
+        <!-- AI Insights -->
+        <div class="stat-card">
+          <h2 class="text-base font-semibold text-gray-800 mb-4">💡 AI Insights — This Week</h2>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="background:#F5F3FF;border-left:3px solid #7C3AED;border-radius:8px;padding:12px;">
+              <p class="text-xs text-gray-700 font-medium leading-relaxed">Catering leads convert 4× better than contractors. Shift 60% of outreach budget here.</p>
+              <button class="mt-2 text-xs font-semibold text-violet-600 hover:text-violet-800" onclick="switchView('outreach', document.querySelector('[onclick*=outreach]'))">Adjust →</button>
+            </div>
+            <div style="background:#FFF7ED;border-left:3px solid #F59E0B;border-radius:8px;padding:12px;">
+              <p class="text-xs text-gray-700 font-medium leading-relaxed">3 deals haven't been followed up in 7+ days. Follow up now to avoid losing them.</p>
+              <button class="mt-2 text-xs font-semibold text-amber-600 hover:text-amber-800" onclick="switchView('pipeline', document.querySelector('[onclick*=pipeline]'))">View Pipeline →</button>
+            </div>
+            <div style="background:#ECFDF5;border-left:3px solid #10B981;border-radius:8px;padding:12px;">
+              <p class="text-xs text-gray-700 font-medium leading-relaxed">Your proposal acceptance rate is <strong>34%</strong>. Benchmark is 28%. You're above average.</p>
+              <span class="mt-2 inline-block text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">✓ Above Benchmark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Agents Status -->
+      <div>
+        <h2 class="text-base font-semibold text-gray-800 mb-3">Active AI Agents</h2>
+        <div class="flex gap-4 flex-wrap">
+          <div class="agent-card">
+            <div class="flex items-center gap-2 mb-1">
+              <span style="width:8px;height:8px;background:#10B981;border-radius:50%;flex-shrink:0;"></span>
+              <span class="text-xs font-bold text-gray-800">Lead Hunter</span>
+              <span class="badge badge-active ml-auto" style="font-size:10px;padding:1px 7px;">Active</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">Found 23 new leads in Kuching today</p>
+          </div>
+          <div class="agent-card">
+            <div class="flex items-center gap-2 mb-1">
+              <span style="width:8px;height:8px;background:#10B981;border-radius:50%;flex-shrink:0;"></span>
+              <span class="text-xs font-bold text-gray-800">Copywriter</span>
+              <span class="badge badge-active ml-auto" style="font-size:10px;padding:1px 7px;">Active</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">Writing follow-up for Catering segment</p>
+          </div>
+          <div class="agent-card">
+            <div class="flex items-center gap-2 mb-1">
+              <span style="width:8px;height:8px;background:#10B981;border-radius:50%;flex-shrink:0;"></span>
+              <span class="text-xs font-bold text-gray-800">Appointment Setter</span>
+              <span class="badge badge-active ml-auto" style="font-size:10px;padding:1px 7px;">Active</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">Following up 8 leads (Day 3 of 14)</p>
+          </div>
+          <div class="agent-card">
+            <div class="flex items-center gap-2 mb-1">
+              <span style="width:8px;height:8px;background:#60A5FA;border-radius:50%;flex-shrink:0;"></span>
+              <span class="text-xs font-bold text-gray-800">Proposal Writer</span>
+              <span class="badge badge-sent ml-auto" style="font-size:10px;padding:1px 7px;">Ready</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">2 proposals queued for review</p>
+          </div>
+          <div class="agent-card">
+            <div class="flex items-center gap-2 mb-1">
+              <span style="width:8px;height:8px;background:#8B5CF6;border-radius:50%;flex-shrink:0;"></span>
+              <span class="text-xs font-bold text-gray-800">Business Analyst</span>
+              <span style="background:#EDE9FE;color:#5B21B6;font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;margin-left:auto;" class="badge">Analysing</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">Weekly report generating...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== VIEW 2: LEAD ENGINE ===== -->
+    <div id="view-leads" class="view">
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold text-gray-900">Lead Engine</h1>
+        <div class="flex gap-3">
+          <button class="px-4 py-2 text-sm font-semibold text-violet-700 border-2 border-violet-300 rounded-lg hover:bg-violet-50 transition">Import CSV</button>
+          <button class="px-4 py-2 text-sm font-semibold text-white rounded-lg transition" style="background:#7C3AED;" onmouseover="this.style.background='#6D28D9'" onmouseout="this.style.background='#7C3AED'">🔍 Find New Leads</button>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="bg-white rounded-xl p-4 mb-4 shadow-sm flex gap-3 flex-wrap items-center">
+        <input type="text" placeholder="Search company or contact..." class="flex-1 min-w-48 px-3 py-2 text-sm border border-gray-200 rounded-lg" style="min-width:200px;">
+        <select class="px-3 py-2 text-sm border border-gray-200 rounded-lg bg-white text-gray-700">
+          <option>All Industries</option>
+          <option>Catering</option>
+          <option>Events</option>
+          <option>Contractor</option>
+          <option>Property</option>
+          <option>Training</option>
+          <option>Consulting</option>
+        </select>
+        <select class="px-3 py-2 text-sm border border-gray-200 rounded-lg bg-white text-gray-700">
+          <option>All Statuses</option>
+          <option>Hot</option>
+          <option>Warm</option>
+          <option>Cold</option>
+          <option>New</option>
+        </select>
+        <button class="px-4 py-2 text-sm font-semibold text-white rounded-lg" style="background:#7C3AED;">Filter</button>
+      </div>
+
+      <!-- Table -->
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <table class="w-full text-sm">
+          <thead>
+            <tr style="background:#FAFAFF;border-bottom:1px solid #F3F4F6;">
+              <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">Company</th>
+              <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">Industry</th>
+              <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">Location</th>
+              <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">Contact</th>
+              <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">Status</th>
+              <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body">
+          </tbody>
+        </table>
+        <div class="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
+          <span class="text-xs text-gray-500">Showing 10 of 487 leads</span>
+          <div class="flex gap-2">
+            <button class="px-3 py-1.5 text-xs font-medium text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-50">← Prev</button>
+            <button class="px-3 py-1.5 text-xs font-medium text-white rounded-lg" style="background:#7C3AED;">Next →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== VIEW 3: OUTREACH ENGINE ===== -->
+    <div id="view-outreach" class="view">
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold text-gray-900">Outreach Engine</h1>
+        <button class="px-4 py-2 text-sm font-semibold text-white rounded-lg" style="background:#7C3AED;" onmouseover="this.style.background='#6D28D9'" onmouseout="this.style.background='#7C3AED'">+ New Campaign</button>
+      </div>
+
+      <h2 class="text-base font-semibold text-gray-700 mb-4">Active Campaigns</h2>
+      <div class="grid gap-4 mb-8" style="grid-template-columns:1fr 1fr;">
+        <!-- Campaign 1 -->
+        <div class="bg-white rounded-xl shadow-sm p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-bold text-gray-900 text-sm">Catering Sector — June Push</h3>
+            <span class="badge badge-active">🟢 Active</span>
+          </div>
+          <div class="grid grid-cols-4 gap-3 mb-4 text-center">
+            <div><p class="text-lg font-bold text-gray-900">47</p><p class="text-xs text-gray-400">Sent</p></div>
+            <div><p class="text-lg font-bold text-blue-600">18</p><p class="text-xs text-gray-400">Opened (38%)</p></div>
+            <div><p class="text-lg font-bold text-violet-600">6</p><p class="text-xs text-gray-400">Replied (13%)</p></div>
+            <div><p class="text-lg font-bold text-emerald-600">2</p><p class="text-xs text-gray-400">Meetings</p></div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-xs text-gray-500 mb-1"><span>47 / 100 contacts reached</span><span>47%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:47%"></div></div>
+          </div>
+          <div class="flex gap-2">
+            <button class="flex-1 py-2 text-xs font-semibold text-violet-700 border border-violet-200 rounded-lg hover:bg-violet-50">View Details</button>
+            <button class="flex-1 py-2 text-xs font-semibold text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-50">⏸ Pause</button>
+          </div>
+        </div>
+        <!-- Campaign 2 -->
+        <div class="bg-white rounded-xl shadow-sm p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-bold text-gray-900 text-sm">Contractor Outreach — Q2</h3>
+            <span class="badge badge-paused">⏸ Paused</span>
+          </div>
+          <div class="grid grid-cols-4 gap-3 mb-4 text-center">
+            <div><p class="text-lg font-bold text-gray-900">23</p><p class="text-xs text-gray-400">Sent</p></div>
+            <div><p class="text-lg font-bold text-blue-600">9</p><p class="text-xs text-gray-400">Opened (39%)</p></div>
+            <div><p class="text-lg font-bold text-violet-600">3</p><p class="text-xs text-gray-400">Replied (13%)</p></div>
+            <div><p class="text-lg font-bold text-emerald-600">1</p><p class="text-xs text-gray-400">Meetings</p></div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-xs text-gray-500 mb-1"><span>23 / 50 contacts reached</span><span>46%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:46%"></div></div>
+          </div>
+          <div class="flex gap-2">
+            <button class="flex-1 py-2 text-xs font-semibold text-violet-700 border border-violet-200 rounded-lg hover:bg-violet-50">View Details</button>
+            <button class="flex-1 py-2 text-xs font-semibold text-emerald-700 border border-emerald-200 rounded-lg hover:bg-emerald-50">▶ Resume</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Follow-up Sequence Builder -->
+      <div class="bg-white rounded-xl shadow-sm p-5">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-base font-semibold text-gray-800">Default 14-Day Sequence</h2>
+          <button class="text-xs font-semibold text-violet-600 hover:text-violet-800">Edit Sequence</button>
+        </div>
+        <div>
+          <div class="seq-step">
+            <div style="background:#7C3AED;color:#fff;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;flex-shrink:0;">Day 1</div>
+            <div class="flex-1">
+              <p class="text-xs font-semibold text-gray-800 mb-0.5">Introduction Message</p>
+              <p class="text-xs text-gray-500">"Hi [Name], we help Sarawak businesses like yours..."</p>
+            </div>
+            <button class="text-xs text-gray-400 hover:text-violet-600 font-medium">Edit</button>
+          </div>
+          <div class="seq-step">
+            <div style="background:#7C3AED;color:#fff;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;flex-shrink:0;">Day 3</div>
+            <div class="flex-1">
+              <p class="text-xs font-semibold text-gray-800 mb-0.5">Case Study</p>
+              <p class="text-xs text-gray-500">"Here's how we helped a Kuching contractor close 3 deals..."</p>
+            </div>
+            <button class="text-xs text-gray-400 hover:text-violet-600 font-medium">Edit</button>
+          </div>
+          <div class="seq-step">
+            <div style="background:#7C3AED;color:#fff;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;flex-shrink:0;">Day 7</div>
+            <div class="flex-1">
+              <p class="text-xs font-semibold text-gray-800 mb-0.5">Check-in</p>
+              <p class="text-xs text-gray-500">"Just checking in. Would you be open to a 15-min call?"</p>
+            </div>
+            <button class="text-xs text-gray-400 hover:text-violet-600 font-medium">Edit</button>
+          </div>
+          <div class="seq-step">
+            <div style="background:#5B21B6;color:#fff;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;flex-shrink:0;">Day 14</div>
+            <div class="flex-1">
+              <p class="text-xs font-semibold text-gray-800 mb-0.5">Final Message</p>
+              <p class="text-xs text-gray-500">"This is my last message. Special offer expires Friday..."</p>
+            </div>
+            <button class="text-xs text-gray-400 hover:text-violet-600 font-medium">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== VIEW 4: PIPELINE ===== -->
+    <div id="view-pipeline" class="view">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">Sales Pipeline</h1>
+          <p class="text-sm text-gray-500 mt-0.5">Total Pipeline: <span class="font-bold text-violet-700">RM 124,500</span></p>
+        </div>
+        <button class="px-4 py-2 text-sm font-semibold text-white rounded-lg" style="background:#7C3AED;" onmouseover="this.style.background='#6D28D9'" onmouseout="this.style.background='#7C3AED'">+ Add Deal</button>
+      </div>
+
+      <div class="flex gap-4 overflow-x-auto pb-4">
+        <!-- Column 1: New Lead -->
+        <div class="kanban-col" style="min-width:220px;">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-gray-700 uppercase tracking-wide">New Lead</span>
+            <span class="text-xs bg-gray-200 text-gray-600 font-semibold px-2 py-0.5 rounded-full">5</span>
+          </div>
+          <p class="text-xs text-gray-400 mb-3">RM 24,000</p>
+          <div class="kanban-card"><div style="height:3px;background:#7C3AED;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">Elite Caterers Sdn Bhd</p><p class="text-xs text-gray-500 mt-1">RM 3,500</p></div>
+          <div class="kanban-card"><div style="height:3px;background:#F59E0B;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">Prima Build Construction</p><p class="text-xs text-gray-500 mt-1">RM 8,000</p></div>
+          <div class="kanban-card"><div style="height:3px;background:#3B82F6;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">TopTrain Academy</p><p class="text-xs text-gray-500 mt-1">RM 5,500</p></div>
+          <div class="kanban-card"><div style="height:3px;background:#7C3AED;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">Borneo Catering Co</p><p class="text-xs text-gray-500 mt-1">RM 2,800</p></div>
+          <div class="kanban-card"><div style="height:3px;background:#10B981;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">ProfitEdge Consultants</p><p class="text-xs text-gray-500 mt-1">RM 4,200</p></div>
+        </div>
+
+        <!-- Column 2: Contacted -->
+        <div class="kanban-col" style="min-width:220px;">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-gray-700 uppercase tracking-wide">Contacted</span>
+            <span class="text-xs bg-blue-100 text-blue-700 font-semibold px-2 py-0.5 rounded-full">4</span>
+          </div>
+          <p class="text-xs text-gray-400 mb-3">RM 44,000</p>
+          <div class="kanban-card"><div style="height:3px;background:#3B82F6;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">Grand Events & Decor</p><p class="text-xs text-gray-500 mt-1">RM 12,000</p></div>
+          <div class="kanban-card"><div style="height:3px;background:#10B981;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">Apex Consulting Group</p><p class="text-xs text-gray-500 mt-1">RM 15,500</p></div>
+          <div class="kanban-card"><div style="height:3px;background:#F59E0B;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">Smart Build Sdn Bhd</p><p class="text-xs text-gray-500 mt-1">RM 9,000</p></div>
+          <div class="kanban-card"><div style="height:3px;background:#EF4444;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">Riviera Property Hub</p><p class="text-xs text-gray-500 mt-1">RM 7,500</p></div>
+        </div>
+
+        <!-- Column 3: Proposal Sent -->
+        <div class="kanban-col" style="min-width:220px;">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-gray-700 uppercase tracking-wide">Proposal Sent</span>
+            <span class="text-xs bg-violet-100 text-violet-700 font-semibold px-2 py-0.5 rounded-full">3</span>
+          </div>
+          <p class="text-xs text-gray-400 mb-3">RM 51,500</p>
+          <div class="kanban-card"><div style="height:3px;background:#3B82F6;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">Creative Events KCH</p><p class="text-xs text-gray-500 mt-1">RM 18,500</p></div>
+          <div class="kanban-card"><div style="height:3px;background:#F59E0B;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">Contractor Hub</p><p class="text-xs text-gray-500 mt-1">RM 22,000</p></div>
+          <div class="kanban-card"><div style="height:3px;background:#3B82F6;border-radius:2px;margin-bottom:8px;width:60%;"></div><p class="text-xs font-semibold text-gray-800">Premier Training</p><p class="text-xs text-gray-500 mt-1">RM 11,000</p></div>
+        </div>
+
+        <!-- Column 4: Won -->
+        <div class="kanban-col" style="min-width:220px;background:#ECFDF5;">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-emerald-700 uppercase tracking-wide">Won 🎉</span>
+            <span class="text-xs bg-emerald-100 text-emerald-700 font-semibold px-2 py-0.5 rounded-full">4</span>
+          </div>
+          <p class="text-xs text-emerald-600 font-semibold mb-3">RM 30,000</p>
+          <div class="kanban-card" style="border-left:3px solid #10B981;"><p class="text-xs font-semibold text-gray-800">Kuching Catering Co</p><p class="text-xs text-emerald-600 font-semibold mt-1">RM 5,500 ✓</p></div>
+          <div class="kanban-card" style="border-left:3px solid #10B981;"><p class="text-xs font-semibold text-gray-800">TopBuild Sibu</p><p class="text-xs text-emerald-600 font-semibold mt-1">RM 9,200 ✓</p></div>
+          <div class="kanban-card" style="border-left:3px solid #10B981;"><p class="text-xs font-semibold text-gray-800">Apex Phase 2</p><p class="text-xs text-emerald-600 font-semibold mt-1">RM 8,800 ✓</p></div>
+          <div class="kanban-card" style="border-left:3px solid #10B981;background:#F0FDF4;"><p class="text-xs font-semibold text-emerald-800">GrandEvents Q2</p><p class="text-xs text-emerald-600 font-semibold mt-1">RM 6,500 ✓</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== VIEW 5: PROPOSALS ===== -->
+    <div id="view-proposals" class="view">
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold text-gray-900">Proposal Engine</h1>
+        <button class="px-4 py-2 text-sm font-semibold text-white rounded-lg" style="background:#7C3AED;" onmouseover="this.style.background='#6D28D9'" onmouseout="this.style.background='#7C3AED'">+ New Proposal</button>
+      </div>
+
+      <div class="grid gap-6" style="grid-template-columns:320px 1fr;">
+        <!-- Left: Proposal List -->
+        <div class="bg-white rounded-xl shadow-sm p-4">
+          <h2 class="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wide">Recent Proposals</h2>
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <div class="p-3 rounded-lg cursor-pointer hover:bg-violet-50 transition" style="border-left:3px solid #3B82F6;">
+              <div class="flex items-center justify-between"><p class="text-xs font-semibold text-gray-800">Grand Events & Decor</p><span class="badge badge-sent">Sent</span></div>
+              <p class="text-xs text-gray-500 mt-0.5">RM 12,000 · 2 days ago</p>
+            </div>
+            <div class="p-3 rounded-lg cursor-pointer hover:bg-violet-50 transition" style="border-left:3px solid #9CA3AF;">
+              <div class="flex items-center justify-between"><p class="text-xs font-semibold text-gray-800">Apex Consulting</p><span class="badge badge-draft">Draft</span></div>
+              <p class="text-xs text-gray-500 mt-0.5">RM 15,500 · Today</p>
+            </div>
+            <div class="p-3 rounded-lg cursor-pointer hover:bg-violet-50 transition" style="border-left:3px solid #10B981;">
+              <div class="flex items-center justify-between"><p class="text-xs font-semibold text-gray-800">Prima Build</p><span class="badge badge-accepted">Accepted ✓</span></div>
+              <p class="text-xs text-gray-500 mt-0.5">RM 8,000 · 5 days ago</p>
+            </div>
+            <div class="p-3 rounded-lg cursor-pointer hover:bg-violet-50 transition" style="border-left:3px solid #10B981;">
+              <div class="flex items-center justify-between"><p class="text-xs font-semibold text-gray-800">Elite Caterers</p><span class="badge badge-accepted">Accepted ✓</span></div>
+              <p class="text-xs text-gray-500 mt-0.5">RM 3,500 · 1 week ago</p>
+            </div>
+            <div class="p-3 rounded-lg cursor-pointer hover:bg-violet-50 transition" style="border-left:3px solid #3B82F6;">
+              <div class="flex items-center justify-between"><p class="text-xs font-semibold text-gray-800">Creative Events</p><span class="badge badge-sent">Sent</span></div>
+              <p class="text-xs text-gray-500 mt-0.5">RM 18,500 · 1 day ago</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Generator -->
+        <div class="bg-white rounded-xl shadow-sm p-5">
+          <h2 class="text-base font-bold text-gray-800 mb-4">Generate New Proposal</h2>
+          <div class="grid gap-4 mb-4" style="grid-template-columns:1fr 1fr;">
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5">Client Name</label>
+              <input type="text" value="Grand Events & Decor Sdn Bhd" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5">Amount (RM)</label>
+              <input type="number" value="12000" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-xs font-semibold text-gray-600 mb-1.5">Services</label>
+            <textarea class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg resize-none" rows="2">Event Management Package, Venue Coordination, AV &amp; Setup</textarea>
+          </div>
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-gray-600 mb-1.5">Notes for AI</label>
+            <input type="text" value="Professional tone, include payment terms" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg">
+          </div>
+          <button id="generateBtn" onclick="generateProposal()" class="w-full py-3 text-sm font-bold text-white rounded-xl transition" style="background:linear-gradient(135deg,#7C3AED,#A78BFA);">
+            Generate with AI ✨
+          </button>
+
+          <!-- Generated Preview (hidden until generate) -->
+          <div id="proposalPreview" style="display:none;" class="mt-5 fade-in">
+            <div class="proposal-preview">
+              <div style="text-align:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #E5E7EB;">
+                <div style="font-size:16px;font-weight:800;letter-spacing:2px;color:#7C3AED;">BUSINESS PROPOSAL</div>
+              </div>
+              <div style="margin-bottom:12px;font-size:12px;">
+                <span style="color:#6B7280;">Prepared for:</span> <strong>Grand Events &amp; Decor Sdn Bhd</strong><br>
+                <span style="color:#6B7280;">Date:</span> June 2026<br>
+                <span style="color:#6B7280;">Prepared by:</span> <strong>KBOOST</strong>
+              </div>
+              <div style="margin-bottom:12px;padding:10px 0;border-top:1px solid #E5E7EB;">
+                <div style="font-weight:700;font-size:11px;letter-spacing:1px;color:#374151;margin-bottom:8px;">SERVICES &amp; PRICING</div>
+                <div style="font-size:12px;line-height:2;">
+                  Event Management Package <span style="float:right;">RM 8,500</span><br>
+                  Venue Coordination <span style="float:right;">RM 2,000</span><br>
+                  AV &amp; Decoration Setup <span style="float:right;">RM 1,500</span>
+                </div>
+              </div>
+              <div style="border-top:2px solid #374151;padding-top:8px;font-weight:800;font-size:13px;">
+                TOTAL <span style="float:right;">RM 12,000</span>
+              </div>
+              <div style="margin-top:14px;font-size:11px;color:#6B7280;line-height:1.8;">
+                <strong>PAYMENT TERMS:</strong> 50% deposit, 50% upon completion.<br>
+                <strong>VALIDITY:</strong> This proposal is valid for 14 days.<br><br>
+                <em style="color:#9CA3AF;">Generated by KBOOST AI in 4 seconds.</em>
+              </div>
+            </div>
+            <div class="flex gap-3 mt-4">
+              <button class="flex-1 py-2 text-sm font-semibold text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition">📄 Download PDF</button>
+              <button class="flex-1 py-2 text-sm font-semibold text-white rounded-lg transition" style="background:#25D366;" onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='#25D366'">💬 Send via WhatsApp</button>
+              <button class="flex-1 py-2 text-sm font-semibold text-white rounded-lg transition" style="background:#7C3AED;" onmouseover="this.style.background='#6D28D9'" onmouseout="this.style.background='#7C3AED'">✓ Mark as Sent</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== VIEW 6: SETTINGS ===== -->
+    <div id="view-settings" class="view">
+      <div class="mb-6">
+        <h1 class="text-2xl font-bold text-gray-900">Settings</h1>
+        <p class="text-sm text-gray-500 mt-1">Manage your account and preferences</p>
+      </div>
+      <div class="grid gap-6" style="grid-template-columns:1fr 1fr;">
+        <div class="bg-white rounded-xl shadow-sm p-5">
+          <h2 class="text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Profile</h2>
+          <div class="flex items-center gap-4 mb-5">
+            <div style="width:56px;height:56px;background:linear-gradient(135deg,#7C3AED,#60A5FA);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+              <span style="color:#fff;font-size:20px;font-weight:700;">AS</span>
+            </div>
+            <div>
+              <p class="font-bold text-gray-900">Ahmad Saidi</p>
+              <p class="text-xs text-gray-500">zaiwin@gmail.com</p>
+            </div>
+          </div>
+          <div class="grid gap-3">
+            <div><label class="block text-xs font-semibold text-gray-600 mb-1">Full Name</label><input type="text" value="Ahmad Saidi" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg"></div>
+            <div><label class="block text-xs font-semibold text-gray-600 mb-1">Email</label><input type="email" value="zaiwin@gmail.com" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg"></div>
+            <div><label class="block text-xs font-semibold text-gray-600 mb-1">Company</label><input type="text" value="KBOOST Sarawak" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg"></div>
+            <button class="mt-1 py-2 text-sm font-semibold text-white rounded-lg" style="background:#7C3AED;">Save Changes</button>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm p-5">
+          <h2 class="text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Subscription</h2>
+          <div style="background:#F5F3FF;border-radius:10px;padding:16px;margin-bottom:16px;">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-bold text-violet-800">Growth Plan</span>
+              <span class="badge" style="background:#7C3AED;color:#fff;">Active</span>
+            </div>
+            <p class="text-xs text-violet-600">RM 299/month · Renews 4 July 2026</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+            <div class="flex items-center gap-2 text-xs text-gray-600"><span class="text-emerald-500">✓</span> Up to 500 leads/month</div>
+            <div class="flex items-center gap-2 text-xs text-gray-600"><span class="text-emerald-500">✓</span> 3 active campaigns</div>
+            <div class="flex items-center gap-2 text-xs text-gray-600"><span class="text-emerald-500">✓</span> AI Proposal Generator</div>
+            <div class="flex items-center gap-2 text-xs text-gray-600"><span class="text-emerald-500">✓</span> All 5 AI Agents</div>
+            <div class="flex items-center gap-2 text-xs text-gray-400"><span>○</span> White-label reports (Pro only)</div>
+          </div>
+          <button class="w-full py-2 text-sm font-semibold text-violet-700 border-2 border-violet-300 rounded-lg hover:bg-violet-50">Upgrade to Pro →</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// ===== LEADS DATA =====
+const leadsData = [
+  { company: 'Elite Caterers Sdn Bhd', industry: 'Catering', location: 'Kuching', contact: '+6082-441122', status: 'Hot' },
+  { company: 'Prima Build Construction', industry: 'Contractor', location: 'Miri', contact: '+6085-334455', status: 'Warm' },
+  { company: 'Grand Events & Decor', industry: 'Events', location: 'Sibu', contact: '+6084-223344', status: 'New' },
+  { company: 'Apex Consulting Group', industry: 'Consulting', location: 'Kuching', contact: '+6082-556677', status: 'Hot' },
+  { company: 'TopTrain Academy', industry: 'Training', location: 'Kuching', contact: '+6082-778899', status: 'Warm' },
+  { company: 'Riviera Property Hub', industry: 'Property', location: 'Miri', contact: '+6085-990011', status: 'Cold' },
+  { company: 'Borneo Catering Co', industry: 'Catering', location: 'Bintulu', contact: '+6086-112233', status: 'New' },
+  { company: 'Smart Build Sdn Bhd', industry: 'Contractor', location: 'Sibu', contact: '+6084-445566', status: 'Warm' },
+  { company: 'Creative Events KCH', industry: 'Events', location: 'Kuching', contact: '+6082-667788', status: 'Hot' },
+  { company: 'ProfitEdge Consultants', industry: 'Consulting', location: 'Miri', contact: '+6085-889900', status: 'New' },
+];
+
+function statusBadge(s) {
+  const map = { Hot: 'badge-hot', Warm: 'badge-warm', Cold: 'badge-cold', New: 'badge-new' };
+  const icons = { Hot: ' 🔥', Warm: '', Cold: '', New: '' };
+  return `<span class="badge ${map[s]}">${s}${icons[s]}</span>`;
+}
+
+function renderLeads() {
+  const tbody = document.getElementById('leads-table-body');
+  if (!tbody) return;
+  tbody.innerHTML = leadsData.map(l => `
+    <tr class="table-row border-b border-gray-50">
+      <td class="px-5 py-3"><p class="text-sm font-semibold text-gray-900">${l.company}</p></td>
+      <td class="px-4 py-3"><span class="text-xs text-gray-600 bg-gray-100 px-2 py-0.5 rounded-full font-medium">${l.industry}</span></td>
+      <td class="px-4 py-3 text-sm text-gray-600">${l.location}</td>
+      <td class="px-4 py-3 text-sm text-gray-600">${l.contact}</td>
+      <td class="px-4 py-3">${statusBadge(l.status)}</td>
+      <td class="px-4 py-3">
+        <div class="flex gap-2 items-center">
+          <button class="text-xs font-semibold text-violet-600 border border-violet-200 px-3 py-1 rounded-lg hover:bg-violet-50" onclick="switchView('outreach', document.querySelectorAll('.nav-item')[2])">Outreach</button>
+          <button class="text-xs font-semibold text-gray-500 border border-gray-200 px-3 py-1 rounded-lg hover:bg-gray-50">View</button>
+          <button class="text-gray-400 hover:text-gray-600 px-1" title="More">⋮</button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+// ===== NAVIGATION =====
+let revenueChart = null;
+
+function switchView(viewId, clickedEl) {
+  // Hide all views
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  // Remove active from all nav items
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  // Show selected view
+  const view = document.getElementById('view-' + viewId);
+  if (view) view.classList.add('active');
+  // Activate nav item
+  if (clickedEl) clickedEl.classList.add('active');
+
+  // Update breadcrumb
+  const names = { dashboard: 'Dashboard', leads: 'Lead Engine', outreach: 'Outreach Engine', pipeline: 'Pipeline', proposals: 'Proposals', settings: 'Settings' };
+  document.getElementById('breadcrumb-current').textContent = names[viewId] || viewId;
+
+  // Save to localStorage
+  localStorage.setItem('kboost_view', viewId);
+
+  // Render chart only for dashboard
+  if (viewId === 'dashboard') {
+    setTimeout(renderChart, 50);
+  }
+
+  // Close mobile sidebar
+  closeSidebar();
+}
+
+// ===== CHART =====
+function renderChart() {
+  const canvas = document.getElementById('revenueChart');
+  if (!canvas) return;
+  if (revenueChart) { revenueChart.destroy(); revenueChart = null; }
+  const ctx = canvas.getContext('2d');
+  revenueChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Monthly Revenue (RM)',
+        data: [8200, 11500, 9800, 15200, 19800, 24500],
+        borderColor: '#7C3AED',
+        backgroundColor: 'rgba(139,92,246,0.08)',
+        borderWidth: 2.5,
+        pointBackgroundColor: '#7C3AED',
+        pointRadius: 4,
+        pointHoverRadius: 6,
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ' RM ' + ctx.parsed.y.toLocaleString()
+          }
+        }
+      },
+      scales: {
+        y: {
+          grid: { color: 'rgba(0,0,0,0.04)' },
+          ticks: {
+            font: { size: 11, family: 'Inter' },
+            color: '#9CA3AF',
+            callback: v => 'RM ' + (v/1000).toFixed(0) + 'k'
+          }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { font: { size: 11, family: 'Inter' }, color: '#9CA3AF' }
+        }
+      }
+    }
+  });
+}
+
+// ===== PROPOSAL GENERATOR =====
+function generateProposal() {
+  const btn = document.getElementById('generateBtn');
+  const preview = document.getElementById('proposalPreview');
+  btn.innerHTML = '<span class="inline-block spin mr-2">⟳</span> Generating...';
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+  preview.style.display = 'none';
+  setTimeout(() => {
+    btn.innerHTML = 'Generate with AI ✨';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    preview.style.display = 'block';
+    preview.classList.remove('fade-in');
+    void preview.offsetWidth;
+    preview.classList.add('fade-in');
+  }, 2000);
+}
+
+// ===== MOBILE SIDEBAR =====
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  sidebar.classList.toggle('mobile-open');
+  overlay.style.display = sidebar.classList.contains('mobile-open') ? 'block' : 'none';
+}
+
+function closeSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  sidebar.classList.remove('mobile-open');
+  overlay.style.display = 'none';
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  renderLeads();
+
+  // Restore saved view or default to dashboard
+  const saved = localStorage.getItem('kboost_view') || 'dashboard';
+  const navMap = { dashboard: 0, leads: 1, outreach: 2, pipeline: 3, proposals: 4, settings: 5 };
+  const navItems = document.querySelectorAll('.nav-item');
+  if (navMap[saved] !== undefined) {
+    switchView(saved, navItems[navMap[saved]]);
+  } else {
+    switchView('dashboard', navItems[0]);
+  }
+});
+</script>
+</body>
+</html>
