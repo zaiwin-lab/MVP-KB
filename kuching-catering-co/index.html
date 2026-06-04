@@ -559,49 +559,20 @@ footer{background:var(--g900,#040c08);color:rgba(255,255,255,.4);padding:60px 24
         <div class="cii"><div class="ciico">🕐</div><div><div class="cilbl" data-i18n="ci4l">Waktu Operasi</div><div class="cival" data-i18n="ci4v">Isnin – Sabtu, 8:00 pagi – 8:00 malam</div></div></div>
       </div>
     </div>
-    <div class="qfbox fu d1">
-      <div class="qfbt" data-i18n="qfbt">📋 Borang Permintaan Quotation</div>
-      <form name="catering-enquiry" method="POST" data-netlify="true" onsubmit="qf(event)">
-        <input type="hidden" name="form-name" value="catering-enquiry">
-        <div class="fr2">
-          <div class="fg"><label data-i18n="qfName">Nama Penuh *</label><input type="text" name="nama" placeholder="Nama penuh anda" required></div>
-          <div class="fg"><label data-i18n="qfWa">No. WhatsApp *</label><input type="tel" name="whatsapp" placeholder="+601X-XXXXXXX" required></div>
-        </div>
-        <div class="fg"><label data-i18n="qfOrg">Organisasi / Jabatan / Syarikat</label><input type="text" name="organisasi" placeholder="Nama organisasi (optional)"></div>
-        <div class="fr2">
-          <div class="fg"><label data-i18n="qfType">Jenis Katering *</label>
-            <select id="qt" name="jenis" required>
-              <option value="" data-i18n="qfTypePh">Pilih jenis katering...</option>
-              <option>Katering Fungsi Kerajaan / Rasmi</option>
-              <option>Katering Korporat / Seminar</option>
-              <option>Katering Program Latihan</option>
-              <option>Katering Konvensyen / Ekspo</option>
-              <option>Katering Perkahwinan</option>
-              <option>Katering Open House / Perayaan</option>
-              <option>Katering NGO / Koperasi</option>
-              <option>Katering Gathering Persendirian</option>
-              <option>Lain-lain</option>
-            </select>
-          </div>
-          <div class="fg"><label data-i18n="qfPax">Bilangan Tetamu *</label><input type="number" name="pax" placeholder="cth. 200 pax" min="20" required></div>
-        </div>
-        <div class="fr2">
-          <div class="fg"><label data-i18n="qfDate">Tarikh Katering *</label><input type="date" id="ed" name="tarikh" required></div>
-          <div class="fg"><label data-i18n="qfBudget">Anggaran Per Pax</label>
-            <select name="bajet">
-              <option value="" data-i18n="qfBudgetPh">Flexible / Belum pasti</option>
-              <option>RM 25–35 / pax</option><option>RM 35–50 / pax</option>
-              <option>RM 50–70 / pax</option><option>RM 70+ / pax</option>
-            </select>
-          </div>
-        </div>
-        <div class="fg"><label data-i18n="qfNote">Maklumat Tambahan</label><textarea name="nota" placeholder="Sijil Halal diperlukan, menu tertentu, keperluan diet khas, alamat lokasi, keperluan setup, dll..."></textarea></div>
-        <div class="facts">
-          <button type="submit" class="btn ba" style="font-size:15px;padding:13px 24px" data-i18n="qfSubmit">Hantar Borang →</button>
-          <a href="https://wa.me/601128465813?text=Hi,%20saya%20ingin%20minta%20quotation%20katering." class="btn bwa" target="_blank" style="font-size:15px;padding:13px 22px">💬 WhatsApp</a>
-        </div>
-        <div class="fnote" data-i18n="qfPrivacy">🔒 Maklumat anda adalah sulit dan tidak akan dikongsi dengan mana-mana pihak ketiga.</div>
-      </form>
+    <div class="qfbox fu d1" style="padding:0;overflow:hidden;background:transparent;box-shadow:none">
+      <iframe
+        id="JotFormIFrame-261542712857057"
+        title="Kuching Catering Co. — Enquiry / Borang Pertanyaan"
+        onload="window.parent.scrollTo(0,0)"
+        allowtransparency="true"
+        allow="geolocation; microphone; camera; fullscreen"
+        src="https://form.jotform.com/261542712857057"
+        frameborder="0"
+        style="min-width:100%;width:100%;height:720px;border:none;border-radius:20px;background:#fff;"
+        scrolling="no">
+      </iframe>
+      <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+      <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-261542712857057']","https://form.jotform.com")</script>
     </div>
   </div>
 </section>
@@ -871,7 +842,14 @@ function tf(b){const i=b.parentElement,w=i.classList.contains('open');document.q
 function gq(t){document.getElementById('quote').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const s=document.getElementById('qt');if(!s)return;for(let i=0;i<s.options.length;i++){if(s.options[i].value===t){s.selectedIndex=i;break}}},700)}
 function showT(m){const t=document.getElementById('toast');if(m)t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),4500)}
 function hf(e){e.preventDefault();showT(curLang==='zh'?'正在跳转到WhatsApp...':curLang==='en'?'Redirecting to WhatsApp...':'Menghantar anda ke WhatsApp...');setTimeout(()=>window.open('https://wa.me/601128465813?text=Hi,%20I%20would%20like%20to%20request%20a%20catering%20quotation.','_blank'),900);e.target.reset()}
-function qf(e){e.preventDefault();showT(curLang==='zh'?'✅ 表格已提交！我们将1小时内联系您。':curLang==='en'?'✅ Form submitted! We will contact you within 1 hour.':'✅ Borang dihantar! Kami akan follow up dalam tempoh 1 jam.');e.target.submit()}
+function qf(e){
+  e.preventDefault();
+  const form=e.target;
+  const msg=curLang==='zh'?'✅ 表格已提交！我们将1小时内联系您。':curLang==='en'?'✅ Form submitted! We will follow up within 1 hour.':'✅ Borang dihantar! Kami akan follow up dalam tempoh 1 jam.';
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(()=>{showT(msg);form.reset()})
+    .catch(()=>{showT(msg);form.reset()});
+}
 document.getElementById('wtip').addEventListener('click',function(){this.style.display='none'});
 const io=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.08});
 document.querySelectorAll('.fu').forEach(el=>io.observe(el));
