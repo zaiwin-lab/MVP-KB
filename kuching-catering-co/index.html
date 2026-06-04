@@ -1,391 +1,257 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ms">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Penyelaras katering profesional di Kuching, Sarawak. Quotation dalam tempoh 1 jam untuk katering korporat, kerajaan, program latihan, perkahwinan dan perayaan.">
-<meta name="keywords" content="catering kuching, katering kuching sarawak, katering korporat kuching, katering kerajaan sarawak, buffet kuching, katering program latihan">
-<title>Kuching Catering Co. — Penyelaras Katering Profesional, Kuching Sarawak</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Penyelaras katering profesional di Kuching, Sarawak. Quotation dalam 1 jam.">
+<title>Kuching Catering Co. — Katering Pilihan Anda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --g900:#050e09;--g800:#0c2218;--g700:#0f3020;--g600:#155e3a;--g500:#1b7d4c;--g400:#22a05f;
-  --g100:#dff0e8;--g50:#eef6f1;
-  --a:#d4922a;--ah:#e09f35;--al:rgba(212,146,42,.1);--am:rgba(212,146,42,.22);
-  --cr:#f8f7f3;--cr2:#f0ece1;--cr3:#e8e2d5;
-  --wh:#fff;--tx:#192b1e;--txm:#486052;--txl:#7a9687;
-  --bd:#d8e6db;--bdh:#b5cfba;
-  --sh:0 2px 16px rgba(12,34,24,.08);--shm:0 6px 32px rgba(12,34,24,.12);--shl:0 12px 48px rgba(12,34,24,.16);
-  --r:8px;--rl:14px;--rxl:20px;
-  --f:'Inter',sans-serif
-}
+:root{--g900:#040c08;--g800:#0c2218;--g700:#0f3020;--g600:#155e3a;--g500:#1b7d4c;--g100:#dff0e8;--g50:#eef6f1;--a:#d4922a;--ah:#e09f35;--al:rgba(212,146,42,.1);--am:rgba(212,146,42,.2);--cr:#f8f7f3;--cr2:#f0ece1;--cr3:#e8e2d5;--wh:#fff;--tx:#192b1e;--txm:#486052;--txl:#7a9687;--bd:#d8e6db;--bdh:#b5cfba;--sh:0 2px 16px rgba(12,34,24,.08);--shm:0 8px 36px rgba(12,34,24,.14);--shl:0 16px 56px rgba(12,34,24,.18);--r:8px;--rl:14px;--rxl:20px;--f:'Inter',sans-serif;--fzh:'Noto Sans SC','Inter',sans-serif}
 html{scroll-behavior:smooth}
 body{font-family:var(--f);color:var(--tx);background:var(--cr);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4{font-family:var(--f);line-height:1.15;font-weight:800;letter-spacing:-.4px}
-.wrap{max-width:1160px;margin:0 auto}
-.tc{text-align:center}
+h1,h2,h3{font-family:var(--f);line-height:1.1;font-weight:800;letter-spacing:-.4px}
+.zh h1,.zh h2,.zh h3,.zh .htag-item{font-family:var(--fzh)}
+.wrap{max-width:1160px;margin:0 auto}.tc{text-align:center}
 section{padding:88px 24px}
-
 .lbl{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--a);margin-bottom:16px;padding:5px 14px;background:var(--al);border:1px solid var(--am);border-radius:100px}
 .lbl-lt{background:rgba(212,146,42,.12);border-color:rgba(212,146,42,.25);color:rgba(212,146,42,.9)}
-
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:7px;font-family:var(--f);font-weight:600;font-size:14px;cursor:pointer;text-decoration:none;transition:all .2s ease;border:1.5px solid transparent;white-space:nowrap;letter-spacing:.1px}
-.ba{background:var(--a);color:#0a1a0a;border-color:var(--a);box-shadow:0 3px 14px rgba(212,146,42,.28)}
-.ba:hover{background:var(--ah);transform:translateY(-2px);box-shadow:0 6px 22px rgba(212,146,42,.38)}
-.bwa{background:#25D366;color:#fff;border-color:#25D366}
-.bwa:hover{background:#1fb956;transform:translateY(-2px)}
-.bdk{background:var(--g800);color:#fff;border-color:var(--g800)}
-.bdk:hover{background:var(--g700);transform:translateY(-2px)}
-.bgh{background:transparent;color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.3)}
-.bgh:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.07)}
-.boc{background:transparent;color:var(--g800);border-color:var(--g800)}
-.boc:hover{background:var(--g800);color:#fff}
-.blg{padding:14px 32px;font-size:15px}
-.bbl{width:100%;justify-content:center}
-
-/* NAVBAR */
-nav{position:sticky;top:0;z-index:1000;background:var(--g800);padding:0 24px;transition:box-shadow .3s;border-bottom:1px solid rgba(255,255,255,.04)}
-nav.up{box-shadow:0 2px 28px rgba(0,0,0,.3)}
-.ni{max-width:1160px;margin:0 auto;height:62px;display:flex;align-items:center;justify-content:space-between}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:7px;font-family:inherit;font-weight:600;font-size:14px;cursor:pointer;text-decoration:none;transition:all .2s;border:1.5px solid transparent;white-space:nowrap}
+.ba{background:var(--a);color:#0a1a0a;border-color:var(--a);box-shadow:0 3px 14px rgba(212,146,42,.28)}.ba:hover{background:var(--ah);transform:translateY(-2px)}
+.bwa{background:#25D366;color:#fff;border-color:#25D366}.bwa:hover{background:#1fb956;transform:translateY(-2px)}
+.bdk{background:var(--g800);color:#fff;border-color:var(--g800)}.bdk:hover{background:var(--g700);transform:translateY(-2px)}
+.bgh{background:transparent;color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.3)}.bgh:hover{border-color:#fff;color:#fff}
+.boc{background:transparent;color:var(--g800);border-color:var(--g800)}.boc:hover{background:var(--g800);color:#fff}
+.blg{padding:14px 32px;font-size:15px}.bbl{width:100%;justify-content:center}
+.ls-wrap{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.08);border-radius:6px;padding:3px}
+.ls-btn{background:transparent;border:none;color:rgba(255,255,255,.55);font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:4px;cursor:pointer;transition:all .18s;font-family:inherit}
+.ls-btn.active,.ls-btn:hover{background:var(--a);color:#0a1a0a}
+nav{position:sticky;top:0;z-index:1000;background:rgba(12,34,24,.97);backdrop-filter:blur(20px);padding:0 24px;border-bottom:1px solid rgba(255,255,255,.05);transition:box-shadow .3s}
+nav.up{box-shadow:0 2px 28px rgba(0,0,0,.4)}
+.ni{max-width:1160px;margin:0 auto;height:62px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
 .lm{width:34px;height:34px;border:1.5px solid var(--a);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:16px}
-.ln{font-size:15px;font-weight:800;color:#fff;display:block;letter-spacing:-.3px}
-.ls{font-size:9px;color:var(--a);font-weight:700;letter-spacing:2px;text-transform:uppercase;display:block;margin-top:1px}
-.nlinks{display:flex;list-style:none}
-.nlinks a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:500;padding:7px 12px;border-radius:6px;transition:all .18s}
-.nlinks a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.ln{font-size:14px;font-weight:800;color:#fff;display:block}.ls-sub{font-size:8.5px;color:var(--a);font-weight:700;letter-spacing:2px;text-transform:uppercase;display:block;margin-top:1px}
+.nlinks{display:flex;list-style:none}.nlinks a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:500;padding:7px 11px;border-radius:6px;transition:all .18s}.nlinks a:hover{color:#fff;background:rgba(255,255,255,.07)}
 .nr{display:flex;align-items:center;gap:8px}
-.ham{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:4px}
-.ham span{display:block;width:20px;height:1.5px;background:rgba(255,255,255,.8);border-radius:2px;transition:all .3s}
-@media(max-width:840px){.nlinks,.nr .bgh{display:none}.ham{display:flex}}
-.mob{display:none;position:fixed;top:62px;left:0;right:0;background:var(--g900);z-index:999;padding:16px;flex-direction:column;gap:4px;border-bottom:2px solid var(--a)}
-.mob.open{display:flex}
-.mob a{color:rgba(255,255,255,.72);text-decoration:none;font-size:14px;font-weight:500;padding:12px 16px;border-radius:7px;transition:all .18s;border-bottom:1px solid rgba(255,255,255,.05)}
-.mob a:hover{color:#fff;background:rgba(255,255,255,.05)}
-.mob .btn{justify-content:center;margin-top:8px}
-
-/* HERO */
-.hero{background:var(--g800);min-height:92vh;display:flex;align-items:center;padding:80px 24px;position:relative;overflow:hidden}
-.hg1{position:absolute;width:750px;height:750px;top:-180px;right:-180px;background:radial-gradient(circle,rgba(212,146,42,.07) 0%,transparent 65%);pointer-events:none}
-.hg2{position:absolute;width:650px;height:650px;bottom:-180px;left:-180px;background:radial-gradient(circle,rgba(26,122,74,.09) 0%,transparent 65%);pointer-events:none}
-.hgrid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:52px 52px;pointer-events:none}
-.hline{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,var(--a) 35%,rgba(212,146,42,.4) 65%,transparent 100%)}
+.ham{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:4px}.ham span{display:block;width:20px;height:1.5px;background:rgba(255,255,255,.8);border-radius:2px}
+@media(max-width:900px){.nlinks,.nr .bgh{display:none}.ham{display:flex}}
+.mob{display:none;position:fixed;top:62px;left:0;right:0;background:rgba(7,18,12,.98);z-index:999;padding:16px;flex-direction:column;gap:4px;border-bottom:2px solid var(--a)}
+.mob.open{display:flex}.mob a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px;font-weight:500;padding:12px 16px;border-radius:7px;border-bottom:1px solid rgba(255,255,255,.05)}.mob a:hover{color:#fff;background:rgba(255,255,255,.05)}.mob .btn{justify-content:center;margin-top:6px}
+.mob-ls{display:flex;gap:6px;padding:12px 16px}.mob-ls button{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);font-size:12px;font-weight:700;padding:8px;border-radius:6px;cursor:pointer;font-family:inherit}.mob-ls button.active{background:var(--a);color:#0a1a0a;border-color:var(--a)}
+.hero{background:var(--g800);background-image:radial-gradient(ellipse at 80% 20%,rgba(212,146,42,.09) 0%,transparent 55%),radial-gradient(ellipse at 10% 80%,rgba(21,94,58,.25) 0%,transparent 50%);min-height:93vh;display:flex;align-items:center;padding:80px 24px;position:relative;overflow:hidden}
+.hgb{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+.hline{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--a) 40%,rgba(212,146,42,.3),transparent)}
 .hi{max-width:1160px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:center;position:relative;z-index:1}
-
-.hbadge{display:inline-flex;align-items:center;gap:9px;background:rgba(212,146,42,.1);border:1px solid rgba(212,146,42,.25);color:var(--a);font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 15px;border-radius:5px;margin-bottom:26px}
-.hbdot{width:6px;height:6px;background:var(--a);border-radius:50%;flex-shrink:0;animation:blink 2s ease-in-out infinite}
+.hbadge{display:inline-flex;align-items:center;gap:9px;background:rgba(212,146,42,.1);border:1px solid rgba(212,146,42,.25);color:var(--a);font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 15px;border-radius:5px;margin-bottom:24px}
+.hbdot{width:6px;height:6px;background:var(--a);border-radius:50%;animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-
-.hero h1{font-size:clamp(36px,5vw,62px);font-weight:900;color:#fff;margin-bottom:14px;letter-spacing:-.5px;line-height:1.05}
+.hero h1{font-size:clamp(34px,5vw,62px);font-weight:900;color:#fff;margin-bottom:10px;letter-spacing:-.5px;line-height:1.06}
 .hero h1 span{color:var(--a)}
-
-/* Quality tagline */
 .htag{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin-bottom:24px}
-.htag-item{font-size:16px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:-.1px}
-.htag-dot{width:5px;height:5px;background:var(--a);border-radius:50%;margin:0 12px;flex-shrink:0}
-
-.hsub{font-size:16px;color:rgba(255,255,255,.58);line-height:1.8;margin-bottom:32px;max-width:500px;font-weight:400}
+.htag-item{font-size:17px;font-weight:700;color:rgba(255,255,255,.72)}
+.htag-dot{width:5px;height:5px;background:var(--a);border-radius:50%;margin:0 10px;flex-shrink:0}
+.hsub{font-size:16px;color:rgba(255,255,255,.56);line-height:1.82;margin-bottom:32px;max-width:510px}
 .hsub strong{color:rgba(255,255,255,.88);font-weight:600}
 .hctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
-
 .hproof{display:flex;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(255,255,255,.08)}
-.hp{padding-right:24px;margin-right:24px;border-right:1px solid rgba(255,255,255,.1)}
-.hp:last-child{border-right:none;padding-right:0;margin-right:0}
-.hpn{font-size:22px;font-weight:900;color:#fff;line-height:1}
-.hpna{color:var(--a)}
-.hpl{font-size:10px;color:rgba(255,255,255,.38);font-weight:600;text-transform:uppercase;letter-spacing:1.2px;margin-top:3px}
-
-/* Hero card */
-.hcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:var(--rxl);padding:32px 28px}
-.hct{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
-.hcs{font-size:12px;color:rgba(255,255,255,.38);margin-bottom:20px;display:flex;align-items:center;gap:5px}
-.hcs b{color:var(--a);font-weight:600}
+.hp{padding-right:22px;margin-right:22px;border-right:1px solid rgba(255,255,255,.1)}.hp:last-child{border-right:none;padding-right:0;margin-right:0}
+.hpn{font-size:22px;font-weight:900;color:var(--a);line-height:1}
+.hpl{font-size:10px;color:rgba(255,255,255,.38);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+.hcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--rxl);padding:30px 26px;box-shadow:0 24px 64px rgba(0,0,0,.3)}
+.hct{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}.hcs{font-size:12px;color:rgba(255,255,255,.38);margin-bottom:20px}.hcs b{color:var(--a);font-weight:600}
 .qf label{display:block;font-size:10px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:5px;margin-top:13px}
-.qf input,.qf select{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:10px 13px;color:#fff;font-size:14px;font-family:var(--f);outline:none;transition:all .2s;-webkit-appearance:none;font-weight:400}
+.qf input,.qf select{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:10px 13px;color:#fff;font-size:14px;font-family:inherit;outline:none;transition:all .2s;-webkit-appearance:none}
 .qf input:focus,.qf select:focus{border-color:var(--a);background:rgba(212,146,42,.06)}
-.qf input::placeholder{color:rgba(255,255,255,.22)}
-.qf select option{background:var(--g800);color:#fff}
+.qf input::placeholder{color:rgba(255,255,255,.22)}.qf select option{background:var(--g800);color:#fff}
 .hcg{text-align:center;margin-top:12px;font-size:11px;color:rgba(255,255,255,.28)}
 @media(max-width:940px){.hi{grid-template-columns:1fr;gap:40px}.hcard{max-width:460px}.hero{min-height:auto}}
-
-/* TICKER */
 .ticker{background:var(--a);padding:12px 0;overflow:hidden}
-.ttrack{display:flex;white-space:nowrap;animation:tkr 34s linear infinite}
-.ttrack:hover{animation-play-state:paused}
+.ttrack{display:flex;white-space:nowrap;animation:tkr 32s linear infinite}.ttrack:hover{animation-play-state:paused}
 @keyframes tkr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ti{display:inline-flex;align-items:center;gap:10px;padding:0 28px;font-size:11.5px;font-weight:700;color:var(--g800);text-transform:uppercase;letter-spacing:1.2px;flex-shrink:0}
-.tsep{color:rgba(12,34,24,.3);font-size:16px;line-height:1}
-
-/* HOW IT WORKS */
-.how{background:var(--cr2)}
-.hgrid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:60px}
-.hs{padding:36px 30px;border-right:1px solid var(--bd);position:relative;transition:background .25s}
-.hs:last-child{border-right:none}
-.hs:hover{background:rgba(255,255,255,.65)}
+.tsep{color:rgba(12,34,24,.3);font-size:16px}
+.how{background:var(--cr2)}.hgrid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:60px}
+.hs{padding:36px 30px;border-right:1px solid var(--bd);transition:background .25s}.hs:last-child{border-right:none}.hs:hover{background:rgba(255,255,255,.65)}
 .hs-top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .hs-num{width:44px;height:44px;border-radius:50%;background:var(--g800);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:var(--a);flex-shrink:0}
-.hs-ico{font-size:20px}
-.hs h3{font-size:16px;font-weight:700;color:var(--g800);margin-bottom:8px;line-height:1.3}
-.hs p{font-size:13.5px;color:var(--txm);line-height:1.75;font-weight:400}
+.hs h3{font-size:16px;font-weight:700;color:var(--g800);margin-bottom:8px}.hs p{font-size:13.5px;color:var(--txm);line-height:1.75}
 .hs-pill{display:inline-block;background:var(--al);border:1px solid var(--am);color:var(--a);font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-top:14px}
 @media(max-width:680px){.hgrid{grid-template-columns:1fr}.hs{border-right:none;border-bottom:1px solid var(--bd)}.hs:last-child{border-bottom:none}}
-
-/* SERVICES */
 .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:56px}
-.bc{background:var(--wh);border:1.5px solid var(--bd);border-radius:var(--r);padding:24px 20px;cursor:pointer;transition:all .25s ease;position:relative;overflow:hidden}
-.bc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2.5px;background:var(--a);transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
-.bc:hover{border-color:var(--a);transform:translateY(-3px);box-shadow:var(--shm)}
-.bc:hover::before{transform:scaleX(1)}
-.bc.s2{grid-column:span 2}
-.bc.dk{background:var(--g800);border-color:var(--g700)}
-.bc.dk:hover{border-color:var(--a)}
-.bci{font-size:28px;margin-bottom:12px;display:block;line-height:1}
-.bcn{font-size:14px;font-weight:700;color:var(--g800);margin-bottom:5px;line-height:1.3}
-.bc.dk .bcn{color:#fff}
-.bcd{font-size:12px;color:var(--txm);line-height:1.6;font-weight:400}
-.bc.dk .bcd{color:rgba(255,255,255,.48)}
+.bc{background:var(--wh);border:1.5px solid var(--bd);border-radius:var(--r);padding:24px 20px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+.bc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2.5px;background:var(--a);transform:scaleX(0);transform-origin:left;transition:transform .28s}
+.bc:hover{border-color:var(--a);transform:translateY(-3px);box-shadow:var(--shm)}.bc:hover::before{transform:scaleX(1)}
+.bc.s2{grid-column:span 2}.bc.dk{background:var(--g800);border-color:var(--g700)}.bc.dk:hover{border-color:var(--a)}
+.bci{font-size:28px;margin-bottom:12px;display:block}.bcn{font-size:14px;font-weight:700;color:var(--g800);margin-bottom:5px}
+.bc.dk .bcn{color:#fff}.bcd{font-size:12px;color:var(--txm);line-height:1.6}.bc.dk .bcd{color:rgba(255,255,255,.48)}
 .bcp{display:inline-block;background:var(--al);border:1px solid var(--am);color:var(--a);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-top:10px}
 .bc.dk .bcp{background:rgba(212,146,42,.14);border-color:rgba(212,146,42,.25)}
 @media(max-width:768px){.bento{grid-template-columns:1fr 1fr}.bc.s2{grid-column:span 2}}
 @media(max-width:460px){.bento{grid-template-columns:1fr}.bc.s2{grid-column:span 1}}
-
-/* WHY US */
 .why{background:var(--g800);padding:88px 24px;position:relative;overflow:hidden}
 .wbg1{position:absolute;width:650px;height:650px;top:-180px;right:-180px;background:radial-gradient(circle,rgba(212,146,42,.07) 0%,transparent 65%);pointer-events:none}
 .wbg2{position:absolute;width:550px;height:550px;bottom:-150px;left:-150px;background:radial-gradient(circle,rgba(26,122,74,.08) 0%,transparent 65%);pointer-events:none}
 .wwrap{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;position:relative;z-index:1}
-
-/* Stats bar inside why */
-.wstats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08)}
-.wst{text-align:center;padding:18px 12px;border-right:1px solid rgba(255,255,255,.08)}
-.wst:last-child{border-right:none}
-.wsn{font-size:30px;font-weight:900;color:var(--a);line-height:1;margin-bottom:4px}
-.wsl{font-size:10px;color:rgba(255,255,255,.35);font-weight:600;text-transform:uppercase;letter-spacing:1px}
-
+.wstats{display:grid;grid-template-columns:repeat(4,1fr);margin-bottom:36px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08)}
+.wst{text-align:center;padding:16px 10px;border-right:1px solid rgba(255,255,255,.08)}.wst:last-child{border-right:none}
+.wsn{font-size:28px;font-weight:900;color:var(--a);line-height:1;margin-bottom:4px}
+.wsl{font-size:9.5px;color:rgba(255,255,255,.35);font-weight:600;text-transform:uppercase;letter-spacing:1px}
 .wlist{display:flex;flex-direction:column}
-.wi{display:flex;gap:14px;align-items:flex-start;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.wi:last-child{border-bottom:none}
-.wi-i{width:40px;height:40px;background:rgba(212,146,42,.1);border:1px solid rgba(212,146,42,.18);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;margin-top:1px}
-.wi-t{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;letter-spacing:-.1px}
-.wi-d{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65;font-weight:400}
-
-/* 3-Quotation highlight box */
-.gov3q{background:rgba(212,146,42,.1);border:1px solid rgba(212,146,42,.25);border-radius:var(--r);padding:18px 20px;margin-top:0;display:flex;gap:14px;align-items:flex-start}
-.gov3q-icon{width:44px;height:44px;background:var(--a);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.gov3q-t{font-size:14px;font-weight:700;color:var(--a);margin-bottom:4px}
-.gov3q-d{font-size:13px;color:rgba(255,255,255,.55);line-height:1.65;font-weight:400}
-
-.wbox{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--rl);padding:30px}
-.wbox h3{font-size:19px;color:#fff;margin-bottom:10px;letter-spacing:-.3px}
-.wbox p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:22px;font-weight:400}
-.wbox-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px}
-.wbox-list li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:rgba(255,255,255,.62);font-weight:400}
-.wbox-list li::before{content:'✓';color:var(--a);font-weight:800;flex-shrink:0;margin-top:1px}
+.wi{display:flex;gap:14px;align-items:flex-start;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.06)}.wi:last-child{border-bottom:none}
+.wi-i{width:40px;height:40px;background:rgba(212,146,42,.1);border:1px solid rgba(212,146,42,.18);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.wi-t{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px}.wi-d{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65}
+.gov3q{background:rgba(212,146,42,.1);border:1px solid rgba(212,146,42,.25);border-radius:var(--r);padding:18px 20px;margin-top:18px;display:flex;gap:14px}
+.gov3q-ico{width:44px;height:44px;background:var(--a);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.gov3q-t{font-size:14px;font-weight:700;color:var(--a);margin-bottom:4px}.gov3q-d{font-size:13px;color:rgba(255,255,255,.55);line-height:1.65}
+.wbox{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--rl);padding:28px}
+.wbox h3{font-size:19px;color:#fff;margin-bottom:10px}.wbox p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:20px}
+.wbox-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.wbox-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.62)}.wbox-list li::before{content:'✓';color:var(--a);font-weight:800;flex-shrink:0}
 .wbox-cta{background:rgba(212,146,42,.09);border:1px solid rgba(212,146,42,.2);border-radius:var(--r);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.wbox-ct{font-size:13px;font-weight:700;color:#fff}
-.wbox-cs{font-size:11px;color:rgba(255,255,255,.35);margin-top:2px}
+.wbox-ct{font-size:13px;font-weight:700;color:#fff}.wbox-cs{font-size:11px;color:rgba(255,255,255,.35);margin-top:2px}
 @media(max-width:820px){.wwrap{grid-template-columns:1fr;gap:44px}}
-
-/* PACKAGES */
 .pkgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
 .pk{background:var(--wh);border:1.5px solid var(--bd);border-radius:var(--rl);overflow:hidden;transition:all .28s;position:relative}
-.pk:hover{box-shadow:var(--shm);transform:translateY(-3px)}
-.pk.pop{border-color:var(--g700);transform:scale(1.04);box-shadow:var(--shl)}
-.pk.pop:hover{transform:scale(1.04) translateY(-3px)}
+.pk:hover{box-shadow:var(--shm);transform:translateY(-3px)}.pk.pop{border-color:var(--g700);transform:scale(1.04);box-shadow:var(--shl)}
 .pk.pop::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--a)}
-.pkh{padding:24px 24px 0}
-.pkbdg{display:inline-flex;align-items:center;gap:5px;background:var(--g800);color:var(--a);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:4px;margin-bottom:13px}
-.pki{font-size:26px;margin-bottom:10px;display:block}
-.pkn{font-size:20px;font-weight:800;color:var(--g800);margin-bottom:4px;letter-spacing:-.3px}
-.pkd{font-size:12px;color:var(--txm);font-weight:400}
-.pkprice{padding:14px 24px;background:var(--cr);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);margin-top:14px}
-.pk.pop .pkprice{background:var(--g50)}
+.pkh{padding:24px 24px 0}.pkbdg{display:inline-block;background:var(--g800);color:var(--a);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:4px;margin-bottom:13px}
+.pki{font-size:26px;margin-bottom:10px;display:block}.pkn{font-size:20px;font-weight:800;color:var(--g800);margin-bottom:4px}.pkd{font-size:12px;color:var(--txm)}
+.pkprice{padding:14px 24px;background:var(--cr);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);margin-top:14px}.pk.pop .pkprice{background:var(--g50)}
 .ppf{font-size:10px;font-weight:700;color:var(--txl);text-transform:uppercase;letter-spacing:1.5px}
-.ppn{font-size:38px;font-weight:900;color:var(--g800);line-height:1.05}
-.ppu{font-size:13px;color:var(--txm);font-weight:400}
-.pkb{padding:18px 24px 24px}
-.pkf{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px}
-.pkf li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--tx);line-height:1.5;font-weight:400}
-.pfc{color:var(--g500);font-weight:800;font-size:13px;flex-shrink:0;margin-top:1px}
+.ppn{font-size:38px;font-weight:900;color:var(--g800);line-height:1.05}.ppu{font-size:13px;color:var(--txm)}
+.pkb{padding:18px 24px 24px}.pkf{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px}
+.pkf li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--tx);line-height:1.5}.pfc{color:var(--g500);font-weight:800;font-size:13px;flex-shrink:0}
 @media(max-width:768px){.pkgrid{grid-template-columns:1fr}.pk.pop{transform:scale(1)}}
-
-/* GALLERY */
-.gallery{background:var(--cr2)}
-.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,200px);gap:14px;margin-top:56px}
-.gal-item{border-radius:var(--r);overflow:hidden;background:var(--cr3);border:1.5px dashed var(--bdh);position:relative;transition:all .25s ease;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
-.gal-item:hover{border-color:var(--a);background:var(--al);transform:scale(1.02)}
-.gal-ico{font-size:28px;opacity:.4;transition:opacity .25s}
-.gal-item:hover .gal-ico{opacity:.7}
-.gal-txt{font-size:12px;font-weight:600;color:var(--txl);text-align:center;line-height:1.4;padding:0 16px}
-.gal-item:hover .gal-txt{color:var(--a)}
-.gal-item.feat{grid-column:span 2}
-.gal-item img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.gallery{background:var(--cr2)}.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,200px);gap:14px;margin-top:56px}
+.gal-item{border-radius:var(--r);background:var(--cr3);border:1.5px dashed var(--bdh);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;transition:all .25s;overflow:hidden;position:relative}
+.gal-item:hover{border-color:var(--a);background:var(--al);transform:scale(1.02)}.gal-ico{font-size:28px;opacity:.4;transition:opacity .25s}.gal-item:hover .gal-ico{opacity:.7}
+.gal-txt{font-size:12px;font-weight:600;color:var(--txl);text-align:center;line-height:1.4;padding:0 16px}.gal-item:hover .gal-txt{color:var(--a)}.gal-item.feat{grid-column:span 2}.gal-item img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 @media(max-width:680px){.gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gal-item.feat{grid-column:span 2}}
-@media(max-width:420px){.gal-grid{grid-template-columns:1fr}.gal-item.feat{grid-column:span 1}}
-
-/* IMPACT BANNER */
 .impact{background:var(--a);padding:56px 24px;position:relative;overflow:hidden}
 .impact::before{content:'';position:absolute;inset:0;opacity:.04;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%230c2218' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")}
 .impw{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;position:relative}
-.impw h2{font-size:clamp(18px,2.8vw,30px);font-weight:800;color:var(--g800);margin-bottom:6px;letter-spacing:-.3px}
-.impw p{font-size:14.5px;color:var(--g700);font-weight:400}
+.impw h2{font-size:clamp(18px,2.8vw,30px);font-weight:800;color:var(--g800);margin-bottom:6px}.impw p{font-size:14.5px;color:var(--g700)}
 .impbtns{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0}
-
-/* TRUST STRIP */
 .tstrip{background:var(--wh);padding:26px 24px;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
 .tsinner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
 .tsitem{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--txm)}
-.tsico{font-size:18px}
-
-/* FAQ */
-.faq{background:var(--cr)}
-.fwrap{max-width:700px;margin:56px auto 0}
-.fi{border-bottom:1px solid var(--bd)}
-.fq{width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:var(--f);font-size:14px;font-weight:600;color:var(--g800);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;line-height:1.4}
-.farr{font-size:14px;color:var(--a);transition:transform .28s;flex-shrink:0}
-.fa{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s ease;font-size:13.5px;color:var(--txm);line-height:1.82;font-weight:400}
-.fi.open .fa{max-height:300px;padding-bottom:18px}
-.fi.open .farr{transform:rotate(180deg)}
-
-/* QUOTE FORM */
+.faq{background:var(--cr)}.fwrap{max-width:700px;margin:56px auto 0}.fi{border-bottom:1px solid var(--bd)}
+.fq{width:100%;background:none;border:none;padding:18px 0;text-align:left;font-family:inherit;font-size:14px;font-weight:600;color:var(--g800);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.farr{font-size:14px;color:var(--a);transition:transform .28s}.fa{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:13.5px;color:var(--txm);line-height:1.82}
+.fi.open .fa{max-height:300px;padding-bottom:18px}.fi.open .farr{transform:rotate(180deg)}
 .qsec{background:var(--g800);position:relative;overflow:hidden;padding:88px 24px}
 .qbg{position:absolute;inset:0;background:radial-gradient(ellipse at 80% 30%,rgba(212,146,42,.07) 0%,transparent 55%)}
 .qi{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;position:relative;z-index:1}
-.qlh h2{font-size:clamp(26px,3.5vw,40px);color:#fff;margin-bottom:12px;letter-spacing:-.3px}
-.qlh h2 span{color:var(--a)}
-.qlsub{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:32px;line-height:1.8;font-weight:400}
-.cilist{display:flex;flex-direction:column;gap:14px}
-.cii{display:flex;align-items:center;gap:13px}
+.qlh h2{font-size:clamp(26px,3.5vw,40px);color:#fff;margin-bottom:12px}.qlh h2 span{color:var(--a)}
+.qlsub{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:32px;line-height:1.8}
+.cilist{display:flex;flex-direction:column;gap:14px}.cii{display:flex;align-items:center;gap:13px}
 .ciico{width:38px;height:38px;background:rgba(212,146,42,.1);border:1px solid rgba(212,146,42,.18);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.cilbl{font-size:13px;font-weight:700;color:#fff}
-.cival{font-size:12px;color:rgba(255,255,255,.35);font-weight:400}
+.cilbl{font-size:13px;font-weight:700;color:#fff}.cival{font-size:12px;color:rgba(255,255,255,.35)}
 .qfbox{background:var(--wh);border-radius:var(--rxl);padding:36px 32px;box-shadow:var(--shl)}
-.qfbt{font-size:20px;font-weight:800;color:var(--g800);margin-bottom:22px;letter-spacing:-.3px}
-.fg{margin-bottom:12px}
-.fg label{display:block;font-size:10px;font-weight:700;color:var(--txm);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
-.fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;border:1.5px solid var(--bd);border-radius:6px;font-size:13px;font-family:var(--f);color:var(--tx);transition:all .2s;outline:none;background:var(--wh);font-weight:400}
+.qfbt{font-size:20px;font-weight:800;color:var(--g800);margin-bottom:22px}
+.fg{margin-bottom:12px}.fg label{display:block;font-size:10px;font-weight:700;color:var(--txm);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;border:1.5px solid var(--bd);border-radius:6px;font-size:13px;font-family:inherit;color:var(--tx);transition:all .2s;outline:none;background:var(--wh)}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--g500);box-shadow:0 0 0 3px rgba(27,125,76,.1)}
-.fg textarea{resize:vertical;min-height:76px}
-.fr2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.facts{display:flex;gap:10px;flex-wrap:wrap}
-.facts .btn{flex:1;justify-content:center}
-.fnote{font-size:11px;color:var(--txl);margin-top:10px;font-weight:400}
+.fg textarea{resize:vertical;min-height:76px}.fr2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.facts{display:flex;gap:10px;flex-wrap:wrap}.facts .btn{flex:1;justify-content:center}.fnote{font-size:11px;color:var(--txl);margin-top:10px}
 @media(max-width:820px){.qi{grid-template-columns:1fr;gap:36px}.fr2{grid-template-columns:1fr}.qfbox{padding:28px 20px}}
-
-/* FOOTER */
-footer{background:var(--g900);color:rgba(255,255,255,.4);padding:60px 24px 28px}
-.fti{max-width:1160px;margin:0 auto}
-.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
-.fbdesc{font-size:13px;line-height:1.8;margin:14px 0 18px;max-width:265px;font-weight:400}
-.socs{display:flex;gap:7px}
-.sb{width:32px;height:32px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.07);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;transition:all .2s}
-.sb:hover{border-color:var(--a);background:rgba(212,146,42,.1)}
+.backed{background:#0a1e12;padding:20px 24px;border-top:1px solid rgba(212,146,42,.15)}
+.backed-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center}
+footer{background:var(--g900,#040c08);color:rgba(255,255,255,.4);padding:60px 24px 28px}
+.fti{max-width:1160px;margin:0 auto}.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.fbdesc{font-size:13px;line-height:1.8;margin:14px 0 18px;max-width:265px}
+.socs{display:flex;gap:7px}.sb{width:32px;height:32px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.07);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;transition:all .2s}.sb:hover{border-color:var(--a);background:rgba(212,146,42,.1)}
 .fc h4{color:#fff;font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px}
-.fc ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.fc ul a{color:rgba(255,255,255,.38);text-decoration:none;font-size:13px;transition:color .18s;font-weight:400}
-.fc ul a:hover{color:var(--a)}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:9px}.fc ul a{color:rgba(255,255,255,.38);text-decoration:none;font-size:13px;transition:color .18s}.fc ul a:hover{color:var(--a)}
 .fbot{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px}
-.flinks{display:flex;gap:14px}
-.flinks a{color:rgba(255,255,255,.27);text-decoration:none;font-size:12px;transition:color .18s;font-weight:400}
-.flinks a:hover{color:var(--a)}
-@media(max-width:768px){.ftop{grid-template-columns:1fr 1fr;gap:28px}}
-@media(max-width:460px){.ftop{grid-template-columns:1fr}}
-
-/* FLOATING WA */
+.flinks{display:flex;gap:14px}.flinks a{color:rgba(255,255,255,.27);text-decoration:none;font-size:12px;transition:color .18s}.flinks a:hover{color:var(--a)}
+@media(max-width:768px){.ftop{grid-template-columns:1fr 1fr;gap:28px}}@media(max-width:460px){.ftop{grid-template-columns:1fr}}
 .waf{position:fixed;bottom:24px;right:24px;z-index:998;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 .watip{background:var(--wh);border-radius:10px 10px 0 10px;padding:11px 15px;font-size:12px;font-weight:600;color:var(--g800);box-shadow:var(--shm);max-width:185px;line-height:1.5;cursor:pointer;animation:tipIn .5s ease 2.5s both}
 @keyframes tipIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
 .wacirc{width:56px;height:56px;background:linear-gradient(135deg,#25D366,#1db954);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;transition:transform .2s;animation:wap 2.5s ease-in-out infinite}
 @keyframes wap{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.35)}50%{box-shadow:0 4px 38px rgba(37,211,102,.6)}}
 .wacirc:hover{transform:scale(1.08)}
-
 .toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--g600);color:#fff;padding:11px 22px;border-radius:100px;font-weight:700;font-size:13px;opacity:0;transition:all .28s;z-index:9999;pointer-events:none;white-space:nowrap}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
-.fu{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-.fu.in{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-</style>
-</head>
-<body>
-<div class="toast" id="toast">✅ Borang telah dihantar. Kami akan follow up dalam tempoh 1 jam.</div>
-
-<!-- MOB NAV -->
+.fu{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.fu.in{opacity:1;transform:translateY(0)}.d1{transition-delay:.1s}.d2{transition-delay:.2s}
+</style></head><body>
+<div class="toast" id="toast">✅ Borang dihantar. Kami akan follow up dalam tempoh 1 jam.</div>
 <div class="mob" id="mn">
-  <a href="#how"          onclick="cm()">Cara Kami Beroperasi</a>
-  <a href="#services"     onclick="cm()">Perkhidmatan Katering</a>
-  <a href="#packages"     onclick="cm()">Pakej &amp; Harga</a>
-  <a href="#gallery"      onclick="cm()">Galeri</a>
-  <a href="#faq"          onclick="cm()">Soalan Lazim</a>
-  <a href="https://wa.me/60XXXXXXXXXX?text=Hi,%20saya%20ingin%20bertanya%20mengenai%20perkhidmatan%20katering%20anda." class="btn bwa" target="_blank" onclick="cm()">💬 WhatsApp</a>
-  <a href="#quote" class="btn ba" onclick="cm()">Minta Quotation →</a>
+  <div class="mob-ls">
+    <button class="active" onclick="setLang('bm',this)">BM</button>
+    <button onclick="setLang('en',this)">EN</button>
+    <button onclick="setLang('zh',this)">中文</button>
+  </div>
+  <a href="#how" onclick="cm()" data-i18n="navHow">Cara Kami</a>
+  <a href="#services" onclick="cm()" data-i18n="navSvc">Perkhidmatan</a>
+  <a href="#packages" onclick="cm()" data-i18n="navPkg">Pakej</a>
+  <a href="#gallery" onclick="cm()" data-i18n="navGal">Galeri</a>
+  <a href="#faq" onclick="cm()" data-i18n="navFaq">FAQ</a>
+  <a href="https://wa.me/601128465813" class="btn bwa" target="_blank" onclick="cm()">💬 WhatsApp</a>
+  <a href="#quote" class="btn ba" onclick="cm()" data-i18n="navQuote">Minta Quotation →</a>
 </div>
-
-<!-- NAVBAR -->
 <nav id="nav">
   <div class="ni">
     <a href="#" class="logo">
       <div class="lm">🍽️</div>
-      <div>
-        <span class="ln">Kuching Catering Co.</span>
-        <span class="ls">Penyelaras Katering Profesional</span>
-      </div>
+      <div><span class="ln">Kuching Catering Co.</span><span class="ls-sub">Penyelaras Katering Profesional</span></div>
     </a>
     <ul class="nlinks">
-      <li><a href="#how">Cara Kami</a></li>
-      <li><a href="#services">Perkhidmatan</a></li>
-      <li><a href="#packages">Pakej</a></li>
-      <li><a href="#gallery">Galeri</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#how" data-i18n="navHow">Cara Kami</a></li>
+      <li><a href="#services" data-i18n="navSvc">Perkhidmatan</a></li>
+      <li><a href="#packages" data-i18n="navPkg">Pakej</a></li>
+      <li><a href="#gallery" data-i18n="navGal">Galeri</a></li>
+      <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
     </ul>
     <div class="nr">
-      <a href="https://wa.me/60XXXXXXXXXX?text=Hi,%20saya%20ingin%20bertanya%20mengenai%20perkhidmatan%20katering%20anda." class="btn bgh" target="_blank">💬 WhatsApp</a>
-      <a href="#quote" class="btn ba">Minta Quotation →</a>
+      <div class="ls-wrap">
+        <button class="ls-btn active" onclick="setLang('bm',this)">BM</button>
+        <button class="ls-btn" onclick="setLang('en',this)">EN</button>
+        <button class="ls-btn" onclick="setLang('zh',this)">中文</button>
+      </div>
+      <a href="https://wa.me/601128465813" class="btn bgh" target="_blank">💬 WhatsApp</a>
+      <a href="#quote" class="btn ba" data-i18n="navQuote">Minta Quotation →</a>
     </div>
     <button class="ham" onclick="tm()"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- ══ HERO ══ -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hg1"></div><div class="hg2"></div>
-  <div class="hgrid-bg"></div><div class="hline"></div>
+  <div class="hgb"></div><div class="hline"></div>
   <div class="hi">
     <div>
-      <div class="hbadge"><span class="hbdot"></span> Penyelaras Katering Profesional — Kuching, Sarawak</div>
-
-      <h1>Katering Anda.<br><span>Baik. Berhemah.</span></h1>
+      <div class="hbadge"><span class="hbdot"></span> <span data-i18n="heroBadge">Penyelaras Katering Profesional — Kuching, Sarawak</span></div>
+      <h1><span data-i18n="heroH1">Katering Pilihan Anda.</span></h1>
       <div class="htag">
-        <span class="htag-item">Paling penting —</span>
+        <span class="htag-item" data-i18n="heroTag1">Berkualiti &amp; Berhemah.</span>
         <span class="htag-dot"></span>
-        <span class="htag-item" style="color:var(--a)">Pantas &amp; Sedap.</span>
+        <span class="htag-item" style="color:var(--a)" data-i18n="heroTag2">Paling Penting — Pantas &amp; Sedap.</span>
       </div>
-
-      <p class="hsub">
-        Dari program latihan korporat hingga fungsi rasmi kerajaan — kami koordinasi caterer terbaik Kuching untuk anda.
-        <strong>Quotation dalam tempoh 1 jam. Lima caterer pilihan. Satu nombor untuk semua.</strong>
-      </p>
+      <p class="hsub" data-i18n="heroSub">Dari program latihan korporat hingga fungsi rasmi kerajaan — kami koordinasi caterer terbaik Kuching untuk anda. <strong>Quotation dalam tempoh 1 jam. Lima caterer pilihan. Satu nombor untuk semua.</strong></p>
       <div class="hctas">
-        <a href="#quote" class="btn ba blg">Minta Quotation Percuma →</a>
-        <a href="https://wa.me/60XXXXXXXXXX?text=Hi,%20saya%20ingin%20bertanya%20mengenai%20perkhidmatan%20katering%20anda." class="btn bwa blg" target="_blank">💬 WhatsApp Kami</a>
+        <a href="#quote" class="btn ba blg" data-i18n="heroCta1">Minta Quotation Percuma →</a>
+        <a href="https://wa.me/601128465813" class="btn bwa blg" target="_blank" data-i18n="heroCta2">💬 WhatsApp Kami</a>
       </div>
       <div class="hproof">
-        <div class="hp"><div class="hpn"><span class="hpna">&lt;1 Jam</span></div><div class="hpl">Quotation<br>Siap</div></div>
-        <div class="hp"><div class="hpn"><span class="hpna">5</span></div><div class="hpl">Caterer dalam<br>Network Kami</div></div>
-        <div class="hp"><div class="hpn"><span class="hpna">3</span></div><div class="hpl">Quotation<br>untuk Gov</div></div>
-        <div class="hp"><div class="hpn"><span class="hpna">100%</span></div><div class="hpl">Halal<br>Certified</div></div>
+        <div class="hp"><div class="hpn">&lt;1 Jam</div><div class="hpl" data-i18n="hp1">Quotation Siap</div></div>
+        <div class="hp"><div class="hpn">5</div><div class="hpl" data-i18n="hp2">Caterer Network</div></div>
+        <div class="hp"><div class="hpn">3</div><div class="hpl" data-i18n="hp3">Quotation Gov</div></div>
+        <div class="hp"><div class="hpn">100%</div><div class="hpl" data-i18n="hp4">Halal Certified</div></div>
       </div>
     </div>
     <div class="hcard">
-      <div class="hct">📋 Borang Permintaan Pantas</div>
-      <div class="hcs">Kurang dari 60 saat · <b>Kami reply dalam &lt;1 jam</b></div>
+      <div class="hct" data-i18n="formTitle">📋 Borang Permintaan Pantas</div>
+      <div class="hcs"><span data-i18n="formSub">Kurang dari 60 saat · <b>Kami reply dalam &lt;1 jam</b></span></div>
       <form class="qf" onsubmit="hf(event)">
-        <label>Nama Anda</label>
-        <input type="text" placeholder="Nama / Jawatan" required>
-        <label>Jenis Katering</label>
+        <label data-i18n="fldName">Nama Anda</label>
+        <input type="text" data-i18n-ph="phName" placeholder="Nama / Jawatan" required>
+        <label data-i18n="fldType">Jenis Katering</label>
         <select required>
-          <option value="">Pilih jenis katering...</option>
+          <option value="" data-i18n="fldTypePh">Pilih jenis katering...</option>
           <option>Katering Fungsi Kerajaan / Rasmi</option>
           <option>Katering Korporat / Seminar</option>
           <option>Katering Program Latihan</option>
@@ -396,13 +262,13 @@ footer{background:var(--g900);color:rgba(255,255,255,.4);padding:60px 24px 28px}
           <option>Katering Gathering Persendirian</option>
           <option>Lain-lain</option>
         </select>
-        <label>Bilangan Tetamu (Pax)</label>
+        <label data-i18n="fldPax">Bilangan Tetamu (Pax)</label>
         <input type="number" placeholder="cth. 150 pax" min="30" required>
-        <label>No. WhatsApp</label>
+        <label data-i18n="fldWa">No. WhatsApp</label>
         <input type="tel" placeholder="+601X-XXXXXXX" required>
-        <button type="submit" class="btn ba bbl" style="margin-top:16px">Hantar Permintaan →</button>
+        <button type="submit" class="btn ba bbl" style="margin-top:16px" data-i18n="fldSubmit">Hantar Permintaan →</button>
       </form>
-      <div class="hcg">🔒 Percuma &nbsp;·&nbsp; Tanpa obligasi &nbsp;·&nbsp; Maklumat selamat</div>
+      <div class="hcg" data-i18n="formNote">🔒 Percuma · Tanpa obligasi · Maklumat selamat</div>
     </div>
   </div>
 </section>
@@ -413,324 +279,299 @@ footer{background:var(--g900);color:rgba(255,255,255,.4);padding:60px 24px 28px}
     <span class="ti">✅ Halal Certified <span class="tsep">·</span></span>
     <span class="ti">📄 Quotation Letter Rasmi <span class="tsep">·</span></span>
     <span class="ti">⚡ Quotation Dalam &lt;1 Jam <span class="tsep">·</span></span>
-    <span class="ti">🏛️ Pakar Katering Kerajaan &amp; Korporat <span class="tsep">·</span></span>
-    <span class="ti">📋 3 Quotation untuk Keperluan Gov <span class="tsep">·</span></span>
-    <span class="ti">🎓 Katering Program Latihan &amp; Seminar <span class="tsep">·</span></span>
-    <span class="ti">📍 Kuching &amp; Seluruh Sarawak <span class="tsep">·</span></span>
-    <span class="ti">🤝 5 Caterer Terverifikasi dalam Network Kami <span class="tsep">·</span></span>
+    <span class="ti">🏛️ Katering Kerajaan &amp; Korporat <span class="tsep">·</span></span>
+    <span class="ti">📋 3 Quotation untuk Gov <span class="tsep">·</span></span>
+    <span class="ti">🎓 Program Latihan &amp; Seminar <span class="tsep">·</span></span>
+    <span class="ti">📍 Kuching &amp; Sarawak <span class="tsep">·</span></span>
+    <span class="ti">🤝 5 Caterer Terverifikasi <span class="tsep">·</span></span>
     <span class="ti">✅ Halal Certified <span class="tsep">·</span></span>
     <span class="ti">📄 Quotation Letter Rasmi <span class="tsep">·</span></span>
     <span class="ti">⚡ Quotation Dalam &lt;1 Jam <span class="tsep">·</span></span>
-    <span class="ti">🏛️ Pakar Katering Kerajaan &amp; Korporat <span class="tsep">·</span></span>
-    <span class="ti">📋 3 Quotation untuk Keperluan Gov <span class="tsep">·</span></span>
-    <span class="ti">🎓 Katering Program Latihan &amp; Seminar <span class="tsep">·</span></span>
-    <span class="ti">📍 Kuching &amp; Seluruh Sarawak <span class="tsep">·</span></span>
-    <span class="ti">🤝 5 Caterer Terverifikasi dalam Network Kami <span class="tsep">·</span></span>
+    <span class="ti">🏛️ Katering Kerajaan &amp; Korporat <span class="tsep">·</span></span>
+    <span class="ti">📋 3 Quotation untuk Gov <span class="tsep">·</span></span>
+    <span class="ti">🎓 Program Latihan &amp; Seminar <span class="tsep">·</span></span>
+    <span class="ti">📍 Kuching &amp; Sarawak <span class="tsep">·</span></span>
+    <span class="ti">🤝 5 Caterer Terverifikasi <span class="tsep">·</span></span>
   </div>
 </div>
 
-<!-- ══ HOW IT WORKS ══ -->
+<!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="wrap">
     <div class="tc fu">
-      <div class="lbl">Proses Kerja Kami</div>
-      <h2 style="font-size:clamp(26px,3.6vw,40px);color:var(--g800);margin-bottom:12px">Mudah. Pantas. <span style="color:var(--g600)">Profesional.</span></h2>
-      <p style="font-size:15.5px;color:var(--txm);max-width:540px;margin:0 auto;line-height:1.78;font-weight:400">Proses yang direka untuk pegawai kerajaan, pengurus korporat dan penganjur program yang memerlukan dokumentasi yang teratur dan cepat.</p>
+      <div class="lbl" data-i18n="howLbl">Proses Kerja Kami</div>
+      <h2 style="font-size:clamp(26px,3.6vw,40px);color:var(--g800);margin-bottom:12px"><span data-i18n="howH2">Mudah. Pantas. <span style='color:var(--g600)'>Profesional.</span></span></h2>
+      <p style="font-size:15.5px;color:var(--txm);max-width:540px;margin:0 auto;line-height:1.78" data-i18n="howP">Proses yang direka untuk pegawai kerajaan, pengurus korporat dan penganjur program yang memerlukan dokumentasi yang teratur dan cepat.</p>
     </div>
     <div class="hgrid fu">
       <div class="hs">
-        <div class="hs-top"><div class="hs-num">01</div><span class="hs-ico">📋</span></div>
-        <h3>Beritahu Keperluan Katering Anda</h3>
-        <p>Isi borang ringkas atau hubungi kami melalui WhatsApp. Nyatakan jenis katering, tarikh dan bilangan tetamu. Proses ini mengambil masa kurang dari 2 minit.</p>
-        <div class="hs-pill">Mudah &amp; Pantas</div>
+        <div class="hs-top"><div class="hs-num">01</div><span>📋</span></div>
+        <h3 data-i18n="s1h">Beritahu Keperluan Katering Anda</h3>
+        <p data-i18n="s1p">Isi borang ringkas atau hubungi kami melalui WhatsApp. Nyatakan jenis katering, tarikh dan bilangan tetamu. Proses ini mengambil masa kurang dari 2 minit.</p>
+        <div class="hs-pill" data-i18n="s1tag">Mudah &amp; Pantas</div>
       </div>
       <div class="hs">
-        <div class="hs-top"><div class="hs-num">02</div><span class="hs-ico">📄</span></div>
-        <h3>Terima Quotation &amp; Surat Rasmi</h3>
-        <p>Pengurus katering kami akan follow up secara langsung dalam tempoh 1 jam — sahkan keperluan, sedia quotation letter berkop surat yang sesuai untuk tujuan kelulusan.</p>
-        <div class="hs-pill">Quotation Letter Ready</div>
+        <div class="hs-top"><div class="hs-num">02</div><span>📄</span></div>
+        <h3 data-i18n="s2h">Terima Quotation &amp; Surat Rasmi</h3>
+        <p data-i18n="s2p">Pengurus katering kami akan follow up dalam tempoh 1 jam — sahkan keperluan dan sedia quotation letter berkop surat untuk tujuan kelulusan.</p>
+        <div class="hs-pill" data-i18n="s2tag">Quotation Letter Ready</div>
       </div>
       <div class="hs">
-        <div class="hs-top"><div class="hs-num">03</div><span class="hs-ico">🍽️</span></div>
-        <h3>Katering Dihantar dengan Sempurna</h3>
-        <p>Pada hari katering, caterer kami hadir tepat masa, setup dengan teratur dan hidangkan makanan yang memuaskan semua tetamu anda.</p>
-        <div class="hs-pill">Terbukti Boleh Dipercayai</div>
+        <div class="hs-top"><div class="hs-num">03</div><span>🍽️</span></div>
+        <h3 data-i18n="s3h">Katering Dihantar dengan Sempurna</h3>
+        <p data-i18n="s3p">Pada hari katering, caterer kami hadir tepat masa, setup dengan teratur dan hidangkan makanan yang memuaskan semua tetamu anda.</p>
+        <div class="hs-pill" data-i18n="s3tag">Terbukti Boleh Dipercayai</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SERVICES ══ -->
+<!-- SERVICES -->
 <section id="services" style="background:var(--cr)">
   <div class="wrap">
     <div class="tc fu">
-      <div class="lbl">Skop Perkhidmatan</div>
-      <h2 style="font-size:clamp(26px,3.6vw,40px);color:var(--g800);margin-bottom:12px">Katering untuk <span style="color:var(--g600)">Semua Keperluan.</span></h2>
-      <p style="font-size:15.5px;color:var(--txm);max-width:560px;margin:0 auto;line-height:1.78;font-weight:400">Dari katering fungsi kerajaan berskala besar hingga program latihan korporat yang memerlukan servis teratur — kami padankan setiap keperluan dengan caterer yang sesuai.</p>
+      <div class="lbl" data-i18n="svcLbl">Skop Perkhidmatan</div>
+      <h2 style="font-size:clamp(26px,3.6vw,40px);color:var(--g800);margin-bottom:12px" data-i18n="svcH2">Katering untuk Semua Keperluan.</h2>
+      <p style="font-size:15.5px;color:var(--txm);max-width:560px;margin:0 auto;line-height:1.78" data-i18n="svcP">Dari fungsi kerajaan berskala besar hingga program latihan korporat — kami padankan setiap keperluan dengan caterer yang sesuai.</p>
     </div>
     <div class="bento fu">
       <div class="bc s2 dk" onclick="gq('Katering Fungsi Kerajaan / Rasmi')">
         <span class="bci">🏛️</span>
-        <div class="bcn">Katering Fungsi Kerajaan &amp; Majlis Rasmi</div>
-        <div class="bcd">Katering untuk fungsi-fungsi kerajaan, majlis anugerah, dinner rasmi dan ceremony peringkat jabatan. Quotation letter berkop surat syarikat — sedia untuk submission LO dan proses perolehan kerajaan.</div>
+        <div class="bcn" data-i18n="bc1n">Katering Fungsi Kerajaan &amp; Majlis Rasmi</div>
+        <div class="bcd" data-i18n="bc1d">Fungsi kerajaan, majlis anugerah, dinner rasmi dan ceremony jabatan. Quotation letter berkop surat sedia untuk submission LO dan proses perolehan kerajaan.</div>
         <div class="bcp">📄 Quotation Letter &amp; LO Ready</div>
       </div>
       <div class="bc s2" onclick="gq('Katering Korporat / Seminar')">
         <span class="bci">🏢</span>
-        <div class="bcn">Katering Korporat &amp; Seminar</div>
-        <div class="bcd">AGM, annual dinner, mesyuarat pengurusan, product launch, seminar dan konferensi syarikat. Invoice korporat dan dokumentasi billing tersedia.</div>
+        <div class="bcn" data-i18n="bc2n">Katering Korporat &amp; Seminar</div>
+        <div class="bcd" data-i18n="bc2d">AGM, annual dinner, mesyuarat pengurusan, product launch, seminar dan konferensi syarikat. Invoice korporat tersedia.</div>
         <div class="bcp">Corporate Billing Available</div>
       </div>
       <div class="bc" onclick="gq('Katering Program Latihan')">
         <span class="bci">🎓</span>
-        <div class="bcn">Program Latihan &amp; Workshop</div>
-        <div class="bcd">Katering untuk in-house training, program pembangunan kakitangan, bengkel dan orientasi.</div>
-        <div class="bcp">Untuk Training Providers</div>
+        <div class="bcn" data-i18n="bc3n">Program Latihan &amp; Workshop</div>
+        <div class="bcd" data-i18n="bc3d">In-house training, program pembangunan kakitangan, bengkel dan orientasi.</div>
+        <div class="bcp">Training Providers</div>
       </div>
       <div class="bc" onclick="gq('Katering Konvensyen / Ekspo')">
         <span class="bci">🎪</span>
-        <div class="bcn">Konvensyen &amp; Ekspo</div>
-        <div class="bcd">Katering berskala besar untuk pameran, konvensyen industri dan acara awam.</div>
+        <div class="bcn" data-i18n="bc4n">Konvensyen &amp; Ekspo</div>
+        <div class="bcd" data-i18n="bc4d">Katering berskala besar untuk pameran, konvensyen industri dan acara awam.</div>
       </div>
       <div class="bc" onclick="gq('Katering Perkahwinan')">
         <span class="bci">💍</span>
-        <div class="bcn">Perkahwinan &amp; Resepsi</div>
-        <div class="bcd">Katering perkahwinan bertema, reception dan banquet VIP dengan setup yang kemas.</div>
+        <div class="bcn" data-i18n="bc5n">Perkahwinan &amp; Resepsi</div>
+        <div class="bcd" data-i18n="bc5d">Katering perkahwinan bertema, reception dan banquet VIP.</div>
       </div>
       <div class="bc" onclick="gq('Katering Open House / Perayaan')">
         <span class="bci">🏠</span>
-        <div class="bcn">Open House &amp; Perayaan</div>
-        <div class="bcd">Hari Raya, Tahun Baru Cina, Deepavali dan semua sambutan perayaan.</div>
+        <div class="bcn" data-i18n="bc6n">Open House &amp; Perayaan</div>
+        <div class="bcd" data-i18n="bc6d">Hari Raya, Tahun Baru Cina, Deepavali dan semua sambutan perayaan.</div>
       </div>
       <div class="bc" onclick="gq('Katering NGO / Koperasi')">
         <span class="bci">🤝</span>
-        <div class="bcn">NGO &amp; Koperasi</div>
-        <div class="bcd">Katering untuk program komuniti, fundraiser dan AGM koperasi.</div>
+        <div class="bcn" data-i18n="bc7n">NGO &amp; Koperasi</div>
+        <div class="bcd" data-i18n="bc7d">Program komuniti, fundraiser dan AGM koperasi.</div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ══ WHY US ══ -->
+<!-- WHY US -->
 <section class="why" id="why">
   <div class="wbg1"></div><div class="wbg2"></div>
   <div class="wwrap">
     <div class="fu">
-      <div class="lbl lbl-lt">Kelebihan Kami</div>
-      <h2 style="font-size:clamp(26px,3.4vw,40px);color:#fff;margin-bottom:28px;letter-spacing:-.3px">Lebih dari Sekadar<br>Mencari Caterer.</h2>
-
+      <div class="lbl lbl-lt" data-i18n="whyLbl">Kelebihan Kami</div>
+      <h2 style="font-size:clamp(26px,3.4vw,40px);color:#fff;margin-bottom:28px" data-i18n="whyH2">Lebih dari Sekadar Mencari Caterer.</h2>
       <div class="wstats">
-        <div class="wst"><div class="wsn" data-count="1">0</div><div class="wsl">Jam untuk<br>Quotation</div></div>
-        <div class="wst"><div class="wsn" data-count="5">0</div><div class="wsl">Caterer<br>Network</div></div>
-        <div class="wst"><div class="wsn" data-count="3">0</div><div class="wsl">Quotation<br>untuk Gov</div></div>
-        <div class="wst"><div class="wsn">100%</div><div class="wsl">Halal<br>Certified</div></div>
+        <div class="wst"><div class="wsn" data-count="1">0</div><div class="wsl" data-i18n="ws1">Jam Quotation</div></div>
+        <div class="wst"><div class="wsn" data-count="5">0</div><div class="wsl" data-i18n="ws2">Caterer Network</div></div>
+        <div class="wst"><div class="wsn" data-count="3">0</div><div class="wsl" data-i18n="ws3">Quotation Gov</div></div>
+        <div class="wst"><div class="wsn">100%</div><div class="wsl" data-i18n="ws4">Halal Certified</div></div>
       </div>
-
       <div class="wlist">
-        <div class="wi"><div class="wi-i">⚡</div><div><div class="wi-t">Quotation Dijamin Dalam 1 Jam</div><div class="wi-d">Hantar permintaan dan terima quotation penuh dalam tempoh 60 minit waktu operasi. Bukan esok — dalam 1 jam.</div></div></div>
-        <div class="wi"><div class="wi-i">✅</div><div><div class="wi-t">Lima Caterer Pilihan, Semua Disaring</div><div class="wi-d">Lima caterer dalam network kami telah kami semak sendiri — kualiti masakan, standard kebersihan, sijil halal dan rekod penghantaran. Anda boleh pilih yang paling sesuai.</div></div></div>
-        <div class="wi"><div class="wi-i">📄</div><div><div class="wi-t">Quotation Letter Hari yang Sama</div><div class="wi-d">Quotation letter berkop surat syarikat sedia untuk LO kerajaan, perolehan korporat dan kelulusan dalaman — dihantar pada hari yang sama.</div></div></div>
-        <div class="wi"><div class="wi-i">💰</div><div><div class="wi-t">Harga Telus, Tiada Caj Tersembunyi</div><div class="wi-d">Apa yang tertera dalam quotation itulah yang dibayar. Tiada tambahan, tiada kejutan pada hari katering.</div></div></div>
-        <div class="wi"><div class="wi-i">📞</div><div><div class="wi-t">Satu Pengurus. Satu Nombor.</div><div class="wi-d">Dari permintaan pertama hingga selesai — anda berurusan dengan satu individu. Tiada perlu ulang taklimat, tiada follow up berulang kali.</div></div></div>
+        <div class="wi"><div class="wi-i">⚡</div><div><div class="wi-t" data-i18n="wi1t">Quotation Dijamin Dalam 1 Jam</div><div class="wi-d" data-i18n="wi1d">Hantar permintaan dan terima quotation penuh dalam tempoh 60 minit waktu operasi. Bukan esok — dalam 1 jam.</div></div></div>
+        <div class="wi"><div class="wi-i">✅</div><div><div class="wi-t" data-i18n="wi2t">Lima Caterer Pilihan, Semua Disaring</div><div class="wi-d" data-i18n="wi2d">Lima caterer dalam network kami telah kami semak sendiri — kualiti masakan, standard kebersihan, sijil halal dan rekod penghantaran.</div></div></div>
+        <div class="wi"><div class="wi-i">📄</div><div><div class="wi-t" data-i18n="wi3t">Quotation Letter Hari yang Sama</div><div class="wi-d" data-i18n="wi3d">Quotation letter berkop surat syarikat sedia untuk LO kerajaan, perolehan korporat dan kelulusan dalaman — dihantar pada hari yang sama.</div></div></div>
+        <div class="wi"><div class="wi-i">💰</div><div><div class="wi-t" data-i18n="wi4t">Harga Telus, Tiada Caj Tersembunyi</div><div class="wi-d" data-i18n="wi4d">Apa yang tertera dalam quotation itulah yang dibayar. Tiada tambahan, tiada kejutan pada hari katering.</div></div></div>
+        <div class="wi"><div class="wi-i">📞</div><div><div class="wi-t" data-i18n="wi5t">Satu Pengurus. Satu Nombor.</div><div class="wi-d" data-i18n="wi5d">Dari permintaan pertama hingga selesai — anda berurusan dengan satu individu. Tiada perlu ulang taklimat.</div></div></div>
       </div>
-
-      <!-- 3-Quotation Gov Feature -->
-      <div class="gov3q" style="margin-top:20px">
-        <div class="gov3q-icon">📋</div>
+      <div class="gov3q">
+        <div class="gov3q-ico">📋</div>
         <div>
-          <div class="gov3q-t">Tiga (3) Quotation untuk Keperluan Jabatan Kerajaan</div>
-          <div class="gov3q-d">Kami faham bahawa kebanyakan jabatan kerajaan memerlukan sekurang-kurangnya tiga (3) quotation sebelum kelulusan perolehan. Kami boleh sediakan tiga quotation berbeza dari caterer yang berlainan dalam network kami — dalam satu permintaan sahaja. Teratur, compliance dengan polisi perolehan awam, dan mudah untuk submission.</div>
+          <div class="gov3q-t" data-i18n="g3qt">Tiga (3) Quotation untuk Keperluan Jabatan Kerajaan</div>
+          <div class="gov3q-d" data-i18n="g3qd">Kami boleh sediakan tiga quotation berbeza dari caterer berlainan dalam network kami — dalam satu permintaan sahaja. Compliance dengan polisi perolehan kerajaan, sedia untuk submission LO atau mesyuarat jawatankuasa perolehan.</div>
         </div>
       </div>
     </div>
-
     <div class="fu d1">
       <div class="wbox">
-        <h3>Sesuai untuk Klien Korporat &amp; Kerajaan</h3>
-        <p>Kami faham keperluan dokumentasi dan proses kelulusan dalaman yang diperlukan oleh organisasi besar. Semua ini kami uruskan secara proaktif.</p>
+        <h3 data-i18n="wbh">Sesuai untuk Klien Korporat &amp; Kerajaan</h3>
+        <p data-i18n="wbp">Kami faham keperluan dokumentasi dan proses kelulusan dalaman yang diperlukan oleh organisasi besar. Semua ini kami uruskan secara proaktif.</p>
         <ul class="wbox-list">
-          <li>Quotation letter rasmi dengan nombor rujukan</li>
-          <li>Sijil Halal JAKIM tersedia atas permintaan</li>
-          <li>Tiga (3) quotation untuk keperluan comparison Gov</li>
-          <li>Invoice korporat untuk tujuan tuntutan</li>
-          <li>Rekod booking yang teratur untuk audit dalaman</li>
-          <li>Sesuai untuk perolehan kerajaan dan procurement syarikat</li>
+          <li data-i18n="wb1">Quotation letter rasmi dengan nombor rujukan</li>
+          <li data-i18n="wb2">Sijil Halal JAKIM tersedia atas permintaan</li>
+          <li data-i18n="wb3">Tiga (3) quotation untuk keperluan comparison Gov</li>
+          <li data-i18n="wb4">Invoice korporat untuk tujuan tuntutan</li>
+          <li data-i18n="wb5">Rekod booking yang teratur untuk audit dalaman</li>
+          <li data-i18n="wb6">Sesuai untuk perolehan kerajaan dan procurement syarikat</li>
         </ul>
         <div class="wbox-cta">
-          <div>
-            <div class="wbox-ct">Bersedia untuk booking katering?</div>
-            <div class="wbox-cs">Percuma · Tanpa obligasi · Quotation dalam &lt;1 jam</div>
-          </div>
-          <a href="#quote" class="btn ba" style="white-space:nowrap;flex-shrink:0">Book Sekarang →</a>
+          <div><div class="wbox-ct" data-i18n="wbct">Bersedia untuk booking katering?</div><div class="wbox-cs" data-i18n="wbcs">Percuma · Tanpa obligasi · Quotation dalam &lt;1 jam</div></div>
+          <a href="#quote" class="btn ba" style="white-space:nowrap;flex-shrink:0" data-i18n="wbBtn">Book Sekarang →</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ PACKAGES ══ -->
+<!-- PACKAGES -->
 <section id="packages" style="background:var(--cr)">
   <div class="wrap">
     <div class="tc fu">
-      <div class="lbl">Pakej &amp; Harga</div>
-      <h2 style="font-size:clamp(26px,3.6vw,40px);color:var(--g800);margin-bottom:12px">Harga Jelas <span style="color:var(--g600)">dari Awal.</span></h2>
-      <p style="font-size:15.5px;color:var(--txm);max-width:540px;margin:0 auto;line-height:1.78;font-weight:400">Semua harga per pax. Harga tepat disahkan dalam quotation custom anda. Minimum 50 pax. Apa yang tertera, itulah yang dibayar — tiada caj tambahan.</p>
+      <div class="lbl" data-i18n="pkgLbl">Pakej &amp; Harga</div>
+      <h2 style="font-size:clamp(26px,3.6vw,40px);color:var(--g800);margin-bottom:12px" data-i18n="pkgH2">Harga Jelas dari Awal.</h2>
+      <p style="font-size:15.5px;color:var(--txm);max-width:540px;margin:0 auto;line-height:1.78" data-i18n="pkgP">Semua harga per pax. Harga tepat disahkan dalam quotation custom anda. Minimum 50 pax.</p>
     </div>
     <div class="pkgrid fu">
       <div class="pk">
-        <div class="pkh"><span class="pki">🍱</span><div class="pkn">Pakej Asas</div><div class="pkd">Katering ringkas &amp; gathering kecil</div></div>
-        <div class="pkprice"><div class="ppf">Bermula dari</div><div class="ppn">RM 25 <span class="ppu">/ pax</span></div></div>
+        <div class="pkh"><span class="pki">🍱</span><div class="pkn" data-i18n="pk1n">Pakej Asas</div><div class="pkd" data-i18n="pk1d">Katering ringkas &amp; gathering kecil</div></div>
+        <div class="pkprice"><div class="ppf" data-i18n="pkFrom">Bermula dari</div><div class="ppn">RM 25 <span class="ppu">/ pax</span></div></div>
         <div class="pkb">
           <ul class="pkf">
-            <li><span class="pfc">✓</span> Nasi Campur / Nasi Lemak style</li>
-            <li><span class="pfc">✓</span> 2–3 lauk pauk + nasi</li>
-            <li><span class="pfc">✓</span> Setup &amp; servis asas</li>
-            <li><span class="pfc">✓</span> Halal certified</li>
-            <li><span class="pfc">✓</span> Minimum 50 pax</li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk1f1">Nasi Campur / Nasi Lemak style</span></li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk1f2">2–3 lauk pauk + nasi</span></li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk1f3">Setup &amp; servis asas</span></li>
+            <li><span class="pfc">✓</span> Halal Certified</li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk1f5">Minimum 50 pax</span></li>
           </ul>
-          <a href="#quote" class="btn bdk bbl">Minta Quotation →</a>
+          <a href="#quote" class="btn bdk bbl" data-i18n="pkBtn">Minta Quotation →</a>
         </div>
       </div>
       <div class="pk pop">
-        <div class="pkh"><div class="pkbdg">🔥 Paling Diminta</div><span class="pki">🍽️</span><div class="pkn">Pakej Korporat</div><div class="pkd">Untuk korporat, kerajaan &amp; NGO</div></div>
-        <div class="pkprice"><div class="ppf">Bermula dari</div><div class="ppn">RM 45 <span class="ppu">/ pax</span></div></div>
+        <div class="pkh"><div class="pkbdg" data-i18n="pkPop">🔥 Paling Diminta</div><span class="pki">🍽️</span><div class="pkn" data-i18n="pk2n">Pakej Korporat</div><div class="pkd" data-i18n="pk2d">Untuk korporat, kerajaan &amp; NGO</div></div>
+        <div class="pkprice"><div class="ppf" data-i18n="pkFrom">Bermula dari</div><div class="ppn">RM 45 <span class="ppu">/ pax</span></div></div>
         <div class="pkb">
           <ul class="pkf">
-            <li><span class="pfc">✓</span> Buffet penuh (5–7 hidangan)</li>
-            <li><span class="pfc">✓</span> Chafing dishes &amp; setup meja</li>
-            <li><span class="pfc">✓</span> Staff servis disertakan</li>
-            <li><span class="pfc">✓</span> Quotation letter rasmi (LO ready)</li>
-            <li><span class="pfc">✓</span> Sijil Halal atas permintaan</li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk2f1">Buffet penuh (5–7 hidangan)</span></li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk2f2">Chafing dishes &amp; setup meja</span></li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk2f3">Staff servis disertakan</span></li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk2f4">Quotation letter rasmi (LO ready)</span></li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk2f5">Sijil Halal atas permintaan</span></li>
           </ul>
-          <a href="#quote" class="btn ba bbl">Minta Quotation →</a>
+          <a href="#quote" class="btn ba bbl" data-i18n="pkBtn">Minta Quotation →</a>
         </div>
       </div>
       <div class="pk">
-        <div class="pkh"><span class="pki">👑</span><div class="pkn">Pakej Premium</div><div class="pkd">Perkahwinan, VIP &amp; gala dinner</div></div>
-        <div class="pkprice"><div class="ppf">Bermula dari</div><div class="ppn">RM 68 <span class="ppu">/ pax</span></div></div>
+        <div class="pkh"><span class="pki">👑</span><div class="pkn" data-i18n="pk3n">Pakej Premium</div><div class="pkd" data-i18n="pk3d">Perkahwinan, VIP &amp; gala dinner</div></div>
+        <div class="pkprice"><div class="ppf" data-i18n="pkFrom">Bermula dari</div><div class="ppn">RM 68 <span class="ppu">/ pax</span></div></div>
         <div class="pkb">
           <ul class="pkf">
-            <li><span class="pfc">✓</span> Buffet premium (8–10 hidangan)</li>
-            <li><span class="pfc">✓</span> Dessert &amp; minuman included</li>
-            <li><span class="pfc">✓</span> Setup hiasan &amp; staff terlatih</li>
-            <li><span class="pfc">✓</span> Live cooking station (optional)</li>
-            <li><span class="pfc">✓</span> Koordinasi katering penuh</li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk3f1">Buffet premium (8–10 hidangan)</span></li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk3f2">Dessert &amp; minuman included</span></li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk3f3">Setup hiasan &amp; staff terlatih</span></li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk3f4">Live cooking station (optional)</span></li>
+            <li><span class="pfc">✓</span> <span data-i18n="pk3f5">Koordinasi katering penuh</span></li>
           </ul>
-          <a href="#quote" class="btn bdk bbl">Minta Quotation →</a>
+          <a href="#quote" class="btn bdk bbl" data-i18n="pkBtn">Minta Quotation →</a>
         </div>
       </div>
     </div>
-    <p class="tc" style="margin-top:18px;font-size:13px;color:var(--txm)">Perlukan pakej custom atau katering berskala besar? <a href="#quote" style="color:var(--g600);font-weight:600;text-decoration:none">Hubungi kami dan kami akan sesuaikan →</a></p>
+    <p class="tc" style="margin-top:18px;font-size:13px;color:var(--txm)"><span data-i18n="pkCustom">Perlukan pakej custom?</span> <a href="#quote" style="color:var(--g600);font-weight:600;text-decoration:none" data-i18n="pkCustomLink">Hubungi kami →</a></p>
   </div>
 </section>
 
-<!-- IMPACT BANNER -->
+<!-- IMPACT -->
 <div class="impact">
   <div class="impw">
     <div>
-      <h2>Tetamu anda akan ingat hidangannya.<br>Pastikan ia meninggalkan kesan yang baik.</h2>
-      <p>Lima caterer pilihan. Quotation dalam 1 jam. Satu pengurus dari mula hingga selesai.</p>
+      <h2 data-i18n="impH2">Tetamu anda akan ingat hidangannya. Pastikan ia meninggalkan kesan yang baik.</h2>
+      <p data-i18n="impP">Lima caterer pilihan. Quotation dalam 1 jam. Satu pengurus dari mula hingga selesai.</p>
     </div>
     <div class="impbtns">
-      <a href="https://wa.me/60XXXXXXXXXX?text=Hi,%20saya%20ingin%20bertanya%20mengenai%20perkhidmatan%20katering%20anda." class="btn bdk blg" target="_blank">💬 WhatsApp Kami</a>
-      <a href="#quote" class="btn boc blg">Minta Quotation</a>
+      <a href="https://wa.me/601128465813" class="btn bdk blg" target="_blank">💬 WhatsApp</a>
+      <a href="#quote" class="btn boc blg" data-i18n="impBtn">Minta Quotation</a>
     </div>
   </div>
 </div>
 
-<!-- ══ GALLERY ══ -->
+<!-- GALLERY -->
 <section class="gallery" id="gallery">
   <div class="wrap">
     <div class="tc fu">
-      <div class="lbl">Galeri Kami</div>
-      <h2 style="font-size:clamp(26px,3.6vw,40px);color:var(--g800);margin-bottom:12px">Sekilas Pandang <span style="color:var(--g600)">Perkhidmatan Kami.</span></h2>
-      <p style="font-size:15.5px;color:var(--txm);max-width:540px;margin:0 auto;line-height:1.78;font-weight:400">Koleksi gambar dari pelbagai booking katering yang telah kami kendalikan di Kuching dan seluruh Sarawak.</p>
+      <div class="lbl" data-i18n="galLbl">Galeri Kami</div>
+      <h2 style="font-size:clamp(26px,3.6vw,40px);color:var(--g800);margin-bottom:12px" data-i18n="galH2">Sekilas Pandang Perkhidmatan Kami.</h2>
+      <p style="font-size:15.5px;color:var(--txm);max-width:540px;margin:0 auto;line-height:1.78" data-i18n="galP">Koleksi gambar dari pelbagai booking katering yang telah kami kendalikan di Kuching dan seluruh Sarawak.</p>
     </div>
     <div class="gal-grid fu">
-      <div class="gal-item feat">
-        <div class="gal-ico">📷</div>
-        <div class="gal-txt">Gambar akan dikemaskini<br><span style="font-size:10px;color:var(--txl)">Katering Korporat &amp; Kerajaan</span></div>
-      </div>
-      <div class="gal-item">
-        <div class="gal-ico">🍽️</div>
-        <div class="gal-txt">Hidangan Buffet<br><span style="font-size:10px;color:var(--txl)">Setup &amp; Presentation</span></div>
-      </div>
-      <div class="gal-item">
-        <div class="gal-ico">🏛️</div>
-        <div class="gal-txt">Fungsi Rasmi<br><span style="font-size:10px;color:var(--txl)">Katering Kerajaan</span></div>
-      </div>
-      <div class="gal-item">
-        <div class="gal-ico">🎓</div>
-        <div class="gal-txt">Program Latihan<br><span style="font-size:10px;color:var(--txl)">Corporate Training</span></div>
-      </div>
-      <div class="gal-item">
-        <div class="gal-ico">💍</div>
-        <div class="gal-txt">Majlis Perkahwinan<br><span style="font-size:10px;color:var(--txl)">Wedding Catering</span></div>
-      </div>
+      <div class="gal-item feat"><div class="gal-ico">📷</div><div class="gal-txt">Gambar akan dikemaskini<br><span style="font-size:10px;color:var(--txl)">Katering Korporat &amp; Kerajaan</span></div></div>
+      <div class="gal-item"><div class="gal-ico">🍽️</div><div class="gal-txt">Hidangan Buffet<br><span style="font-size:10px;color:var(--txl)">Setup &amp; Presentation</span></div></div>
+      <div class="gal-item"><div class="gal-ico">🏛️</div><div class="gal-txt">Fungsi Rasmi<br><span style="font-size:10px;color:var(--txl)">Katering Kerajaan</span></div></div>
+      <div class="gal-item"><div class="gal-ico">🎓</div><div class="gal-txt">Program Latihan<br><span style="font-size:10px;color:var(--txl)">Corporate Training</span></div></div>
+      <div class="gal-item"><div class="gal-ico">💍</div><div class="gal-txt">Majlis Perkahwinan<br><span style="font-size:10px;color:var(--txl)">Wedding Catering</span></div></div>
     </div>
-    <p class="tc fu" style="margin-top:24px;font-size:13px;color:var(--txm)">Gambar-gambar dari booking sebenar akan ditambah tidak lama lagi. <a href="https://wa.me/60XXXXXXXXXX?text=Hi,%20saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20perkhidmatan%20katering%20anda." target="_blank" style="color:var(--g600);font-weight:600;text-decoration:none">Hubungi kami untuk maklumat lanjut →</a></p>
   </div>
 </section>
 
 <!-- TRUST STRIP -->
 <div class="tstrip">
   <div class="tsinner">
-    <div class="tsitem"><span class="tsico">🟢</span> Halal Certified</div>
-    <div class="tsitem"><span class="tsico">📄</span> Quotation Letter Rasmi</div>
-    <div class="tsitem"><span class="tsico">⚡</span> Quotation &lt;1 Jam</div>
-    <div class="tsitem"><span class="tsico">🤝</span> 5 Caterer Network</div>
-    <div class="tsitem"><span class="tsico">📋</span> 3 Quotation untuk Gov</div>
-    <div class="tsitem"><span class="tsico">📍</span> Kuching &amp; Sarawak</div>
+    <div class="tsitem">🟢 Halal Certified</div>
+    <div class="tsitem">📄 Quotation Letter Rasmi</div>
+    <div class="tsitem">⚡ Quotation &lt;1 Jam</div>
+    <div class="tsitem">🤝 5 Caterer Network</div>
+    <div class="tsitem">📋 3 Quotation untuk Gov</div>
+    <div class="tsitem">📍 Kuching &amp; Sarawak</div>
   </div>
 </div>
 
-<!-- ══ FAQ ══ -->
+<!-- FAQ -->
 <section class="faq" id="faq">
   <div class="wrap">
     <div class="tc fu">
-      <div class="lbl">Soalan Lazim</div>
-      <h2 style="font-size:clamp(26px,3.6vw,40px);color:var(--g800);margin-bottom:0">Soalan yang Kerap <span style="color:var(--g600)">Ditanya.</span></h2>
+      <div class="lbl" data-i18n="faqLbl">Soalan Lazim</div>
+      <h2 style="font-size:clamp(26px,3.6vw,40px);color:var(--g800)" data-i18n="faqH2">Soalan yang Kerap Ditanya.</h2>
     </div>
     <div class="fwrap fu">
-      <div class="fi"><button class="fq" onclick="tf(this)">Berapakah bilangan minimum tetamu? <span class="farr">▼</span></button><div class="fa">Bilangan minimum kami adalah 50 pax. Untuk gathering yang lebih kecil, hubungi kami melalui WhatsApp dan kami akan cuba cari penyelesaian terbaik.</div></div>
-      <div class="fi"><button class="fq" onclick="tf(this)">Berapa lama untuk dapat quotation? <span class="farr">▼</span></button><div class="fa">Kami berkomitmen menghantar quotation penuh dalam tempoh 1 jam waktu operasi (8 pagi–6 petang, Isnin–Sabtu). Untuk keperluan segera, hubungi kami terus melalui WhatsApp untuk respons dalam masa 15–20 minit.</div></div>
-      <div class="fi"><button class="fq" onclick="tf(this)">Boleh tak sediakan 3 quotation untuk keperluan jabatan kerajaan? <span class="farr">▼</span></button><div class="fa">Boleh, dan ini salah satu kelebihan kami. Untuk memenuhi polisi perolehan kerajaan yang memerlukan minimum tiga (3) quotation comparison, kami boleh sediakan tiga quotation berbeza dari caterer berlainan dalam network kami — semuanya dalam satu permintaan. Quotation letter berkop surat rasmi disertakan untuk setiap quotation, sedia untuk submission LO atau mesyuarat jawatankuasa perolehan.</div></div>
-      <div class="fi"><button class="fq" onclick="tf(this)">Adakah quotation letter rasmi disediakan untuk kelulusan korporat dan kerajaan? <span class="farr">▼</span></button><div class="fa">Ya. Kami sediakan quotation letter berkop surat syarikat yang sesuai untuk submission LO kerajaan, perolehan korporat dan kelulusan dalaman universiti. Sijil Halal juga boleh disediakan atas permintaan.</div></div>
-      <div class="fi"><button class="fq" onclick="tf(this)">Adakah semua caterer dalam network anda bersijil Halal? <span class="farr">▼</span></button><div class="fa">Ya, semua caterer dalam network kami bersijil Halal dan ikut standard JAKIM. Dokumentasi Halal rasmi boleh disediakan atas permintaan untuk keperluan fungsi rasmi.</div></div>
-      <div class="fi"><button class="fq" onclick="tf(this)">Berapa awal booking perlu dibuat? <span class="farr">▼</span></button><div class="fa">Kami syorkan booking sekurang-kurangnya 3–7 hari lebih awal untuk dapatkan caterer dan tarikh yang dikehendaki. Permintaan last-minute (48–72 jam) juga boleh diuruskan tertakluk kepada ketersediaan.</div></div>
-      <div class="fi"><button class="fq" onclick="tf(this)">Kawasan mana yang diliputi? <span class="farr">▼</span></button><div class="fa">Kami meliputi Kuching, Kota Samarahan, Samarahan, Bau dan kawasan sekitar. Untuk lokasi yang lebih jauh di Sarawak, caj logistik tambahan mungkin dikenakan — sila hubungi kami dengan maklumat lokasi untuk quotation yang tepat.</div></div>
-      <div class="fi"><button class="fq" onclick="tf(this)">Apakah kaedah pembayaran yang diterima? <span class="farr">▼</span></button><div class="fa">Kami menerima pindahan bank (TT), DuitNow QR dan cek untuk klien kerajaan dan korporat. Deposit 50% diperlukan untuk sahkan booking, dengan baki dibayar sebelum atau pada hari katering.</div></div>
+      <div class="fi"><button class="fq" onclick="tf(this)"><span data-i18n="fq1">Berapakah bilangan minimum tetamu?</span><span class="farr">▼</span></button><div class="fa" data-i18n="fa1">Bilangan minimum kami adalah 50 pax. Untuk gathering yang lebih kecil, hubungi kami melalui WhatsApp dan kami akan cuba accommodate yang terbaik.</div></div>
+      <div class="fi"><button class="fq" onclick="tf(this)"><span data-i18n="fq2">Berapa lama untuk dapat quotation?</span><span class="farr">▼</span></button><div class="fa" data-i18n="fa2">Kami berkomitmen menghantar quotation penuh dalam tempoh 1 jam waktu operasi (8 pagi–8 malam, Isnin–Sabtu). Untuk keperluan segera, hubungi kami terus melalui WhatsApp untuk respons dalam masa 15–20 minit.</div></div>
+      <div class="fi"><button class="fq" onclick="tf(this)"><span data-i18n="fq3">Boleh sediakan 3 quotation untuk keperluan kerajaan?</span><span class="farr">▼</span></button><div class="fa" data-i18n="fa3">Boleh, dan ini salah satu kelebihan kami. Untuk memenuhi polisi perolehan yang memerlukan minimum tiga (3) quotation comparison, kami boleh sediakan tiga quotation berbeza dari caterer berlainan dalam network kami — semuanya dalam satu permintaan. Quotation letter berkop surat rasmi disertakan untuk setiap quotation.</div></div>
+      <div class="fi"><button class="fq" onclick="tf(this)"><span data-i18n="fq4">Adakah quotation letter rasmi disediakan?</span><span class="farr">▼</span></button><div class="fa" data-i18n="fa4">Ya. Kami sediakan quotation letter berkop surat syarikat yang sesuai untuk submission LO kerajaan, perolehan korporat dan kelulusan dalaman universiti. Sijil Halal juga boleh disediakan atas permintaan.</div></div>
+      <div class="fi"><button class="fq" onclick="tf(this)"><span data-i18n="fq5">Adakah semua caterer bersijil Halal?</span><span class="farr">▼</span></button><div class="fa" data-i18n="fa5">Ya, semua caterer dalam network kami bersijil Halal dan ikut standard JAKIM. Dokumentasi Halal rasmi boleh disediakan atas permintaan untuk keperluan fungsi rasmi.</div></div>
+      <div class="fi"><button class="fq" onclick="tf(this)"><span data-i18n="fq6">Berapa awal booking perlu dibuat?</span><span class="farr">▼</span></button><div class="fa" data-i18n="fa6">Kami syorkan booking sekurang-kurangnya 3–7 hari lebih awal. Permintaan last-minute (48–72 jam) juga boleh diuruskan tertakluk kepada ketersediaan.</div></div>
+      <div class="fi"><button class="fq" onclick="tf(this)"><span data-i18n="fq7">Kawasan mana yang diliputi?</span><span class="farr">▼</span></button><div class="fa" data-i18n="fa7">Kami meliputi Kuching, Kota Samarahan, Samarahan, Bau dan kawasan sekitar. Untuk lokasi lebih jauh di Sarawak, caj logistik tambahan mungkin dikenakan.</div></div>
+      <div class="fi"><button class="fq" onclick="tf(this)"><span data-i18n="fq8">Apakah kaedah pembayaran yang diterima?</span><span class="farr">▼</span></button><div class="fa" data-i18n="fa8">Kami menerima pindahan bank (TT), DuitNow QR dan cek untuk klien kerajaan dan korporat. Deposit 50% diperlukan untuk sahkan booking, baki dibayar sebelum atau pada hari katering.</div></div>
     </div>
   </div>
 </section>
-
-<!-- ══ QUOTE FORM ══ -->
+<!-- QUOTE FORM -->
 <section class="qsec" id="quote">
   <div class="qbg"></div>
   <div class="qi">
     <div class="qlh fu">
-      <div class="lbl lbl-lt">Hubungi Kami</div>
-      <h2>Bersedia untuk Book?<br>Jom Bincang <span>Katering.</span></h2>
-      <p class="qlsub">Isi borang ini dan terima quotation penuh tanpa obligasi dalam tempoh 1 jam. Atau hubungi kami terus melalui WhatsApp untuk respons yang lebih pantas.</p>
+      <div class="lbl lbl-lt" data-i18n="qLbl">Hubungi Kami</div>
+      <h2>Bersedia untuk Book?<br><span data-i18n="qH2Span">Jom Bincang Katering.</span></h2>
+      <p class="qlsub" data-i18n="qSub">Isi borang ini dan terima quotation penuh tanpa obligasi dalam tempoh 1 jam. Atau hubungi kami terus melalui WhatsApp untuk respons yang lebih pantas.</p>
       <div class="cilist">
-        <div class="cii"><div class="ciico">💬</div><div><div class="cilbl">WhatsApp Rasmi</div><div class="cival">+6011-XXXX XXXX</div></div></div>
-        <div class="cii"><div class="ciico">📧</div><div><div class="cilbl">E-mel</div><div class="cival">hello@kuchingcateringco.com</div></div></div>
-        <div class="cii"><div class="ciico">📍</div><div><div class="cilbl">Kawasan Liputan</div><div class="cival">Kuching, Kota Samarahan &amp; seluruh Sarawak</div></div></div>
-        <div class="cii"><div class="ciico">🕐</div><div><div class="cilbl">Waktu Operasi</div><div class="cival">Isnin – Sabtu, 8:00 pagi – 8:00 malam</div></div></div>
+        <div class="cii"><div class="ciico">💬</div><div><div class="cilbl" data-i18n="ci1l">WhatsApp Rasmi</div><div class="cival">+601128465813</div></div></div>
+        <div class="cii"><div class="ciico">📧</div><div><div class="cilbl" data-i18n="ci2l">E-mel</div><div class="cival">hello@kuchingcateringco.com</div></div></div>
+        <div class="cii"><div class="ciico">📍</div><div><div class="cilbl" data-i18n="ci3l">Kawasan Liputan</div><div class="cival" data-i18n="ci3v">Kuching, Kota Samarahan &amp; seluruh Sarawak</div></div></div>
+        <div class="cii"><div class="ciico">🕐</div><div><div class="cilbl" data-i18n="ci4l">Waktu Operasi</div><div class="cival" data-i18n="ci4v">Isnin – Sabtu, 8:00 pagi – 8:00 malam</div></div></div>
       </div>
     </div>
     <div class="qfbox fu d1">
-      <div class="qfbt">📋 Borang Permintaan Quotation</div>
-      <form onsubmit="qf(event)">
+      <div class="qfbt" data-i18n="qfbt">📋 Borang Permintaan Quotation</div>
+      <form name="catering-enquiry" method="POST" data-netlify="true" onsubmit="qf(event)">
+        <input type="hidden" name="form-name" value="catering-enquiry">
         <div class="fr2">
-          <div class="fg"><label>Nama Penuh *</label><input type="text" placeholder="Nama penuh anda" required></div>
-          <div class="fg"><label>No. WhatsApp *</label><input type="tel" placeholder="+601X-XXXXXXX" required></div>
+          <div class="fg"><label data-i18n="qfName">Nama Penuh *</label><input type="text" name="nama" placeholder="Nama penuh anda" required></div>
+          <div class="fg"><label data-i18n="qfWa">No. WhatsApp *</label><input type="tel" name="whatsapp" placeholder="+601X-XXXXXXX" required></div>
         </div>
-        <div class="fg"><label>Organisasi / Jabatan / Syarikat</label><input type="text" placeholder="Nama organisasi (optional)"></div>
+        <div class="fg"><label data-i18n="qfOrg">Organisasi / Jabatan / Syarikat</label><input type="text" name="organisasi" placeholder="Nama organisasi (optional)"></div>
         <div class="fr2">
-          <div class="fg"><label>Jenis Katering *</label>
-            <select id="qt" required>
-              <option value="">Pilih jenis katering...</option>
+          <div class="fg"><label data-i18n="qfType">Jenis Katering *</label>
+            <select id="qt" name="jenis" required>
+              <option value="" data-i18n="qfTypePh">Pilih jenis katering...</option>
               <option>Katering Fungsi Kerajaan / Rasmi</option>
               <option>Katering Korporat / Seminar</option>
               <option>Katering Program Latihan</option>
@@ -742,45 +583,39 @@ footer{background:var(--g900);color:rgba(255,255,255,.4);padding:60px 24px 28px}
               <option>Lain-lain</option>
             </select>
           </div>
-          <div class="fg"><label>Bilangan Tetamu (Pax) *</label><input type="number" placeholder="cth. 200 pax" min="20" required></div>
+          <div class="fg"><label data-i18n="qfPax">Bilangan Tetamu *</label><input type="number" name="pax" placeholder="cth. 200 pax" min="20" required></div>
         </div>
         <div class="fr2">
-          <div class="fg"><label>Tarikh Katering *</label><input type="date" id="ed" required></div>
-          <div class="fg"><label>Anggaran Bajet Per Pax</label>
-            <select>
-              <option value="">Flexible / Belum pasti</option>
+          <div class="fg"><label data-i18n="qfDate">Tarikh Katering *</label><input type="date" id="ed" name="tarikh" required></div>
+          <div class="fg"><label data-i18n="qfBudget">Anggaran Per Pax</label>
+            <select name="bajet">
+              <option value="" data-i18n="qfBudgetPh">Flexible / Belum pasti</option>
               <option>RM 25–35 / pax</option><option>RM 35–50 / pax</option>
               <option>RM 50–70 / pax</option><option>RM 70+ / pax</option>
             </select>
           </div>
         </div>
-        <div class="fg"><label>Maklumat Tambahan</label><textarea placeholder="Sijil Halal diperlukan, menu tertentu, keperluan diet khas, alamat lokasi, keperluan setup, dll..."></textarea></div>
+        <div class="fg"><label data-i18n="qfNote">Maklumat Tambahan</label><textarea name="nota" placeholder="Sijil Halal diperlukan, menu tertentu, keperluan diet khas, alamat lokasi, keperluan setup, dll..."></textarea></div>
         <div class="facts">
-          <button type="submit" class="btn ba" style="font-size:15px;padding:13px 24px">Hantar Borang →</button>
-          <a href="https://wa.me/60XXXXXXXXXX?text=Hi,%20saya%20ingin%20minta%20quotation%20katering." class="btn bwa" target="_blank" style="font-size:15px;padding:13px 22px">💬 WhatsApp</a>
+          <button type="submit" class="btn ba" style="font-size:15px;padding:13px 24px" data-i18n="qfSubmit">Hantar Borang →</button>
+          <a href="https://wa.me/601128465813?text=Hi,%20saya%20ingin%20minta%20quotation%20katering." class="btn bwa" target="_blank" style="font-size:15px;padding:13px 22px">💬 WhatsApp</a>
         </div>
-        <div class="fnote">🔒 Maklumat anda adalah sulit dan tidak akan dikongsi dengan mana-mana pihak ketiga.</div>
+        <div class="fnote" data-i18n="qfPrivacy">🔒 Maklumat anda adalah sulit dan tidak akan dikongsi dengan mana-mana pihak ketiga.</div>
       </form>
     </div>
   </div>
 </section>
 
-<!-- BACKED BY / TRUST BAR -->
-<div style="background:#0a1e12;padding:22px 24px;border-top:1px solid rgba(212,146,42,.15)">
-  <div style="max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;text-align:center">
+<!-- BACKED BY -->
+<div class="backed">
+  <div class="backed-inner">
     <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
       <span style="font-size:16px">🛡️</span>
-      <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1.5px">Dijamin oleh</span>
+      <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1.5px" data-i18n="backedBy">Dijamin oleh</span>
     </div>
-    <a href="https://www.kobisberhad.com" target="_blank" rel="noopener"
-       style="font-size:15px;font-weight:800;color:#d4922a;text-decoration:none;letter-spacing:-.2px;transition:opacity .2s"
-       onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
-      KOBIS Berhad ↗
-    </a>
+    <a href="https://www.kobisberhad.com" target="_blank" rel="noopener" style="font-size:15px;font-weight:800;color:var(--a);text-decoration:none;letter-spacing:-.2px" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">KOBIS Berhad ↗</a>
     <div style="width:1px;height:20px;background:rgba(255,255,255,.1);flex-shrink:0"></div>
-    <span style="font-size:13px;color:rgba(255,255,255,.45);font-weight:400;max-width:460px;line-height:1.6">
-      Semua urusan katering ini dikendalikan di bawah syarikat berdaftar Malaysia — komited dengan perkhidmatan yang <strong style="color:rgba(255,255,255,.65);font-weight:600">berkualiti, telus dan amanah.</strong>
-    </span>
+    <span style="font-size:13px;color:rgba(255,255,255,.42);max-width:460px;line-height:1.6" data-i18n="backedText">Semua urusan katering ini dikendalikan di bawah syarikat berdaftar Malaysia — komited dengan perkhidmatan yang <strong style="color:rgba(255,255,255,.62);font-weight:600">berkualiti, telus dan amanah.</strong></span>
   </div>
 </div>
 
@@ -789,63 +624,258 @@ footer{background:var(--g900);color:rgba(255,255,255,.4);padding:60px 24px 28px}
   <div class="fti">
     <div class="ftop">
       <div>
-        <a href="#" class="logo"><div class="lm">🍽️</div><div><span class="ln">Kuching Catering Co.</span><span class="ls">Penyelaras Katering Profesional</span></div></a>
-        <p class="fbdesc">Penyelaras katering profesional di Kuching, Sarawak. Kami menghubungkan anda dengan caterer terverifikasi untuk semua jenis katering — cepat, teratur dan boleh dipercayai.</p>
+        <a href="#" class="logo"><div class="lm">🍽️</div><div><span class="ln">Kuching Catering Co.</span><span class="ls-sub">Penyelaras Katering Profesional</span></div></a>
+        <p class="fbdesc" data-i18n="ftDesc">Penyelaras katering profesional di Kuching, Sarawak. Menghubungkan anda dengan caterer terverifikasi untuk semua jenis katering — cepat, teratur dan boleh dipercayai.</p>
         <div class="socs">
-          <a href="#" class="sb" title="Facebook">📘</a>
-          <a href="#" class="sb" title="Instagram">📸</a>
-          <a href="https://wa.me/60XXXXXXXXXX" target="_blank" class="sb" title="WhatsApp">💬</a>
+          <a href="#" class="sb">📘</a><a href="#" class="sb">📸</a>
+          <a href="https://wa.me/601128465813" target="_blank" class="sb">💬</a>
         </div>
       </div>
-      <div class="fc"><h4>Perkhidmatan</h4><ul>
-        <li><a href="#services">Katering Kerajaan</a></li>
-        <li><a href="#services">Katering Korporat</a></li>
-        <li><a href="#services">Program Latihan</a></li>
-        <li><a href="#services">Katering Perkahwinan</a></li>
-        <li><a href="#services">Open House &amp; Perayaan</a></li>
+      <div class="fc"><h4 data-i18n="ftSvcH">Perkhidmatan</h4><ul>
+        <li><a href="#services" data-i18n="ftSvc1">Katering Kerajaan</a></li>
+        <li><a href="#services" data-i18n="ftSvc2">Katering Korporat</a></li>
+        <li><a href="#services" data-i18n="ftSvc3">Program Latihan</a></li>
+        <li><a href="#services" data-i18n="ftSvc4">Katering Perkahwinan</a></li>
+        <li><a href="#services" data-i18n="ftSvc5">Open House &amp; Perayaan</a></li>
       </ul></div>
-      <div class="fc"><h4>Pautan Pantas</h4><ul>
-        <li><a href="#how">Cara Kami Beroperasi</a></li>
-        <li><a href="#packages">Pakej &amp; Harga</a></li>
-        <li><a href="#gallery">Galeri</a></li>
-        <li><a href="#faq">Soalan Lazim</a></li>
-        <li><a href="#quote">Minta Quotation</a></li>
+      <div class="fc"><h4 data-i18n="ftLinkH">Pautan Pantas</h4><ul>
+        <li><a href="#how" data-i18n="ftL1">Cara Kami Beroperasi</a></li>
+        <li><a href="#packages" data-i18n="ftL2">Pakej &amp; Harga</a></li>
+        <li><a href="#gallery" data-i18n="ftL3">Galeri</a></li>
+        <li><a href="#faq" data-i18n="ftL4">Soalan Lazim</a></li>
+        <li><a href="#quote" data-i18n="ftL5">Minta Quotation</a></li>
       </ul></div>
-      <div class="fc"><h4>Hubungi Kami</h4><ul>
-        <li><a href="https://wa.me/60XXXXXXXXXX">💬 WhatsApp</a></li>
+      <div class="fc"><h4 data-i18n="ftConH">Hubungi Kami</h4><ul>
+        <li><a href="https://wa.me/601128465813">💬 WhatsApp</a></li>
         <li><a href="mailto:hello@kuchingcateringco.com">📧 E-mel</a></li>
-        <li><a href="#quote">📋 Borang Quotation</a></li>
-        <li><a href="#">📍 Kuching, Sarawak</a></li>
+        <li><a href="#quote" data-i18n="ftC3">📋 Borang Quotation</a></li>
+        <li><a href="https://www.kobisberhad.com" target="_blank">🌐 kobisberhad.com</a></li>
       </ul></div>
     </div>
     <div class="fbot">
-      <span>© 2025 Kuching Catering Co. Hak Cipta Terpelihara.</span>
-      <div class="flinks"><a href="#">Dasar Privasi</a><a href="#">Terma Perkhidmatan</a></div>
+      <span>© 2025 Kuching Catering Co. / KOBIS Berhad. <span data-i18n="ftRights">Hak Cipta Terpelihara.</span></span>
+      <div class="flinks"><a href="#" data-i18n="ftPriv">Dasar Privasi</a><a href="#" data-i18n="ftTerms">Terma Perkhidmatan</a></div>
     </div>
   </div>
 </footer>
 
 <!-- FLOATING WA -->
 <div class="waf">
-  <div class="watip" id="wtip">Ada keperluan katering?<br><strong>Hubungi kami sekarang.</strong></div>
-  <a href="https://wa.me/60XXXXXXXXXX?text=Hi,%20saya%20ingin%20bertanya%20mengenai%20perkhidmatan%20katering%20anda." class="wacirc" target="_blank">💬</a>
+  <div class="watip" id="wtip" data-i18n="waTip">Ada keperluan katering?<br><strong>Hubungi kami sekarang.</strong></div>
+  <a href="https://wa.me/601128465813?text=Hi,%20saya%20ingin%20bertanya%20mengenai%20perkhidmatan%20katering%20anda." class="wacirc" target="_blank">💬</a>
 </div>
-
 <script>
-  function tm(){document.getElementById('mn').classList.toggle('open')}
-  function cm(){document.getElementById('mn').classList.remove('open')}
-  window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('up',scrollY>40)});
-  function tf(b){const i=b.parentElement,w=i.classList.contains('open');document.querySelectorAll('.fi').forEach(x=>x.classList.remove('open'));if(!w)i.classList.add('open')}
-  function gq(t){document.getElementById('quote').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const s=document.getElementById('qt');if(!s)return;for(let i=0;i<s.options.length;i++){if(s.options[i].value===t){s.selectedIndex=i;break}}},700)}
-  function showT(m){const t=document.getElementById('toast');if(m)t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),4500)}
-  function hf(e){e.preventDefault();showT('Menghantar anda ke WhatsApp untuk respons segera...');setTimeout(()=>window.open('https://wa.me/60XXXXXXXXXX?text=Hi,%20saya%20baru%20mengisi%20borang%20permintaan%20katering%20di%20website%20anda.%20Boleh%20follow%20up%3F','_blank'),900);e.target.reset()}
-  function qf(e){e.preventDefault();showT('✅ Borang dihantar. Kami akan follow up dalam tempoh 1 jam.');e.target.reset()}
-  document.getElementById('wtip').addEventListener('click',function(){this.style.display='none'});
-  const io=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.08});
-  document.querySelectorAll('.fu').forEach(el=>io.observe(el));
-  const co=new IntersectionObserver(en=>{en.forEach(e=>{if(!e.isIntersecting||e.target.dataset.done)return;e.target.dataset.done='1';const tg=parseInt(e.target.dataset.count);if(!tg)return;const sx=tg===98||tg===1?'':tg===5||tg===3?'':'';let c=0,inc=tg/55;const t=setInterval(()=>{c+=inc;if(c>=tg){c=tg;clearInterval(t)}e.target.textContent=Math.floor(c)+sx},18)})},{threshold:.5});
-  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
-  const ed=document.getElementById('ed');if(ed)ed.min=new Date().toISOString().split('T')[0];
-</script>
-</body>
-</html>
+const T={
+  bm:{
+    navHow:'Cara Kami',navSvc:'Perkhidmatan',navPkg:'Pakej',navGal:'Galeri',navFaq:'FAQ',navQuote:'Minta Quotation →',
+    heroBadge:'Penyelaras Katering Profesional — Kuching, Sarawak',
+    heroH1:'Katering Pilihan Anda.',heroTag1:'Berkualiti & Berhemah.',heroTag2:'Paling Penting — Pantas & Sedap.',
+    heroSub:'Dari program latihan korporat hingga fungsi rasmi kerajaan — kami koordinasi caterer terbaik Kuching untuk anda. Quotation dalam tempoh 1 jam. Lima caterer pilihan. Satu nombor untuk semua.',
+    heroCta1:'Minta Quotation Percuma →',heroCta2:'💬 WhatsApp Kami',
+    hp1:'Quotation Siap',hp2:'Caterer Network',hp3:'Quotation Gov',hp4:'Halal Certified',
+    formTitle:'📋 Borang Permintaan Pantas',formSub:'Kurang dari 60 saat',
+    fldName:'Nama Anda',phName:'Nama / Jawatan',fldType:'Jenis Katering',fldTypePh:'Pilih jenis katering...',fldPax:'Bilangan Tetamu (Pax)',fldWa:'No. WhatsApp',fldSubmit:'Hantar Permintaan →',formNote:'🔒 Percuma · Tanpa obligasi · Maklumat selamat',
+    howLbl:'Proses Kerja Kami',howH2:'Mudah. Pantas. Profesional.',howP:'Proses yang direka untuk pegawai kerajaan, pengurus korporat dan penganjur program.',
+    s1h:'Beritahu Keperluan Katering Anda',s1p:'Isi borang ringkas atau hubungi kami melalui WhatsApp. Nyatakan jenis katering, tarikh dan bilangan tetamu.',s1tag:'Mudah & Pantas',
+    s2h:'Terima Quotation & Surat Rasmi',s2p:'Pengurus katering kami akan follow up dalam tempoh 1 jam — sahkan keperluan dan sedia quotation letter berkop surat.',s2tag:'Quotation Letter Ready',
+    s3h:'Katering Dihantar dengan Sempurna',s3p:'Pada hari katering, caterer kami hadir tepat masa, setup dengan teratur dan hidangkan makanan yang memuaskan.',s3tag:'Terbukti Boleh Dipercayai',
+    svcLbl:'Skop Perkhidmatan',svcH2:'Katering untuk Semua Keperluan.',svcP:'Dari fungsi kerajaan berskala besar hingga program latihan korporat — kami padankan setiap keperluan dengan caterer yang sesuai.',
+    bc1n:'Katering Fungsi Kerajaan & Majlis Rasmi',bc1d:'Fungsi kerajaan, majlis anugerah, dinner rasmi dan ceremony jabatan. Quotation letter berkop surat sedia untuk submission LO.',
+    bc2n:'Katering Korporat & Seminar',bc2d:'AGM, annual dinner, mesyuarat pengurusan, product launch dan seminar syarikat.',
+    bc3n:'Program Latihan & Workshop',bc3d:'In-house training, program pembangunan kakitangan, bengkel dan orientasi.',
+    bc4n:'Konvensyen & Ekspo',bc4d:'Katering berskala besar untuk pameran, konvensyen industri dan acara awam.',
+    bc5n:'Perkahwinan & Resepsi',bc5d:'Katering perkahwinan bertema, reception dan banquet VIP.',
+    bc6n:'Open House & Perayaan',bc6d:'Hari Raya, Tahun Baru Cina, Deepavali dan semua sambutan perayaan.',
+    bc7n:'NGO & Koperasi',bc7d:'Program komuniti, fundraiser dan AGM koperasi.',
+    whyLbl:'Kelebihan Kami',whyH2:'Lebih dari Sekadar Mencari Caterer.',
+    ws1:'Jam Quotation',ws2:'Caterer Network',ws3:'Quotation Gov',ws4:'Halal Certified',
+    wi1t:'Quotation Dijamin Dalam 1 Jam',wi1d:'Hantar permintaan dan terima quotation penuh dalam tempoh 60 minit waktu operasi. Bukan esok — dalam 1 jam.',
+    wi2t:'Lima Caterer Pilihan, Semua Disaring',wi2d:'Lima caterer dalam network kami telah kami semak sendiri — kualiti masakan, standard kebersihan, sijil halal dan rekod penghantaran.',
+    wi3t:'Quotation Letter Hari yang Sama',wi3d:'Quotation letter berkop surat syarikat sedia untuk LO kerajaan, perolehan korporat dan kelulusan dalaman — dihantar pada hari yang sama.',
+    wi4t:'Harga Telus, Tiada Caj Tersembunyi',wi4d:'Apa yang tertera dalam quotation itulah yang dibayar. Tiada tambahan, tiada kejutan pada hari katering.',
+    wi5t:'Satu Pengurus. Satu Nombor.',wi5d:'Dari permintaan pertama hingga selesai — anda berurusan dengan satu individu. Tiada perlu ulang taklimat.',
+    g3qt:'Tiga (3) Quotation untuk Keperluan Jabatan Kerajaan',g3qd:'Kami boleh sediakan tiga quotation berbeza dari caterer berlainan dalam network kami — dalam satu permintaan sahaja. Compliance dengan polisi perolehan kerajaan.',
+    wbh:'Sesuai untuk Klien Korporat & Kerajaan',wbp:'Kami faham keperluan dokumentasi dan proses kelulusan dalaman yang diperlukan oleh organisasi besar.',
+    wb1:'Quotation letter rasmi dengan nombor rujukan',wb2:'Sijil Halal JAKIM tersedia atas permintaan',wb3:'Tiga (3) quotation untuk keperluan comparison Gov',wb4:'Invoice korporat untuk tujuan tuntutan',wb5:'Rekod booking yang teratur untuk audit dalaman',wb6:'Sesuai untuk perolehan kerajaan dan procurement syarikat',
+    wbct:'Bersedia untuk booking katering?',wbcs:'Percuma · Tanpa obligasi · Quotation dalam <1 jam',wbBtn:'Book Sekarang →',
+    pkgLbl:'Pakej & Harga',pkgH2:'Harga Jelas dari Awal.',pkgP:'Semua harga per pax. Harga tepat disahkan dalam quotation custom anda. Minimum 50 pax.',
+    pk1n:'Pakej Asas',pk1d:'Katering ringkas & gathering kecil',pk2n:'Pakej Korporat',pk2d:'Untuk korporat, kerajaan & NGO',pk3n:'Pakej Premium',pk3d:'Perkahwinan, VIP & gala dinner',
+    pkFrom:'Bermula dari',pkPop:'🔥 Paling Diminta',pkBtn:'Minta Quotation →',
+    pk1f1:'Nasi Campur / Nasi Lemak style',pk1f2:'2–3 lauk pauk + nasi',pk1f3:'Setup & servis asas',pk1f5:'Minimum 50 pax',
+    pk2f1:'Buffet penuh (5–7 hidangan)',pk2f2:'Chafing dishes & setup meja',pk2f3:'Staff servis disertakan',pk2f4:'Quotation letter rasmi (LO ready)',pk2f5:'Sijil Halal atas permintaan',
+    pk3f1:'Buffet premium (8–10 hidangan)',pk3f2:'Dessert & minuman included',pk3f3:'Setup hiasan & staff terlatih',pk3f4:'Live cooking station (optional)',pk3f5:'Koordinasi katering penuh',
+    pkCustom:'Perlukan pakej custom?',pkCustomLink:'Hubungi kami →',
+    impH2:'Tetamu anda akan ingat hidangannya. Pastikan ia meninggalkan kesan yang baik.',impP:'Lima caterer pilihan. Quotation dalam 1 jam. Satu pengurus dari mula hingga selesai.',impBtn:'Minta Quotation',
+    galLbl:'Galeri Kami',galH2:'Sekilas Pandang Perkhidmatan Kami.',galP:'Koleksi gambar dari pelbagai booking katering yang telah kami kendalikan di Kuching dan seluruh Sarawak.',
+    faqLbl:'Soalan Lazim',faqH2:'Soalan yang Kerap Ditanya.',
+    fq1:'Berapakah bilangan minimum tetamu?',fa1:'Bilangan minimum kami adalah 50 pax. Untuk gathering yang lebih kecil, hubungi kami melalui WhatsApp dan kami akan cuba accommodate yang terbaik.',
+    fq2:'Berapa lama untuk dapat quotation?',fa2:'Kami berkomitmen menghantar quotation penuh dalam tempoh 1 jam waktu operasi (8 pagi–8 malam, Isnin–Sabtu).',
+    fq3:'Boleh sediakan 3 quotation untuk keperluan kerajaan?',fa3:'Boleh. Kami boleh sediakan tiga quotation berbeza dari caterer berlainan dalam network kami — semuanya dalam satu permintaan. Quotation letter berkop surat rasmi disertakan untuk setiap quotation.',
+    fq4:'Adakah quotation letter rasmi disediakan?',fa4:'Ya. Kami sediakan quotation letter berkop surat syarikat yang sesuai untuk submission LO kerajaan, perolehan korporat dan kelulusan dalaman.',
+    fq5:'Adakah semua caterer bersijil Halal?',fa5:'Ya, semua caterer dalam network kami bersijil Halal dan ikut standard JAKIM.',
+    fq6:'Berapa awal booking perlu dibuat?',fa6:'Kami syorkan booking sekurang-kurangnya 3–7 hari lebih awal. Permintaan last-minute (48–72 jam) juga boleh diuruskan tertakluk kepada ketersediaan.',
+    fq7:'Kawasan mana yang diliputi?',fa7:'Kami meliputi Kuching, Kota Samarahan, Samarahan, Bau dan kawasan sekitar.',
+    fq8:'Apakah kaedah pembayaran yang diterima?',fa8:'Kami menerima pindahan bank (TT), DuitNow QR dan cek untuk klien kerajaan dan korporat. Deposit 50% diperlukan untuk sahkan booking.',
+    qLbl:'Hubungi Kami',qH2Span:'Jom Bincang Katering.',qSub:'Isi borang ini dan terima quotation penuh tanpa obligasi dalam tempoh 1 jam.',
+    ci1l:'WhatsApp Rasmi',ci2l:'E-mel',ci3l:'Kawasan Liputan',ci3v:'Kuching, Kota Samarahan & seluruh Sarawak',ci4l:'Waktu Operasi',ci4v:'Isnin – Sabtu, 8:00 pagi – 8:00 malam',
+    qfbt:'📋 Borang Permintaan Quotation',qfName:'Nama Penuh *',qfWa:'No. WhatsApp *',qfOrg:'Organisasi / Jabatan / Syarikat',qfType:'Jenis Katering *',qfTypePh:'Pilih jenis katering...',qfPax:'Bilangan Tetamu *',qfDate:'Tarikh Katering *',qfBudget:'Anggaran Per Pax',qfBudgetPh:'Flexible / Belum pasti',qfNote:'Maklumat Tambahan',qfSubmit:'Hantar Borang →',qfPrivacy:'🔒 Maklumat anda adalah sulit dan tidak akan dikongsi dengan mana-mana pihak ketiga.',
+    backedBy:'Dijamin oleh',backedText:'Semua urusan katering ini dikendalikan di bawah syarikat berdaftar Malaysia — komited dengan perkhidmatan yang berkualiti, telus dan amanah.',
+    ftDesc:'Penyelaras katering profesional di Kuching, Sarawak. Menghubungkan anda dengan caterer terverifikasi untuk semua jenis katering.',ftSvcH:'Perkhidmatan',ftSvc1:'Katering Kerajaan',ftSvc2:'Katering Korporat',ftSvc3:'Program Latihan',ftSvc4:'Katering Perkahwinan',ftSvc5:'Open House & Perayaan',
+    ftLinkH:'Pautan Pantas',ftL1:'Cara Kami Beroperasi',ftL2:'Pakej & Harga',ftL3:'Galeri',ftL4:'Soalan Lazim',ftL5:'Minta Quotation',
+    ftConH:'Hubungi Kami',ftC3:'📋 Borang Quotation',ftRights:'Hak Cipta Terpelihara.',ftPriv:'Dasar Privasi',ftTerms:'Terma Perkhidmatan',
+    waTip:'Ada keperluan katering?'
+  },
+  en:{
+    navHow:'How It Works',navSvc:'Services',navPkg:'Packages',navGal:'Gallery',navFaq:'FAQ',navQuote:'Get Quotation →',
+    heroBadge:'Professional Catering Coordinator — Kuching, Sarawak',
+    heroH1:'Your Preferred Catering.',heroTag1:'Quality & Value.',heroTag2:'Most Importantly — Fast & Delicious.',
+    heroSub:'From corporate training programmes to government functions — we coordinate the best caterers in Kuching for you. Quotation within 1 hour. Five verified caterers. One number for everything.',
+    heroCta1:'Get Free Quotation →',heroCta2:'💬 WhatsApp Us',
+    hp1:'Quotation Ready',hp2:'Caterers Network',hp3:'Quotations Gov',hp4:'Halal Certified',
+    formTitle:'📋 Quick Request Form',formSub:'Under 60 seconds',
+    fldName:'Your Name',phName:'Name / Position',fldType:'Catering Type',fldTypePh:'Select catering type...',fldPax:'No. of Guests (Pax)',fldWa:'WhatsApp Number',fldSubmit:'Send Request →',formNote:'🔒 Free · No obligation · Secure',
+    howLbl:'Our Process',howH2:'Simple. Fast. Professional.',howP:'Designed for government officers, corporate managers and event organisers who need fast, organised documentation.',
+    s1h:'Tell Us Your Catering Needs',s1p:'Fill our quick form or contact us via WhatsApp. State the type, date and number of guests. Takes under 2 minutes.',s1tag:'Easy & Fast',
+    s2h:'Receive Quotation & Official Letter',s2p:'Our catering manager will follow up within 1 hour — confirm requirements and prepare an official quotation letter.',s2tag:'Quotation Letter Ready',
+    s3h:'Catering Delivered Perfectly',s3p:'On the day, our verified caterer arrives on time, sets up properly and serves food that satisfies all your guests.',s3tag:'Proven & Reliable',
+    svcLbl:'Our Services',svcH2:'Catering for Every Need.',svcP:'From large-scale government functions to corporate training programmes — we match every need with the right caterer.',
+    bc1n:'Government & Official Functions',bc1d:'Government functions, award ceremonies, official dinners. Quotation letter ready for LO submission and procurement.',
+    bc2n:'Corporate Events & Seminars',bc2d:'AGM, annual dinner, management meetings, product launches and corporate seminars.',
+    bc3n:'Training Programmes & Workshops',bc3d:'In-house training, staff development programmes, workshops and orientations.',
+    bc4n:'Conventions & Expos',bc4d:'Large-scale catering for exhibitions, industry conventions and public events.',
+    bc5n:'Weddings & Receptions',bc5d:'Themed wedding catering, receptions and VIP banquets.',
+    bc6n:'Open Houses & Celebrations',bc6d:'Hari Raya, Chinese New Year, Deepavali and all festive celebrations.',
+    bc7n:'NGO & Cooperatives',bc7d:'Community programmes, fundraisers and cooperative AGMs.',
+    whyLbl:'Why Choose Us',whyH2:'More Than Just Finding a Caterer.',
+    ws1:'Hour Quotation',ws2:'Caterer Network',ws3:'Gov Quotations',ws4:'Halal Certified',
+    wi1t:'Quotation Guaranteed Within 1 Hour',wi1d:'Submit your request and receive a full quotation within 60 minutes during operating hours. Not tomorrow — within 1 hour.',
+    wi2t:'Five Vetted Caterers',wi2d:'Five caterers in our network have been personally vetted — food quality, hygiene standards, halal certification and delivery track record.',
+    wi3t:'Quotation Letter Same Day',wi3d:'Official quotation letter on company letterhead ready for government LO, corporate procurement and internal approvals — same day.',
+    wi4t:'Transparent Pricing, No Hidden Fees',wi4d:'What is stated in the quotation is what you pay. No additions, no surprises on catering day.',
+    wi5t:'One Manager. One Number.',wi5d:'From first contact to completion — you deal with one individual. No need to repeat briefings.',
+    g3qt:'Three (3) Quotations for Government Departments',g3qd:'We can provide three different quotations from separate caterers in our network — all in one request. Compliant with government procurement policy.',
+    wbh:'Ideal for Corporate & Government Clients',wbp:'We understand the documentation and approval processes required by large organisations. We manage all this proactively.',
+    wb1:'Official quotation letter with reference number',wb2:'JAKIM Halal certificate available on request',wb3:'Three (3) quotations for government comparison',wb4:'Corporate invoice for claims purposes',wb5:'Organised booking records for internal audit',wb6:'Suitable for government procurement and corporate purchasing',
+    wbct:'Ready to book catering?',wbcs:'Free · No obligation · Quotation in <1 hour',wbBtn:'Book Now →',
+    pkgLbl:'Packages & Pricing',pkgH2:'Clear Pricing From the Start.',pkgP:'All prices per pax. Exact price confirmed in your custom quotation. Minimum 50 pax.',
+    pk1n:'Basic Package',pk1d:'Simple catering & small gatherings',pk2n:'Corporate Package',pk2d:'For corporate, government & NGO',pk3n:'Premium Package',pk3d:'Weddings, VIP & gala dinners',
+    pkFrom:'Starting from',pkPop:'🔥 Most Requested',pkBtn:'Get Quotation →',
+    pk1f1:'Nasi Campur / Nasi Lemak style',pk1f2:'2–3 dishes + rice',pk1f3:'Basic setup & service',pk1f5:'Minimum 50 pax',
+    pk2f1:'Full buffet (5–7 dishes)',pk2f2:'Chafing dishes & table setup',pk2f3:'Service staff included',pk2f4:'Official quotation letter (LO ready)',pk2f5:'Halal certificate on request',
+    pk3f1:'Premium buffet (8–10 dishes)',pk3f2:'Desserts & beverages included',pk3f3:'Decorated setup & trained staff',pk3f4:'Live cooking station (optional)',pk3f5:'Full catering coordination',
+    pkCustom:'Need a custom package?',pkCustomLink:'Contact us →',
+    impH2:'Your guests will remember the food. Make sure it leaves the right impression.',impP:'Five verified caterers. Quotation in 1 hour. One manager from start to finish.',impBtn:'Get Quotation',
+    galLbl:'Our Gallery',galH2:'A Glimpse of Our Services.',galP:'A collection of photos from various catering bookings we have handled in Kuching and across Sarawak.',
+    faqLbl:'FAQ',faqH2:'Frequently Asked Questions.',
+    fq1:'What is the minimum number of guests?',fa1:'Our minimum is 50 pax. For smaller gatherings, contact us via WhatsApp and we will try to accommodate.',
+    fq2:'How quickly can I get a quotation?',fa2:'We commit to sending a full quotation within 1 hour during operating hours (8am–8pm, Mon–Sat).',
+    fq3:'Can you provide 3 quotations for government requirements?',fa3:'Yes. We can provide three different quotations from separate caterers in our network — all in one request. Official quotation letters included.',
+    fq4:'Are official quotation letters provided?',fa4:'Yes. We provide official quotation letters on company letterhead suitable for government LO submission and corporate procurement.',
+    fq5:'Are all caterers Halal certified?',fa5:'Yes, all caterers in our network are Halal certified and comply with JAKIM standards.',
+    fq6:'How early should I book?',fa6:'We recommend booking at least 3–7 days in advance. Last-minute requests (48–72 hours) can also be handled subject to availability.',
+    fq7:'Which areas do you cover?',fa7:'We cover Kuching, Kota Samarahan, Samarahan, Bau and surrounding areas.',
+    fq8:'What payment methods are accepted?',fa8:'We accept bank transfer (TT), DuitNow QR and cheque for government and corporate clients. 50% deposit required to confirm booking.',
+    qLbl:'Contact Us',qH2Span:'Let\'s Talk Catering.',qSub:'Fill this form and receive a full no-obligation quotation within 1 hour.',
+    ci1l:'WhatsApp',ci2l:'Email',ci3l:'Coverage Area',ci3v:'Kuching, Kota Samarahan & across Sarawak',ci4l:'Operating Hours',ci4v:'Monday – Saturday, 8:00am – 8:00pm',
+    qfbt:'📋 Quotation Request Form',qfName:'Full Name *',qfWa:'WhatsApp No. *',qfOrg:'Organisation / Department / Company',qfType:'Catering Type *',qfTypePh:'Select catering type...',qfPax:'No. of Guests *',qfDate:'Catering Date *',qfBudget:'Estimated Budget Per Pax',qfBudgetPh:'Flexible / Not sure',qfNote:'Additional Notes',qfSubmit:'Submit Form →',qfPrivacy:'🔒 Your information is confidential and will not be shared with any third party.',
+    backedBy:'Guaranteed by',backedText:'All catering services are managed under a registered Malaysian company — committed to quality, transparent and trustworthy service.',
+    ftDesc:'Professional catering coordinator in Kuching, Sarawak. Connecting you with verified caterers for all types of catering.',ftSvcH:'Services',ftSvc1:'Government Catering',ftSvc2:'Corporate Catering',ftSvc3:'Training Programmes',ftSvc4:'Wedding Catering',ftSvc5:'Open House & Celebrations',
+    ftLinkH:'Quick Links',ftL1:'How We Work',ftL2:'Packages & Pricing',ftL3:'Gallery',ftL4:'FAQ',ftL5:'Get Quotation',
+    ftConH:'Contact Us',ftC3:'📋 Quotation Form',ftRights:'All Rights Reserved.',ftPriv:'Privacy Policy',ftTerms:'Terms of Service',
+    waTip:'Need catering? Contact us now.'
+  },
+  zh:{
+    navHow:'服务流程',navSvc:'服务项目',navPkg:'配套价格',navGal:'图库',navFaq:'常见问题',navQuote:'获取报价 →',
+    heroBadge:'专业餐饮协调商 — 古晋，砂拉越',
+    heroH1:'您的首选餐饮服务。',heroTag1:'品质优良 · 价格实惠。',heroTag2:'最重要的 — 快捷美味。',
+    heroSub:'从企业培训到政府官方活动 — 我们为您协调古晋最优质的餐饮商。报1小时内提供报价。五家认证餐饮商。一个联系，搞定一切。',
+    heroCta1:'免费获取报价 →',heroCta2:'💬 WhatsApp 联系',
+    hp1:'报价时间',hp2:'合作餐饮商',hp3:'政府报价',hp4:'清真认证',
+    formTitle:'📋 快速询价表',formSub:'不到60秒 ·  1小时内回复',
+    fldName:'您的姓名',phName:'姓名 / 职位',fldType:'餐饮类型',fldTypePh:'请选择餐饮类型...',fldPax:'预计人数 (Pax)',fldWa:'WhatsApp 号码',fldSubmit:'提交询价 →',formNote:'🔒 免费 · 无需承诺 · 信息保密',
+    howLbl:'服务流程',howH2:'简单。快捷。专业。',howP:'专为政府官员、企业管理层及活动策划人员设计，确保文件齐全、手续方便。',
+    s1h:'告知您的餐饮需求',s1p:'填写简短表格或通过WhatsApp联系我们。填写餐饮类型、日期和人数，不到2分钟。',s1tag:'简单快捷',
+    s2h:'接收报价和官方函件',s2p:'我们的餐饮经理将在1小时内追踪连系，确认需求并备好带公司抗头的报价函，为审批目的做准备。',s2tag:'报价函备模',
+    s3h:'完美送达餐饮服务',s3p:'餐饮当天，我们的认证餐饮商准时到达、整齐布置，提供令座客满意的美味食品。',s3tag:'可靠值得信赖',
+    svcLbl:'服务范围',svcH2:'满足各类餐饮需求。',svcP:'从大型政府活动到企业培训项目，我们匹配最合适的餐饮商。',
+    bc1n:'政府官方活动餐饮',bc1d:'政府官方孴会、颃奖典礼及部门活动。报价函备模可直接上交LO及采购流程。',
+    bc2n:'企业活动和研讨会',bc2d:'年度大会、年度晚宨、管理会议、新产品发布及公司研讨会。',
+    bc3n:'培训课程和工作坊',bc3d:'内部培训、员工发展课程、研讨会及新生入职引导。',
+    bc4n:'展会和博览会',bc4d:'大型展览、行业大会及公共活动的大型餐饮服务。',
+    bc5n:'婚礼和接待',bc5d:'主题婚礼餐饮、招待会及贵宾孴会。',
+    bc6n:'开放日和庆典',bc6d:'开斋节、春节、屠登大吉及各种庆典。',
+    bc7n:'NGO和合作社',bc7d:'社区活动、効益活动及合作社年度大会。',
+    whyLbl:'我们的优势',whyH2:'不仅仅是寻找餐饮商。',
+    ws1:'小时报价',ws2:'餐饮商网络',ws3:'政府报价',ws4:'清真认证',
+    wi1t:'保证1小时内提供报价',wi1d:'提交请求后，在营业时间60分钟内收到完整报价。不是明天—而是1小时内。',
+    wi2t:'五家精选餐饮商，全部经过审查',wi2d:'网络内的五家餐饮商均由我们亲自审查—海鲜品质、卫生标准、清真认证及交付记录。',
+    wi3t:'当天提供报价函',wi3d:'带公司抗头的官方报价函，适用于政府LO审批、企业采购及内部审批—当天发送。',
+    wi4t:'价格透明，无隐藏费用',wi4d:'报价上所列就是您支付的金额。餐饮当天无额外费用，无意外惊喜。',
+    wi5t:'一个经理。一个号码。',wi5d:'从首次联系到完成—您只需跟一个人沟通。无需重复下详。',
+    g3qt:'三(3)份报价，满足政府部门需求',g3qd:'我们可为您提供三份来自不同餐饮商的报价—仅需一次请求。符合政府采购政策，备齐官方报价函。',
+    wbh:'适合企业和政府客户',wbp:'我们了解大型组织所需的文件和内部审批流程，主动处理各项事宜。',
+    wb1:'带参考编号的官方报价函',wb2:'应要求可提供JAKIM清真证书',wb3:'三份报价供政府比较使用',wb4:'企业发票用于报销目的',wb5:'整齐的预订记录用于内部审计',wb6:'适用于政府采购和企业采购',
+    wbct:'准备预订餐饮服务？',wbcs:'免费 · 无需承诺 · 1小时内报价',wbBtn:'立即预订 →',
+    pkgLbl:'配套与价格',pkgH2:'价格从一开始就清晰明了。',pkgP:'所有价格均为每人价格。确切价格将在定制报价中确认。最封50人。',
+    pk1n:'基本配套',pk1d:'简单餐饮和小型聚会',pk2n:'企业配套',pk2d:'适用于企业、政府和非政府组织',pk3n:'高级配套',pk3d:'婚礼、VIP活动和晴嬴晚宩',
+    pkFrom:'起价自',pkPop:'🔥 最受欢迎',pkBtn:'获取报价 →',
+    pk1f1:'沙宣米饭 / 椒汁米饭风格',pk1f2:'2–3道菜肴+米饭',pk1f3:'基本布置和服务',pk1f5:'最封50人',
+    pk2f1:'全助餐自助餐(5–7道菜肴)',pk2f2:'保温盘和餐桂布置',pk2f3:'服务人员包括在内',pk2f4:'官方报价函(LO备模)',pk2f5:'应要求可提供清真证书',
+    pk3f1:'高级自助餐(8–10道菜肴)',pk3f2:'甜点和饮料包括在内',pk3f3:'装饰布置和训练有素工作人员',pk3f4:'现场烹饪展台(可选)',pk3f5:'全程餐饮协调',
+    pkCustom:'需要定制配套？',pkCustomLink:'联系我们 →',
+    impH2:'您的宾客会记住饮食。请确保它留下良好的印象。',impP:'五家精选餐饮商。报1小时内提供报价。一个经理全程跟进。',impBtn:'获取报价',
+    galLbl:'我们的图库',galH2:'我们服务的一瞥。',galP:'来自古晋和砂拉越各地的餐饮预订照片选集。',
+    faqLbl:'常见问题',faqH2:'常见问题解答。',
+    fq1:'最少需要多少人？',fa1:'我们的最小订单为50人。小型聚会请通过WhatsApp联系我们。',
+    fq2:'多久能收到报价？',fa2:'我们承诺在营业时间(8早-8晚，周一至周六)内的报1小时提供完整报价。',
+    fq3:'能提供3份报价吗？',fa3:'可以。我们可以提供来自不同餐饮商的3份报价，仅需一次请求即可。',
+    fq4:'是否提供官方报价函？',fa4:'是的。我们提供带公司抗头的官方报价函，适用于政府LO审批和企业采购。',
+    fq5:'所有餐饮商是否有清真认证？',fa5:'是的，我们网络中的所有餐饮商均获JAKIM清真认证。',
+    fq6:'需要多久提前预订？',fa6:'建议至少3-7天提前预订。临时请求(48-72小时)也可处理，视情况而定。',
+    fq7:'服务展居哪些地区？',fa7:'我们服务古晋、古晋市区、沙越及周辿地区。',
+    fq8:'支持哪些付款方式？',fa8:'接受銀行转账(TT)、DuitNow QR及支票(政府/企业客户)。预订需支仕50%定金。',
+    qLbl:'联系我们',qH2Span:'来谈谈餐饮吧。',qSub:'填写表格，将1小时内收到完整返报价。',
+    ci1l:'WhatsApp 官方',ci2l:'电子邮件',ci3l:'服务区域',ci3v:'古晋及砂拉越全境',ci4l:'营业时间',ci4v:'周一 – 周六，早上8:00 – 晚上8:00',
+    qfbt:'📋 餐饮报价申请表',qfName:'姓名 *',qfWa:'WhatsApp 号码 *',qfOrg:'机构 / 部门 / 公司',qfType:'餐饮类型 *',qfTypePh:'请选择餐饮类型...',qfPax:'预计人数 *',qfDate:'餐饮日期 *',qfBudget:'预算上限(每人)',qfBudgetPh:'灵活 / 尚未确定',qfNote:'附加说明',qfSubmit:'提交表格 →',qfPrivacy:'🔒 您的信息完全保密，不会与任何第三方共享。',
+    backedBy:'由以下公司保证',backedText:'所有餐饮服务均由马来西亚注册公司管理 — 承诺提供优质、透明、值得信赖的餐饮服务。',
+    ftDesc:'古晋专业餐饮协调商。为您连接经过认证的餐饮商，提供快捷专业的餐饮服务。',
+    ftSvcH:'服务项目',ftSvc1:'政府餐饮',ftSvc2:'企业餐饮',ftSvc3:'培训课程',ftSvc4:'婚礼餐饮',ftSvc5:'开放日和庆典',
+    ftLinkH:'快速链接',ftL1:'服务流程',ftL2:'配套与价格',ftL3:'图库',ftL4:'常见问题',ftL5:'获取报价',
+    ftConH:'联系我们',ftC3:'📋 报价表格',ftRights:'版权所有。',ftPriv:'隐私政策',ftTerms:'服务条款',
+    waTip:'有餐饮需求？立即联系。'
+  }
+};
+let curLang='bm';
+function setLang(l,btn){
+  curLang=l;
+  document.body.className=l==='zh'?'zh':'';
+  document.documentElement.lang=l==='zh'?'zh-Hans':l==='en'?'en':'ms';
+  const t=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.dataset.i18n;
+    if(t[k]!==undefined) el.textContent=t[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const k=el.dataset.i18nPh;
+    if(t[k]!==undefined) el.placeholder=t[k];
+  });
+  // Update all lang buttons
+  document.querySelectorAll('.ls-btn,.mob-ls button').forEach(b=>{
+    b.classList.toggle('active', b.textContent.trim()===({bm:'BM',en:'EN',zh:'中文'}[l]));
+  });
+}
+function tm(){document.getElementById('mn').classList.toggle('open')}
+function cm(){document.getElementById('mn').classList.remove('open')}
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('up',scrollY>40)});
+function tf(b){const i=b.parentElement,w=i.classList.contains('open');document.querySelectorAll('.fi').forEach(x=>x.classList.remove('open'));if(!w)i.classList.add('open')}
+function gq(t){document.getElementById('quote').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const s=document.getElementById('qt');if(!s)return;for(let i=0;i<s.options.length;i++){if(s.options[i].value===t){s.selectedIndex=i;break}}},700)}
+function showT(m){const t=document.getElementById('toast');if(m)t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),4500)}
+function hf(e){e.preventDefault();showT(curLang==='zh'?'正在跳转到WhatsApp...':curLang==='en'?'Redirecting to WhatsApp...':'Menghantar anda ke WhatsApp...');setTimeout(()=>window.open('https://wa.me/601128465813?text=Hi,%20I%20would%20like%20to%20request%20a%20catering%20quotation.','_blank'),900);e.target.reset()}
+function qf(e){e.preventDefault();showT(curLang==='zh'?'✅ 表格已提交！我们将1小时内联系您。':curLang==='en'?'✅ Form submitted! We will contact you within 1 hour.':'✅ Borang dihantar! Kami akan follow up dalam tempoh 1 jam.');e.target.submit()}
+document.getElementById('wtip').addEventListener('click',function(){this.style.display='none'});
+const io=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.08});
+document.querySelectorAll('.fu').forEach(el=>io.observe(el));
+const co=new IntersectionObserver(en=>{en.forEach(e=>{if(!e.isIntersecting||e.target.dataset.done)return;e.target.dataset.done='1';const tg=parseInt(e.target.dataset.count);if(!tg)return;let c=0,inc=tg/55;const t=setInterval(()=>{c+=inc;if(c>=tg){c=tg;clearInterval(t)}e.target.textContent=Math.floor(c)},18)})},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+const ed=document.getElementById('ed');if(ed)ed.min=new Date().toISOString().split('T')[0];
+</script></body></html>
