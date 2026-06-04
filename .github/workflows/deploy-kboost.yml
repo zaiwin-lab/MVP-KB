@@ -1,0 +1,30 @@
+name: Deploy KBOOST to Netlify
+
+on:
+  push:
+    branches:
+      - claude/kobe-mvp-kickoff-M45M3
+      - main
+    paths:
+      - 'kboost/**'
+      - 'netlify.toml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://kboost.netlify.app
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Netlify
+        run: |
+          npm install -g netlify-cli
+          netlify deploy \
+            --prod \
+            --dir=kboost \
+            --site=${{ vars.NETLIFY_SITE_ID }} \
+            --auth=${{ secrets.NETLIFY_AUTH_TOKEN }} \
+            --message="Deploy from GitHub Actions — ${{ github.sha }}"
