@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borneo ESG Forum 2026 | Presentation Deck</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g1:#0f4c35;--g2:#1a9e6e;--g3:#2bc48a;--am:#d97706;--am2:#f59e0b;--nv:#0a1628;--fh:'Playfair Display',serif;--fb:'Inter',sans-serif}
+.reveal-viewport{background:var(--nv)}
+.reveal{font-family:var(--fb);color:#e8e8e8;font-size:16px}
+.reveal h1,.reveal h2,.reveal h3{font-family:var(--fh);text-transform:none;letter-spacing:0;color:#fff;margin-bottom:.5em}
+.reveal h1{font-size:2.2em;font-weight:900}
+.reveal h2{font-size:1.6em;font-weight:800}
+.reveal h3{font-size:1.1em;font-weight:700;color:var(--am)}
+.reveal p{color:rgba(255,255,255,.75);font-size:.9em;line-height:1.7}
+.reveal ul{list-style:none;text-align:left}
+.reveal ul li{font-size:.88em;color:rgba(255,255,255,.78);line-height:1.6;margin-bottom:.5em;padding-left:1.2em;position:relative}
+.reveal ul li::before{content:'\2192';position:absolute;left:0;color:var(--g3);font-weight:700}
+.reveal .progress{color:var(--g2)}
+.reveal .slide-number{color:rgba(255,255,255,.3);font-size:.6em}
+.reveal .slides section{background:var(--nv);position:relative;overflow:hidden}
+.reveal .slides section::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:50px 50px;pointer-events:none}
+.slide-geo{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.geo-tr{width:350px;height:350px;background:rgba(15,76,53,.35);top:-100px;right:-100px}
+.geo-bl{width:250px;height:250px;background:rgba(217,119,6,.15);bottom:-60px;left:-60px}
+.s-label{font-size:.6em;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--am);margin-bottom:.8em;display:block}
+.title-slide{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:100%}
+.ts-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:6px 16px;margin-bottom:24px}
+.ts-dot{width:7px;height:7px;background:var(--g3);border-radius:50%;animation:pd 2s ease-in-out infinite}
+@keyframes pd{0%,100%{opacity:1}50%{opacity:.4}}
+.ts-badge-text{font-size:.65em;color:rgba(255,255,255,.7);font-weight:500;letter-spacing:.06em}
+.ts-title{font-family:var(--fh);font-size:2.8em;font-weight:900;color:#fff;line-height:1.0;margin-bottom:.2em}
+.ts-acc{color:var(--am)}
+.ts-yr{color:rgba(255,255,255,.15)}
+.ts-theme{font-size:.85em;color:rgba(255,255,255,.6);font-style:italic;font-family:var(--fh);margin:14px 0}
+.ts-tag{font-size:.7em;color:var(--am);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px}
+.ts-meta{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.ts-meta-item{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:6px 14px;font-size:.72em;color:rgba(255,255,255,.8);font-weight:500}
+.s-content{padding:40px 60px;height:100%;display:flex;flex-direction:column;justify-content:center}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+.stat-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 12px;text-align:center;border-top:3px solid var(--g2)}
+.stat-box.amber{border-top-color:var(--am)}
+.sb-n{font-family:var(--fh);font-size:1.8em;font-weight:900;color:#fff;line-height:1}
+.sb-l{font-size:.65em;color:rgba(255,255,255,.5);margin-top:6px;line-height:1.3}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.s-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 16px}
+.s-card-ico{font-size:1.4em;margin-bottom:8px}
+.s-card-num{font-size:.6em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--am);margin-bottom:4px}
+.s-card-title{font-size:.82em;font-weight:700;color:#fff;line-height:1.3}
+.s-card-desc{font-size:.72em;color:rgba(255,255,255,.55);margin-top:5px;line-height:1.4}
+.s-quote{background:rgba(15,76,53,.3);border-left:3px solid var(--g2);border-radius:0 10px 10px 0;padding:18px 22px;margin:16px 0}
+.s-quote p{font-style:italic;color:rgba(255,255,255,.88);font-size:.86em;line-height:1.7;margin-bottom:8px}
+.s-quote cite{font-size:.7em;color:var(--am);font-weight:600;font-style:normal}
+.tier-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.tier-c{border-radius:10px;padding:18px 14px;text-align:center}
+.t-platinum{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.t-gold{background:rgba(120,53,15,.4);border:1px solid rgba(217,119,6,.3)}
+.t-silver{background:rgba(15,76,53,.4);border:1px solid rgba(26,158,110,.3)}
+.t-support{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
+.tier-name{font-weight:800;font-size:.82em;color:#fff;margin-bottom:4px;font-family:var(--fh)}
+.tier-amt{font-size:1.1em;font-weight:900;font-family:var(--fh);color:var(--am);margin-bottom:10px}
+.tier-feat{font-size:.65em;color:rgba(255,255,255,.6);line-height:1.5}
+.prog-table{width:100%;margin:14px 0;font-size:.75em}
+.prog-table tr:nth-child(odd) td{background:rgba(255,255,255,.03)}
+.prog-table td{padding:8px 12px;vertical-align:top;border-bottom:1px solid rgba(255,255,255,.05)}
+.pt-time{color:rgba(255,255,255,.4);white-space:nowrap;width:30%}
+.pt-type{color:var(--am);font-size:.85em;font-weight:600;margin-bottom:2px}
+.pt-title{color:rgba(255,255,255,.85);font-weight:500}
+.au-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.au-card{background:rgba(255,255,255,.05);border-left:3px solid var(--g2);border-radius:0 8px 8px 0;padding:12px 14px}
+.au-ico{font-size:1.2em;margin-bottom:4px}
+.au-title{font-size:.75em;font-weight:700;color:#fff;line-height:1.3}
+.cta-slide{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:40px}
+.cta-title{font-family:var(--fh);font-size:2.2em;font-weight:900;color:#fff;margin-bottom:12px}
+.cta-title span{color:var(--am)}
+.cta-sub{font-size:.88em;color:rgba(255,255,255,.65);margin-bottom:28px;max-width:500px}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.cta-btn{padding:12px 28px;border-radius:50px;font-weight:700;font-size:.82em;display:inline-block}
+.cta-btn-primary{background:var(--am);color:#fff}
+.cta-btn-outline{border:2px solid rgba(255,255,255,.3);color:rgba(255,255,255,.85)}
+.cta-url{font-size:.88em;color:var(--am);font-weight:600}
+.cta-orgs{margin-top:16px;font-size:.72em;color:rgba(255,255,255,.35)}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="slide-geo geo-bl"></div>
+<div class="title-slide">
+<div class="ts-badge"><div class="ts-dot"></div><span class="ts-badge-text">Official Presentation Deck &middot; 2026</span></div>
+<h1 class="ts-title">Borneo <span class="ts-acc">ESG</span> Forum <span class="ts-yr">2026</span></h1>
+<p class="ts-theme">&ldquo;Scaling Borneo&rsquo;s Green Economy for Sustainable Growth&rdquo;</p>
+<p class="ts-tag">Advancing Sustainable Growth, Creating Lasting Impact. Together.</p>
+<div class="ts-meta">
+<div class="ts-meta-item">&#128197; 14&ndash;15 October 2026</div>
+<div class="ts-meta-item">&#128205; Kuching, Sarawak</div>
+<div class="ts-meta-item">&#128101; 200+ Delegates</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">The Context</span>
+<h2>The Sustainability Imperative Is Now</h2>
+<div class="two-col">
+<div>
+<p>ESG has moved from niche framework to fundamental operating requirement for governments, corporations, and communities worldwide.</p>
+<ul style="margin-top:16px">
+<li>UNPRI: 5,000+ signatories, USD 120 trillion AUM</li>
+<li>Green bond issuance: USD 500B+ annually</li>
+<li>Paris Agreement binding net-zero commitments</li>
+<li>ASEAN Green Finance growth: 40% YoY</li>
+</ul>
+</div>
+<div>
+<div class="s-quote"><p>Southeast Asia sits at the intersection of global opportunity and obligation. The time for action is now.</p></div>
+<div class="stat-grid" style="grid-template-columns:1fr 1fr">
+<div class="stat-box amber"><div class="sb-n">2030</div><div class="sb-l">Malaysia Net Zero Target</div></div>
+<div class="stat-box"><div class="sb-n">40%</div><div class="sb-l">ASEAN ESG investment growth</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">Why Sarawak, Why Now</span>
+<h2>Sarawak&rsquo;s Green Economy Leadership</h2>
+<div class="stat-grid">
+<div class="stat-box"><div class="sb-n">RM347B</div><div class="sb-l">Green investments mobilised</div></div>
+<div class="stat-box"><div class="sb-n">70%</div><div class="sb-l">Electricity from renewables</div></div>
+<div class="stat-box"><div class="sb-n">72%</div><div class="sb-l">Carbon cut since 2010</div></div>
+<div class="stat-box amber"><div class="sb-n">2050</div><div class="sb-l">Net zero target (MEESty)</div></div>
+</div>
+<div class="three-col" style="margin-top:14px">
+<div class="s-card"><div class="s-card-num">May 2025</div><div class="s-card-title">Sarawak Sustainability Blueprint 2030</div><div class="s-card-desc">Malaysia&rsquo;s first state sustainability masterplan. 10 thrusts, 48 strategies.</div></div>
+<div class="s-card"><div class="s-card-num">Aug 2025</div><div class="s-card-title">Sarawak Energy Transition Policy (SET-P)</div><div class="s-card-desc">60% renewable energy capacity target by 2030.</div></div>
+<div class="s-card"><div class="s-card-num">Target</div><div class="s-card-title">10GW Renewable Energy by 2030</div><div class="s-card-desc">Southeast Asia&rsquo;s green energy powerhouse in the making.</div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">The Problem We Solve</span>
+<h2>From Policy to Practice: The Gap</h2>
+<p>Despite Sarawak&rsquo;s remarkable policy momentum, critical gaps persist between ambitious frameworks and ground-level implementation.</p>
+<div class="two-col" style="margin-top:20px">
+<ul>
+<li>Limited ESG capacity among SMEs and local businesses</li>
+<li>Difficulty translating green projects into bankable propositions</li>
+<li>Greenwashing risks in under-regulated reporting environments</li>
+<li>Insufficient cross-sector dialogue connecting policy with practice</li>
+<li>Knowledge and skills gaps in green economy workforce</li>
+</ul>
+<div class="s-card" style="background:rgba(217,119,6,.1);border-color:rgba(217,119,6,.25)">
+<div style="font-size:1.4em;margin-bottom:8px">&#127919;</div>
+<div style="font-size:.85em;font-weight:700;color:#fff;margin-bottom:6px">The Forum&rsquo;s Role</div>
+<p style="font-size:.78em">Borneo ESG Forum 2026 bridges this gap &mdash; convening the right stakeholders, facilitating substantive dialogue, producing actionable outcomes.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content" style="text-align:center;align-items:center">
+<span class="s-label">The Solution</span>
+<h1 style="font-size:2em;margin-bottom:10px">Introducing: Borneo ESG Forum 2026</h1>
+<p style="max-width:560px;margin:0 auto 24px">A landmark two-day regional conference dedicated to scaling Borneo&rsquo;s green economy and advancing ESG leadership.</p>
+<div class="stat-grid" style="max-width:600px;margin:0 auto">
+<div class="stat-box"><div class="sb-n">2</div><div class="sb-l">Days</div></div>
+<div class="stat-box"><div class="sb-n">8</div><div class="sb-l">Sessions</div></div>
+<div class="stat-box"><div class="sb-n">7</div><div class="sb-l">Pillars</div></div>
+<div class="stat-box amber"><div class="sb-n">200+</div><div class="sb-l">Delegates</div></div>
+</div>
+<div class="s-quote" style="max-width:600px;margin:20px auto 0"><p>&ldquo;Advancing Sustainable Growth, Creating Lasting Impact. TOGETHER.&rdquo;</p><cite>Borneo ESG Forum 2026 Tagline</cite></div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">Vision &amp; Mission</span>
+<h2>Our Purpose</h2>
+<div class="two-col">
+<div class="s-card" style="padding:24px"><div style="font-size:.72em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--am);margin-bottom:10px">Vision</div><p style="font-size:.9em;color:rgba(255,255,255,.85);line-height:1.7">To be Southeast Asia&rsquo;s premier annual platform for ESG and green economy dialogue, anchored in Borneo&rsquo;s unique ecological, social, and economic context.</p></div>
+<div class="s-card" style="padding:24px"><div style="font-size:.72em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--am);margin-bottom:10px">Mission</div><p style="font-size:.9em;color:rgba(255,255,255,.85);line-height:1.7">To catalyse practical, scalable, and impactful ESG action across Borneo by convening the right stakeholders and producing actionable outcomes.</p></div>
+</div>
+<div class="s-quote" style="margin-top:16px"><p>&ldquo;We do not see sustainability and economic growth as opposing forces. In Sarawak, they are two sides of the same coin.&rdquo;</p><cite>YB Datuk Dr Hazland Abang Hipni &middot; Deputy Minister, MEESty Sarawak</cite></div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">5 Key Objectives</span>
+<h2>What We Set Out to Achieve</h2>
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:16px">
+<div class="s-card" style="display:flex;gap:14px;align-items:center"><div style="width:32px;height:32px;background:var(--g1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78em;font-weight:700;color:#fff;flex-shrink:0">1</div><span style="font-size:.88em;color:rgba(255,255,255,.85)">Promote practical ESG and sustainability dialogue across Borneo</span></div>
+<div class="s-card" style="display:flex;gap:14px;align-items:center"><div style="width:32px;height:32px;background:var(--g1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78em;font-weight:700;color:#fff;flex-shrink:0">2</div><span style="font-size:.88em;color:rgba(255,255,255,.85)">Strengthen collaboration between public, private, and community stakeholders</span></div>
+<div class="s-card" style="display:flex;gap:14px;align-items:center"><div style="width:32px;height:32px;background:var(--g1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78em;font-weight:700;color:#fff;flex-shrink:0">3</div><span style="font-size:.88em;color:rgba(255,255,255,.85)">Support green investment, innovation, and responsible development</span></div>
+<div class="s-card" style="display:flex;gap:14px;align-items:center"><div style="width:32px;height:32px;background:var(--g1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78em;font-weight:700;color:#fff;flex-shrink:0">4</div><span style="font-size:.88em;color:rgba(255,255,255,.85)">Encourage scalable and impactful sustainability initiatives</span></div>
+<div class="s-card" style="display:flex;gap:14px;align-items:center"><div style="width:32px;height:32px;background:var(--g1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78em;font-weight:700;color:#fff;flex-shrink:0">5</div><span style="font-size:.88em;color:rgba(255,255,255,.85)">Advance Borneo&rsquo;s role in sustainable regional growth</span></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">7 Forum Focus Areas</span>
+<h2>7 Pillars of Sustainability</h2>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px">
+<div class="s-card"><div class="s-card-ico">&#127807;</div><div class="s-card-num">01</div><div class="s-card-title">Green Economy &amp; Investment</div></div>
+<div class="s-card"><div class="s-card-ico">&#9889;</div><div class="s-card-num">02</div><div class="s-card-title">Renewable Energy Transition</div></div>
+<div class="s-card"><div class="s-card-ico">&#127807;</div><div class="s-card-num">03</div><div class="s-card-title">Nature &amp; Carbon Solutions</div></div>
+<div class="s-card"><div class="s-card-ico">&#9878;&#65039;</div><div class="s-card-num">04</div><div class="s-card-title">ESG Governance &amp; Policy</div></div>
+<div class="s-card"><div class="s-card-ico">&#127978;</div><div class="s-card-num">05</div><div class="s-card-title">SMEs &amp; Community Development</div></div>
+<div class="s-card"><div class="s-card-ico">&#128161;</div><div class="s-card-num">06</div><div class="s-card-title">Innovation, Technology &amp; Data</div></div>
+<div class="s-card" style="grid-column:span 2;display:flex;gap:10px;align-items:center"><div style="font-size:1.4em">&#128269;</div><div><div class="s-card-num">07</div><div class="s-card-title">ESG Accountability &amp; Greenwashing</div></div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">Forum Programme</span>
+<h2>Day 1 &mdash; 14 October 2026</h2>
+<div style="display:inline-block;background:rgba(26,158,110,.2);border:1px solid var(--g2);border-radius:50px;padding:6px 16px;font-size:.72em;color:var(--g3);font-weight:600;margin-bottom:16px">Policy, Governance &amp; Green Investment</div>
+<table class="prog-table">
+<tr><td class="pt-time">9:00 &ndash; 9:30am</td><td><div class="pt-type">Opening Ceremony</div><div class="pt-title">Welcome Address &middot; Opening Remarks &middot; Official Opening</div></td></tr>
+<tr><td class="pt-time">9:30 &ndash; 10:45am</td><td><div class="pt-type">Session 1 &mdash; Panel</div><div class="pt-title">&ldquo;Bottlenecks to Green Project Success in Borneo&rdquo;</div></td></tr>
+<tr><td class="pt-time">11:00 &ndash; 12:15pm</td><td><div class="pt-type">Session 2 &mdash; Panel</div><div class="pt-title">&ldquo;Fixing the System for Green Investment in Borneo&rdquo;</div></td></tr>
+<tr><td class="pt-time">1:30 &ndash; 2:45pm</td><td><div class="pt-type">Session 3 &mdash; Fireside Chat</div><div class="pt-title">&ldquo;Financing Borneo&rsquo;s Green Economy: Turning Ideas into Bankable Projects&rdquo;</div></td></tr>
+<tr><td class="pt-time">3:00 &ndash; 4:15pm</td><td><div class="pt-type">Session 4 &mdash; Case Study</div><div class="pt-title">&ldquo;Lessons from Nature-Based and Carbon Projects in Borneo&rdquo;</div></td></tr>
+</table>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">Forum Programme</span>
+<h2>Day 2 &mdash; 15 October 2026</h2>
+<div style="display:inline-block;background:rgba(217,119,6,.15);border:1px solid rgba(217,119,6,.35);border-radius:50px;padding:6px 16px;font-size:.72em;color:#fcd34d;font-weight:600;margin-bottom:16px">Sustainable Implementation &amp; Responsible Growth</div>
+<table class="prog-table">
+<tr><td class="pt-time">9:30 &ndash; 9:45am</td><td><div class="pt-type">Special Address</div><div class="pt-title">Keynote on Advancing Sustainable Growth and ESG Priorities in Borneo</div></td></tr>
+<tr><td class="pt-time">9:45 &ndash; 11:00am</td><td><div class="pt-type">Session 5 &mdash; Panel</div><div class="pt-title">&ldquo;Green Growth for Jobs, SMEs, and Communities&rdquo;</div></td></tr>
+<tr><td class="pt-time">11:30 &ndash; 12:45pm</td><td><div class="pt-type">Session 6 &mdash; Panel</div><div class="pt-title">&ldquo;Scaling Energy and Sustainability Projects&rdquo;</div></td></tr>
+<tr><td class="pt-time">2:00 &ndash; 3:05pm</td><td><div class="pt-type">Session 7 &mdash; Xpert Insight</div><div class="pt-title">&ldquo;Pioneering Green Solutions for SMEs&rdquo;</div></td></tr>
+<tr><td class="pt-time">3:20 &ndash; 4:25pm</td><td><div class="pt-type">Session 8 &mdash; Panel</div><div class="pt-title">&ldquo;Unmasking Greenwashing in Borneo&rsquo;s Green Economy&rdquo;</div></td></tr>
+</table>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">Who Should Attend</span>
+<h2>Built for Every Stakeholder</h2>
+<p>The Borneo ESG Forum convenes the full spectrum of sustainability actors.</p>
+<div class="au-grid" style="margin-top:16px">
+<div class="au-card"><div class="au-ico">&#127963;&#65039;</div><div class="au-title">Policymakers &amp; Government Agencies</div></div>
+<div class="au-card"><div class="au-ico">&#128176;</div><div class="au-title">Investors &amp; Financial Institutions</div></div>
+<div class="au-card"><div class="au-ico">&#127970;</div><div class="au-title">Corporates &amp; Developers</div></div>
+<div class="au-card"><div class="au-ico">&#128722;</div><div class="au-title">SMEs &amp; Industry Leaders</div></div>
+<div class="au-card"><div class="au-ico">&#127757;</div><div class="au-title">NGOs &amp; Communities</div></div>
+<div class="au-card"><div class="au-ico">&#127891;</div><div class="au-title">Academia &amp; Researchers</div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">Expected Outcomes</span>
+<h2>Expected Impact</h2>
+<div class="three-col" style="margin-top:16px">
+<div class="s-card"><div class="s-card-ico">&#128209;</div><div class="s-card-title">Policy Dialogue</div><div class="s-card-desc">Actionable recommendations feeding into Sarawak&rsquo;s Blueprint 2030 and SET-P.</div></div>
+<div class="s-card"><div class="s-card-ico">&#128200;</div><div class="s-card-title">Investment Facilitation</div><div class="s-card-desc">Target: RM50M+ in green deals initiated between project developers and capital providers.</div></div>
+<div class="s-card"><div class="s-card-ico">&#127970;</div><div class="s-card-title">SME Empowerment</div><div class="s-card-desc">Practical tools for 50+ SMEs to begin or accelerate sustainability journeys.</div></div>
+<div class="s-card"><div class="s-card-ico">&#128101;</div><div class="s-card-title">Network Building</div><div class="s-card-desc">200+ delegates forging cross-sector partnerships beyond the Forum.</div></div>
+<div class="s-card"><div class="s-card-ico">&#127808;</div><div class="s-card-title">Knowledge Transfer</div><div class="s-card-desc">8 sessions generating a post-Forum report for all delegates and media.</div></div>
+<div class="s-card"><div class="s-card-ico">&#127881;</div><div class="s-card-title">Regional Profile</div><div class="s-card-desc">Positioning Kuching &amp; Sarawak as Southeast Asia&rsquo;s ESG dialogue hub.</div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">Partnership Opportunities</span>
+<h2>Sponsorship Tiers</h2>
+<div class="tier-row">
+<div class="tier-c t-platinum"><div class="tier-name">Platinum</div><div class="tier-amt">RM50,000</div><div class="tier-feat">Logo all materials<br>Keynote slot<br>10 passes<br>Prime booth</div></div>
+<div class="tier-c t-gold"><div class="tier-name">Gold</div><div class="tier-amt">RM30,000</div><div class="tier-feat">Logo all materials<br>Panel slot<br>6 passes<br>Booth</div></div>
+<div class="tier-c t-silver"><div class="tier-name">Silver</div><div class="tier-amt">RM15,000</div><div class="tier-feat">Logo digital<br>3 passes<br>Display space</div></div>
+<div class="tier-c t-support"><div class="tier-name">Support</div><div class="tier-amt">RM5,000</div><div class="tier-feat">Logo digital<br>2 passes<br>Social mention</div></div>
+</div>
+<p style="text-align:center;margin-top:14px;font-size:.78em">Also available: Media Partnership &middot; Government/Institutional Partnership &middot; Academic Partner</p>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="s-content">
+<span class="s-label">The Team</span>
+<h2>Organised By</h2>
+<div class="two-col" style="margin-top:16px">
+<div>
+<div class="s-card" style="padding:24px;margin-bottom:14px"><div style="font-size:.65em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--am);margin-bottom:8px">Lead Organiser</div><div style="font-size:1.1em;font-weight:800;color:#fff;font-family:var(--fh);margin-bottom:8px">ZAYA Consultation Group</div><p style="font-size:.78em">Sarawak-based strategic consultancy specialising in sustainability, ESG governance, and policy advisory across Borneo and Malaysia.</p></div>
+<div class="s-card" style="padding:24px"><div style="font-size:.65em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--am);margin-bottom:8px">Co-Organiser</div><div style="font-size:1.1em;font-weight:800;color:#fff;font-family:var(--fh);margin-bottom:8px">CIC Capital Consultancy</div><p style="font-size:.78em">Green finance and investment advisory firm specialising in capital markets and sustainable investment facilitation across Borneo.</p></div>
+</div>
+<div>
+<div style="font-size:.72em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px">Sustainability Partners</div>
+<div class="s-card" style="margin-bottom:12px;padding:18px"><div style="font-size:.88em;font-weight:700;color:#fff">Centre for Sustainability Research (CSR)</div><p style="font-size:.74em;margin-top:5px">ESG &amp; Technology Research Partner providing academic rigour and data insights.</p></div>
+<div class="s-card" style="padding:18px"><div style="font-size:.88em;font-weight:700;color:#fff">ESG ADR Forum</div><p style="font-size:.74em;margin-top:5px">Sustainability Partner with expertise in ESG dispute resolution and governance standards.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="slide-geo geo-tr"></div>
+<div class="slide-geo geo-bl"></div>
+<div class="cta-slide">
+<span class="s-label">Join Us</span>
+<h1 class="cta-title">Be Part of<br>Borneo&rsquo;s <span>Green Future</span></h1>
+<p class="cta-sub">Register. Sponsor. Partner. Speak. The Borneo ESG Forum 2026 needs you at the table.</p>
+<div class="cta-actions">
+<a href="index.html#register" class="cta-btn cta-btn-primary">Register Your Interest</a>
+<a href="index.html#register" class="cta-btn cta-btn-outline">Become a Sponsor</a>
+</div>
+<div class="cta-url">www.borneoesgconference.com</div>
+<div style="margin-top:20px;font-size:.75em;color:rgba(255,255,255,.35)">14&ndash;15 October 2026 &middot; Kuching, Sarawak, Malaysia</div>
+<div class="cta-orgs">Organised by ZAYA Consultation Group &amp; CIC Capital Consultancy</div>
+</div>
+</section>
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>Reveal.initialize({hash:true,slideNumber:'c/t',progress:true,transition:'slide',backgroundTransition:'fade',controls:true,center:true});</script>
+</body>
+</html>
