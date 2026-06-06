@@ -1,0 +1,31 @@
+name: Deploy Borneo ESG Forum 2026
+
+on:
+  push:
+    branches:
+      - main
+      - claude/wizardly-albattani-gDVlF
+    paths:
+      - 'borneo-esg-forum-2026/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3
+        with:
+          publish-dir: './borneo-esg-forum-2026'
+          production-branch: main
+          production-deploy: true
+          deploy-message: "Deploy from GitHub Actions — ${{ github.sha }}"
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 58d654ea-3aa9-4fd0-881d-038266d3d08b
+        timeout-minutes: 5
