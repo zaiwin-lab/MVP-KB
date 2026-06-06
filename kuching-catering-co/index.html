@@ -177,7 +177,43 @@ footer{background:var(--g900,#040c08);color:rgba(255,255,255,.4);padding:60px 24
 .toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--g600);color:#fff;padding:11px 22px;border-radius:100px;font-weight:700;font-size:13px;opacity:0;transition:all .28s;z-index:9999;pointer-events:none;white-space:nowrap}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 .fu{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.fu.in{opacity:1;transform:translateY(0)}.d1{transition-delay:.1s}.d2{transition-delay:.2s}
+/* ═══════════════ PREMIUM POLISH ═══════════════ */
+::selection{background:var(--a);color:#0a1a0a}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--g900)}::-webkit-scrollbar-thumb{background:var(--g600);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:var(--a)}
+.horb{position:absolute;border-radius:50%;pointer-events:none}
+.horb1{width:520px;height:520px;top:-140px;right:-100px;background:radial-gradient(circle,rgba(212,146,42,.065) 0%,transparent 62%);animation:orb1 13s ease-in-out infinite}
+.horb2{width:380px;height:380px;bottom:-80px;left:4%;background:radial-gradient(circle,rgba(21,94,58,.09) 0%,transparent 62%);animation:orb2 17s ease-in-out infinite}
+@keyframes orb1{0%,100%{transform:translate(0,0)}40%{transform:translate(22px,-16px)}70%{transform:translate(-10px,20px)}}
+@keyframes orb2{0%,100%{transform:translate(0,0)}35%{transform:translate(-16px,14px)}70%{transform:translate(14px,-18px)}}
+.hcard{background:rgba(255,255,255,.06);backdrop-filter:blur(28px) saturate(175%);-webkit-backdrop-filter:blur(28px) saturate(175%);border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 72px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.09)}
+.qfbox{position:relative;isolation:isolate;background:#fff;border-radius:var(--rxl);padding:36px 32px;box-shadow:0 28px 80px rgba(0,0,0,.3),0 2px 8px rgba(0,0,0,.1)}
+.qfbox::before{content:'';position:absolute;inset:-1.5px;border-radius:calc(var(--rxl) + 2px);background:linear-gradient(135deg,rgba(212,146,42,.42) 0%,rgba(255,255,255,.04) 48%,rgba(27,125,76,.28) 100%);z-index:-1;pointer-events:none}
+.fg input,.fg select,.fg textarea{background:#f8faf8;border:1.5px solid #dde6e0;font-size:13.5px;letter-spacing:-.1px;transition:all .22s cubic-bezier(.4,0,.2,1)}
+.fg input::placeholder,.fg textarea::placeholder{color:#b0c4b8}
+.fg input:focus,.fg select:focus,.fg textarea:focus{background:#fff;border-color:var(--g500);box-shadow:0 0 0 4px rgba(27,125,76,.09),0 2px 6px rgba(27,125,76,.07);transform:translateY(-1px)}
+.fg select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' fill='none' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23486052' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px;appearance:none;-webkit-appearance:none}
+input[type=date]{color-scheme:light}
+.ba{box-shadow:0 4px 16px rgba(212,146,42,.22)}.ba:hover{box-shadow:0 8px 30px rgba(212,146,42,.4);transform:translateY(-2px)}.ba:active{transform:translateY(0) scale(.98);box-shadow:0 2px 8px rgba(212,146,42,.18)}
+.bc{transition:all .35s cubic-bezier(.34,1.48,.64,1)}.bc:hover{transform:translateY(-6px) scale(1.015)}
+.pk::after{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,transparent,var(--a) 50%,transparent);opacity:0;transition:opacity .3s}.pk:hover::after,.pk.pop::after{opacity:1}
+.hpn,.wsn{text-shadow:0 0 18px rgba(212,146,42,.28)}
+.wacirc{position:relative}.wacirc::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:rgba(37,211,102,.15);animation:wpr 2.6s ease-out infinite;pointer-events:none}
+@keyframes wpr{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.75);opacity:0}}
+#nprog{position:fixed;top:0;left:0;height:2.5px;background:linear-gradient(90deg,var(--g600),var(--a),var(--g500));z-index:2001;width:0%;transition:width .06s linear;pointer-events:none;border-radius:0 2px 2px 0}
+.btn[disabled]{opacity:.65;cursor:not-allowed}
+@keyframes successPop{from{opacity:0;transform:scale(.82) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+#qfsuccess{animation:successPop .5s cubic-bezier(.34,1.56,.64,1) both}
+.craft-sig{display:flex;align-items:center;justify-content:center;gap:8px;padding-top:14px;margin-top:6px;border-top:1px solid rgba(255,255,255,.04);font-size:9.5px;color:rgba(255,255,255,.13);letter-spacing:2px;text-transform:uppercase}
+.craft-sig .csl{flex:0 0 22px;height:1px;background:linear-gradient(90deg,transparent,rgba(212,146,42,.3))}.craft-sig .csl.r{background:linear-gradient(270deg,transparent,rgba(212,146,42,.3))}.craft-sig .csd{width:3px;height:3px;border-radius:50%;background:var(--a);opacity:.4}
+.fc ul a{position:relative}.fc ul a::after{content:'';position:absolute;bottom:-1px;left:0;width:0;height:1px;background:var(--a);transition:width .2s}.fc ul a:hover::after{width:100%}
+.qfacts{display:flex;gap:10px;margin-top:14px;align-items:stretch}.qfacts .btn.ba{flex:1;justify-content:center;padding:13px 18px;font-size:14px;font-weight:700}.qfacts .btn.bwa{padding:13px 16px;flex-shrink:0}
+.qfdiv{height:1px;background:linear-gradient(90deg,rgba(212,146,42,.35),var(--bd),transparent);margin:16px 0 18px;opacity:.65}
+.qfsub-note{font-size:10.5px;color:var(--txl);text-align:center;margin-top:10px;line-height:1.6}
+@media(max-width:500px){.qfbox{padding:24px 18px}.fr2{grid-template-columns:1fr}}
+.btn:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+.logo:hover .ln{color:var(--a);transition:color .2s}
 </style></head><body>
+<div id="nprog"></div>
 <div class="toast" id="toast">✅ Borang dihantar. Kami akan follow up dalam tempoh 1 jam.</div>
 <div class="mob" id="mn">
   <div class="mob-ls">
@@ -222,6 +258,7 @@ footer{background:var(--g900,#040c08);color:rgba(255,255,255,.4);padding:60px 24
 <!-- HERO -->
 <section class="hero">
   <div class="hgb"></div><div class="hline"></div>
+  <div class="horb horb1"></div><div class="horb horb2"></div>
   <div class="hi">
     <div>
       <div class="hbadge"><span class="hbdot"></span> <span data-i18n="heroBadge">Penyelaras Katering Profesional — Kuching, Sarawak</span></div>
@@ -559,20 +596,97 @@ footer{background:var(--g900,#040c08);color:rgba(255,255,255,.4);padding:60px 24
         <div class="cii"><div class="ciico">🕐</div><div><div class="cilbl" data-i18n="ci4l">Waktu Operasi</div><div class="cival" data-i18n="ci4v">Isnin – Sabtu, 8:00 pagi – 8:00 malam</div></div></div>
       </div>
     </div>
-    <div class="qfbox fu d1" style="padding:0;overflow:hidden;background:transparent;box-shadow:none">
-      <iframe
-        id="JotFormIFrame-261542712857057"
-        title="Kuching Catering Co. — Enquiry / Borang Pertanyaan"
-        onload="window.parent.scrollTo(0,0)"
-        allowtransparency="true"
-        allow="geolocation; microphone; camera; fullscreen"
-        src="https://form.jotform.com/261542712857057"
-        frameborder="0"
-        style="min-width:100%;width:100%;height:720px;border:none;border-radius:20px;background:#fff;"
-        scrolling="no">
-      </iframe>
-      <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-      <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-261542712857057']","https://form.jotform.com")</script>
+    <div class="qfbox fu d1">
+      <!-- form view -->
+      <div id="qfform">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+          <div style="width:40px;height:40px;background:var(--g800);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">📋</div>
+          <div>
+            <div class="qfbt" data-i18n="qfbt" style="margin-bottom:0;font-size:17px">Borang Permintaan Quotation</div>
+            <div style="font-size:11px;color:var(--txl);margin-top:2px">Respons dalam &lt;1 jam &nbsp;·&nbsp; Percuma &nbsp;·&nbsp; Tanpa obligasi</div>
+          </div>
+        </div>
+        <div class="qfdiv"></div>
+        <form id="qform" onsubmit="submitQF(event)">
+          <div class="fg">
+            <label data-i18n="qfName">Nama Penuh *</label>
+            <div class="fr2">
+              <input type="text" name="q2_q2_fullname0[first]" placeholder="Nama Pertama / First Name" required>
+              <input type="text" name="q2_q2_fullname0[last]" placeholder="Nama Akhir / Jawatan">
+            </div>
+          </div>
+          <div class="fr2">
+            <div class="fg">
+              <label data-i18n="qfWa">No. WhatsApp *</label>
+              <input type="tel" name="q3_q3_phone1[full]" placeholder="+601X-XXXXXXX" required>
+            </div>
+            <div class="fg">
+              <label data-i18n="qfOrg">Organisasi / Jabatan</label>
+              <input type="text" name="q4_q4_textbox2" placeholder="cth. Jabatan JKR / MBKS">
+            </div>
+          </div>
+          <div class="fr2">
+            <div class="fg">
+              <label data-i18n="qfType">Jenis Katering *</label>
+              <select name="q5_q5_dropdown3" id="qt" required>
+                <option value="" data-i18n="qfTypePh">Pilih jenis katering...</option>
+                <option value="Katering Fungsi Kerajaan / Rasmi">Katering Fungsi Kerajaan / Rasmi</option>
+                <option value="Katering Korporat / Seminar">Katering Korporat / Seminar</option>
+                <option value="Katering Program Latihan">Katering Program Latihan</option>
+                <option value="Katering Konvensyen / Ekspo">Katering Konvensyen / Ekspo</option>
+                <option value="Katering Perkahwinan">Katering Perkahwinan</option>
+                <option value="Katering Open House / Perayaan">Katering Open House / Perayaan</option>
+                <option value="Katering NGO / Koperasi">Katering NGO / Koperasi</option>
+                <option value="Katering Gathering Persendirian">Katering Gathering Persendirian</option>
+                <option value="Lain-lain">Lain-lain</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label data-i18n="qfPax">Bilangan Tetamu *</label>
+              <input type="number" name="q6_q6_number4" placeholder="cth. 100 pax" min="30" required>
+            </div>
+          </div>
+          <div class="fr2">
+            <div class="fg">
+              <label data-i18n="qfDate">Tarikh Katering *</label>
+              <input type="date" id="qdate" required style="width:100%">
+            </div>
+            <div class="fg">
+              <label data-i18n="qfBudget">Anggaran Per Pax</label>
+              <select name="q8_q8_dropdown6">
+                <option value="Flexible / Belum pasti" data-i18n="qfBudgetPh">Flexible / Belum pasti</option>
+                <option value="RM 25-35 per pax">RM 25 – 35 / pax</option>
+                <option value="RM 35-50 per pax">RM 35 – 50 / pax</option>
+                <option value="RM 50-70 per pax">RM 50 – 70 / pax</option>
+                <option value="RM 70+ per pax">RM 70+ / pax</option>
+              </select>
+            </div>
+          </div>
+          <!-- Hidden JotForm date fields -->
+          <input type="hidden" id="qd_m" name="q7_q7_datetime5[month]">
+          <input type="hidden" id="qd_d" name="q7_q7_datetime5[day]">
+          <input type="hidden" id="qd_y" name="q7_q7_datetime5[year]">
+          <div class="fg">
+            <label data-i18n="qfNote">Maklumat Tambahan</label>
+            <textarea name="q9_q9_textarea7" rows="3" placeholder="Tema, keperluan khas, alahan makanan, dsb."></textarea>
+          </div>
+          <div class="qfacts">
+            <button type="submit" id="qfsub" class="btn ba" data-i18n="qfSubmit">Hantar Borang →</button>
+            <a href="https://wa.me/601128465813" class="btn bwa" target="_blank" title="WhatsApp Terus">💬</a>
+          </div>
+          <p class="qfsub-note" data-i18n="qfPrivacy">🔒 Maklumat anda adalah sulit dan tidak akan dikongsi dengan mana-mana pihak ketiga.</p>
+        </form>
+      </div>
+      <!-- success view -->
+      <div id="qfsuccess" style="display:none;text-align:center;padding:48px 24px">
+        <div style="width:68px;height:68px;background:linear-gradient(135deg,var(--g600),var(--g800));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 20px;box-shadow:0 8px 28px rgba(12,34,24,.3)">✅</div>
+        <h3 style="font-size:21px;font-weight:800;color:var(--g800);margin-bottom:10px" data-i18n="qfSucH">Borang Dihantar!</h3>
+        <p style="font-size:14px;color:var(--txm);line-height:1.75;margin-bottom:28px;max-width:300px;margin-left:auto;margin-right:auto" data-i18n="qfSucP">Terima kasih. Pengurus kami akan menghubungi anda dalam tempoh <strong style="color:var(--g800)">1 jam</strong> waktu operasi.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a href="https://wa.me/601128465813" class="btn bwa blg" target="_blank">💬 WhatsApp Terus</a>
+          <button onclick="document.getElementById('qfsuccess').style.display='none';document.getElementById('qfform').style.display='block'" class="btn boc" data-i18n="qfSucBtn2">Hantar Semula</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -626,6 +740,13 @@ footer{background:var(--g900,#040c08);color:rgba(255,255,255,.4);padding:60px 24
     <div class="fbot">
       <span>© 2025 Kuching Catering Co. / KOBIS Berhad. <span data-i18n="ftRights">Hak Cipta Terpelihara.</span></span>
       <div class="flinks"><a href="#" data-i18n="ftPriv">Dasar Privasi</a><a href="#" data-i18n="ftTerms">Terma Perkhidmatan</a></div>
+    </div>
+    <div class="craft-sig">
+      <span class="csl"></span>
+      <span class="csd"></span>
+      <span>Crafted with precision &mdash; KOBIS Berhad</span>
+      <span class="csd"></span>
+      <span class="csl r"></span>
     </div>
   </div>
 </footer>
@@ -690,6 +811,7 @@ const T={
     qLbl:'Hubungi Kami',qH2Span:'Jom Bincang Katering.',qSub:'Isi borang ini dan terima quotation penuh tanpa obligasi dalam tempoh 1 jam.',
     ci1l:'WhatsApp Rasmi',ci2l:'E-mel',ci3l:'Kawasan Liputan',ci3v:'Kuching, Kota Samarahan & seluruh Sarawak',ci4l:'Waktu Operasi',ci4v:'Isnin – Sabtu, 8:00 pagi – 8:00 malam',
     qfbt:'📋 Borang Permintaan Quotation',qfName:'Nama Penuh *',qfWa:'No. WhatsApp *',qfOrg:'Organisasi / Jabatan / Syarikat',qfType:'Jenis Katering *',qfTypePh:'Pilih jenis katering...',qfPax:'Bilangan Tetamu *',qfDate:'Tarikh Katering *',qfBudget:'Anggaran Per Pax',qfBudgetPh:'Flexible / Belum pasti',qfNote:'Maklumat Tambahan',qfSubmit:'Hantar Borang →',qfPrivacy:'🔒 Maklumat anda adalah sulit dan tidak akan dikongsi dengan mana-mana pihak ketiga.',
+    qfSucH:'Borang Dihantar!',qfSucP:'Terima kasih. Pengurus kami akan menghubungi anda dalam tempoh 1 jam waktu operasi.',qfSucBtn2:'Hantar Semula',
     backedBy:'Dijamin oleh',backedText:'Semua urusan katering ini dikendalikan di bawah syarikat berdaftar Malaysia — komited dengan perkhidmatan yang berkualiti, telus dan amanah.',
     ftDesc:'Penyelaras katering profesional di Kuching, Sarawak. Menghubungkan anda dengan caterer terverifikasi untuk semua jenis katering.',ftSvcH:'Perkhidmatan',ftSvc1:'Katering Kerajaan',ftSvc2:'Katering Korporat',ftSvc3:'Program Latihan',ftSvc4:'Katering Perkahwinan',ftSvc5:'Open House & Perayaan',
     ftLinkH:'Pautan Pantas',ftL1:'Cara Kami Beroperasi',ftL2:'Pakej & Harga',ftL3:'Galeri',ftL4:'Soalan Lazim',ftL5:'Minta Quotation',
@@ -749,6 +871,7 @@ const T={
     qLbl:'Contact Us',qH2Span:'Let\'s Talk Catering.',qSub:'Fill this form and receive a full no-obligation quotation within 1 hour.',
     ci1l:'WhatsApp',ci2l:'Email',ci3l:'Coverage Area',ci3v:'Kuching, Kota Samarahan & across Sarawak',ci4l:'Operating Hours',ci4v:'Monday – Saturday, 8:00am – 8:00pm',
     qfbt:'📋 Quotation Request Form',qfName:'Full Name *',qfWa:'WhatsApp No. *',qfOrg:'Organisation / Department / Company',qfType:'Catering Type *',qfTypePh:'Select catering type...',qfPax:'No. of Guests *',qfDate:'Catering Date *',qfBudget:'Estimated Budget Per Pax',qfBudgetPh:'Flexible / Not sure',qfNote:'Additional Notes',qfSubmit:'Submit Form →',qfPrivacy:'🔒 Your information is confidential and will not be shared with any third party.',
+    qfSucH:'Form Submitted!',qfSucP:'Thank you. Our manager will contact you within 1 hour during operating hours.',qfSucBtn2:'Submit Again',
     backedBy:'Guaranteed by',backedText:'All catering services are managed under a registered Malaysian company — committed to quality, transparent and trustworthy service.',
     ftDesc:'Professional catering coordinator in Kuching, Sarawak. Connecting you with verified caterers for all types of catering.',ftSvcH:'Services',ftSvc1:'Government Catering',ftSvc2:'Corporate Catering',ftSvc3:'Training Programmes',ftSvc4:'Wedding Catering',ftSvc5:'Open House & Celebrations',
     ftLinkH:'Quick Links',ftL1:'How We Work',ftL2:'Packages & Pricing',ftL3:'Gallery',ftL4:'FAQ',ftL5:'Get Quotation',
@@ -808,6 +931,7 @@ const T={
     qLbl:'联系我们',qH2Span:'来谈谈餐饮吧。',qSub:'填写表格，将1小时内收到完整返报价。',
     ci1l:'WhatsApp 官方',ci2l:'电子邮件',ci3l:'服务区域',ci3v:'古晋及砂拉越全境',ci4l:'营业时间',ci4v:'周一 – 周六，早上8:00 – 晚上8:00',
     qfbt:'📋 餐饮报价申请表',qfName:'姓名 *',qfWa:'WhatsApp 号码 *',qfOrg:'机构 / 部门 / 公司',qfType:'餐饮类型 *',qfTypePh:'请选择餐饮类型...',qfPax:'预计人数 *',qfDate:'餐饮日期 *',qfBudget:'预算上限(每人)',qfBudgetPh:'灵活 / 尚未确定',qfNote:'附加说明',qfSubmit:'提交表格 →',qfPrivacy:'🔒 您的信息完全保密，不会与任何第三方共享。',
+    qfSucH:'表格已提交！',qfSucP:'谢谢您。我们的经理将在营业时间内1小时内联系您。',qfSucBtn2:'重新提交',
     backedBy:'由以下公司保证',backedText:'所有餐饮服务均由马来西亚注册公司管理 — 承诺提供优质、透明、值得信赖的餐饮服务。',
     ftDesc:'古晋专业餐饮协调商。为您连接经过认证的餐饮商，提供快捷专业的餐饮服务。',
     ftSvcH:'服务项目',ftSvc1:'政府餐饮',ftSvc2:'企业餐饮',ftSvc3:'培训课程',ftSvc4:'婚礼餐饮',ftSvc5:'开放日和庆典',
@@ -851,6 +975,34 @@ function qf(e){
     .catch(()=>{showT(msg);form.reset()});
 }
 document.getElementById('wtip').addEventListener('click',function(){this.style.display='none'});
+// Scroll progress bar
+window.addEventListener('scroll',function(){
+  const p=document.getElementById('nprog');
+  if(!p)return;
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  p.style.width=(h>0?(scrollY/h*100):0)+'%';
+});
+// Custom form submit → JotForm API (no iframe, no branding)
+function submitQF(e){
+  e.preventDefault();
+  const form=e.target,btn=document.getElementById('qfsub'),lang=curLang;
+  // Map date picker → JotForm hidden fields
+  const dv=document.getElementById('qdate').value;
+  if(dv){const p=dv.split('-');document.getElementById('qd_m').value=parseInt(p[1]);document.getElementById('qd_d').value=parseInt(p[2]);document.getElementById('qd_y').value=p[0];}
+  // Disable button + loading label
+  btn.disabled=true;
+  btn.textContent=lang==='zh'?'正在提交...':lang==='en'?'Submitting...':'Menghantar...';
+  const fd=new FormData(form);
+  fd.append('formID','261542712857057');
+  fetch('https://submit.jotform.com/submit/261542712857057',{method:'POST',body:fd,mode:'no-cors'})
+    .then(()=>qfDone(lang)).catch(()=>qfDone(lang));
+}
+function qfDone(lang){
+  document.getElementById('qfform').style.display='none';
+  document.getElementById('qfsuccess').style.display='block';
+  const msg=lang==='zh'?'✅ 表格已提交！我们将1小时内联系您。':lang==='en'?'✅ Submitted! We\'ll follow up within 1 hour.':'✅ Borang dihantar! Kami akan follow up dalam 1 jam.';
+  showT(msg);
+}
 const io=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.08});
 document.querySelectorAll('.fu').forEach(el=>io.observe(el));
 const co=new IntersectionObserver(en=>{en.forEach(e=>{if(!e.isIntersecting||e.target.dataset.done)return;e.target.dataset.done='1';const tg=parseInt(e.target.dataset.count);if(!tg)return;let c=0,inc=tg/55;const t=setInterval(()=>{c+=inc;if(c>=tg){c=tg;clearInterval(t)}e.target.textContent=Math.floor(c)},18)})},{threshold:.5});
