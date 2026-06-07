@@ -472,7 +472,7 @@ a{text-decoration:none;color:inherit}
 <div class="pt-grp fi">
 <div class="pt-gtitle">Organised By</div>
 <div class="pt-row">
-<div class="pt-badge"><div class="pt-bname">ZAYA Consultation Group</div><div class="pt-brole">Lead Organiser</div></div>
+<div class="pt-badge"><div class="pt-bname">ZAYN Consulting Group</div><div class="pt-brole">Lead Organiser</div></div>
 <div class="pt-badge"><div class="pt-bname">CIC Capital Consultancy</div><div class="pt-brole">Co-Organiser</div></div>
 </div>
 </div>
@@ -579,7 +579,7 @@ a{text-decoration:none;color:inherit}
 <div>
 <div class="ft-ctitle">Organised By</div>
 <div class="ft-links">
-<a href="#">ZAYA Consultation Group</a>
+<a href="#">ZAYN Consulting Group</a>
 <a href="#">CIC Capital Consultancy</a>
 </div>
 <div class="ft-ctitle" style="margin-top:22px">Partners</div>
@@ -603,22 +603,46 @@ a{text-decoration:none;color:inherit}
 </div>
 <div class="ft-bot">
 <div class="ft-copy">&copy; 2026 Borneo ESG Forum. All rights reserved.</div>
-<div class="ft-org">Organised by <span>ZAYA Consultation Group</span> &amp; <span>CIC Capital Consultancy</span></div>
+<div class="ft-org">Organised by <span>ZAYN Consulting Group</span> &amp; <span>CIC Capital Consultancy</span></div>
 </div>
 </div>
 </footer>
 
 <script>
-function tick(){const t=new Date('2026-10-14T09:00:00+08:00')-new Date();if(t<=0){document.getElementById('cd').innerHTML='<p style="color:var(--g3);font-size:1.2rem;font-weight:700">The Forum is Live!</p>';return;}const d=Math.floor(t/86400000),h=Math.floor((t%86400000)/3600000),m=Math.floor((t%3600000)/60000),s=Math.floor((t%60000)/1000);document.getElementById('cd-d').textContent=String(d).padStart(3,'0');document.getElementById('cd-h').textContent=String(h).padStart(2,'0');document.getElementById('cd-m').textContent=String(m).padStart(2,'0');document.getElementById('cd-s').textContent=String(s).padStart(2,'0');}
+// COUNTDOWN
+function tick(){
+const t=new Date('2026-10-14T09:00:00+08:00')-new Date();
+if(t<=0){document.getElementById('cd').innerHTML='<p style="color:var(--g3);font-size:1.2rem;font-weight:700">The Forum is Live!</p>';return;}
+const d=Math.floor(t/86400000),h=Math.floor((t%86400000)/3600000),m=Math.floor((t%3600000)/60000),s=Math.floor((t%60000)/1000);
+document.getElementById('cd-d').textContent=String(d).padStart(3,'0');
+document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+}
 tick();setInterval(tick,1000);
+// NAV
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>60));
+// MOBILE MENU
 function openMM(){document.getElementById('mm').classList.add('open');document.body.style.overflow='hidden';}
 function closeMM(){document.getElementById('mm').classList.remove('open');document.body.style.overflow='';}
-function swDay(id,btn){document.querySelectorAll('.pg-con').forEach(e=>e.classList.remove('act'));document.querySelectorAll('.pg-tab').forEach(e=>e.classList.remove('act'));document.getElementById(id).classList.add('act');btn.classList.add('act');}
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fi').forEach(e=>obs.observe(e));
-const pc=document.getElementById('pts');const cls=['rgba(26,158,110,.35)','rgba(217,119,6,.25)','rgba(43,196,138,.28)'];for(let i=0;i<18;i++){const p=document.createElement('div');p.className='particle';const sz=Math.random()*4+2;p.style.cssText=`width:${sz}px;height:${sz}px;background:${cls[Math.floor(Math.random()*3)]};left:${Math.random()*100}%;animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*-20}s`;pc.appendChild(p);}
+// TABS
+function swDay(id,btn){
+document.querySelectorAll('.pg-con').forEach(e=>e.classList.remove('act'));
+document.querySelectorAll('.pg-tab').forEach(e=>e.classList.remove('act'));
+document.getElementById(id).classList.add('act');
+btn.classList.add('act');
+}
+// SCROLL ANIM
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fi').forEach(e=>obs.observe(e));
+// PARTICLES
+const pc=document.getElementById('pts');
+const cls=['rgba(26,158,110,.35)','rgba(217,119,6,.25)','rgba(43,196,138,.28)'];
+for(let i=0;i<18;i++){const p=document.createElement('div');p.className='particle';const sz=Math.random()*4+2;p.style.cssText=`width:${sz}px;height:${sz}px;background:${cls[Math.floor(Math.random()*3)]};left:${Math.random()*100}%;animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*-20}s`;pc.appendChild(p);}
+// FORM
 function doForm(e){e.preventDefault();document.getElementById('fcon').style.display='none';document.getElementById('fsucc').style.display='block';}
 function doNotify(){const v=document.getElementById('nEmail').value;if(!v||!v.includes('@'))return alert('Please enter a valid email.');document.querySelector('.nf').style.display='none';document.getElementById('nOk').style.display='block';}
+// SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});}));
 </script>
 </body>
