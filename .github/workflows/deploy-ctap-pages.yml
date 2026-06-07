@@ -1,31 +1,31 @@
-name: Deploy CTAP MVP to GitHub Pages
+name: Deploy CTAP MVP to Netlify
 
 on:
   push:
-    branches: [claude/ctap-gstack-marketing-setup-byfTp]
-    paths: ['ctap/mvp/**']
+    branches:
+      - main
+      - claude/ctap-gstack-marketing-setup-byfTp
+    paths:
+      - 'ctap/mvp/**'
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3
         with:
-          path: ctap/mvp
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          publish-dir: './ctap/mvp'
+          production-branch: main
+          production-deploy: true
+          deploy-message: "Deploy from GitHub Actions — ${{ github.sha }}"
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 2b9e1d91-04fb-4f03-a26e-822d8e4e56b1
+        timeout-minutes: 5
