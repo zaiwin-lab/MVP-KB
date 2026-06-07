@@ -1,0 +1,31 @@
+name: Deploy CTAP MVP to GitHub Pages
+
+on:
+  push:
+    branches: [claude/ctap-gstack-marketing-setup-byfTp]
+    paths: ['ctap/mvp/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ctap/mvp
+      - id: deployment
+        uses: actions/deploy-pages@v4
