@@ -10,6 +10,8 @@
 :root{--g1:#0f4c35;--g2:#1a9e6e;--am:#d97706;--nv:#0a1628;--mt:#f0faf5;--wh:#fff;--gr6:#4b5563;--gr8:#1f2937;--fh:'Playfair Display',serif;--fb:'Inter',sans-serif}
 body{font-family:var(--fb);background:#e0e0e0;color:var(--gr8);line-height:1.6}
 .brochure{max-width:960px;margin:0 auto;background:var(--wh);box-shadow:0 4px 40px rgba(0,0,0,.15)}
+
+/* COVER PANEL */
 .br-cover{background:var(--nv);padding:80px 72px;position:relative;overflow:hidden}
 .br-cover::before{content:'';position:absolute;top:-100px;right:-100px;width:450px;height:450px;background:rgba(15,76,53,.3);border-radius:50%;filter:blur(80px)}
 .br-cover::after{content:'';position:absolute;bottom:-60px;left:30%;width:300px;height:300px;background:rgba(217,119,6,.12);border-radius:50%;filter:blur(60px)}
@@ -22,10 +24,14 @@ body{font-family:var(--fb);background:#e0e0e0;color:var(--gr8);line-height:1.6}
 .br-c-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:8px 16px;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.8)}
 .br-c-pill.date{background:rgba(217,119,6,.2);border-color:rgba(217,119,6,.4);color:#fcd34d}
 .br-c-pill.loc{background:rgba(26,158,110,.2);border-color:rgba(26,158,110,.4);color:#6ee7b7}
+
+/* SECTIONS */
 .br-sec{padding:60px 72px;border-bottom:1px solid rgba(0,0,0,.07)}
 .br-sec-label{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--am);margin-bottom:10px}
 .br-sec-title{font-family:var(--fh);font-size:1.8rem;font-weight:800;color:var(--g1);margin-bottom:18px}
 .br-sec-text{font-size:.92rem;color:var(--gr6);line-height:1.8;margin-bottom:18px}
+
+/* ABOUT 2-COL */
 .br-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .br-obj-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px}
 .br-obj-list li{display:flex;gap:12px;font-size:.88rem;color:var(--gr6);line-height:1.6}
@@ -37,6 +43,8 @@ body{font-family:var(--fb);background:#e0e0e0;color:var(--gr8);line-height:1.6}
 .br-quote{background:var(--g1);border-radius:10px;padding:24px;margin-top:16px}
 .br-quote p{font-size:.84rem;color:rgba(255,255,255,.88);font-style:italic;line-height:1.7;margin-bottom:8px}
 .br-quote cite{font-size:.72rem;color:var(--am);font-weight:600;font-style:normal}
+
+/* FOCUS AREAS */
 .br-focus-sec{background:var(--g1);padding:60px 72px}
 .br-focus-sec .br-sec-label{color:rgba(255,255,255,.5)}
 .br-focus-sec .br-sec-title{color:#fff}
@@ -45,6 +53,8 @@ body{font-family:var(--fb);background:#e0e0e0;color:var(--gr8);line-height:1.6}
 .br-fc-ico{font-size:1.5rem;margin-bottom:8px}
 .br-fc-num{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--am);margin-bottom:4px}
 .br-fc-title{font-size:.78rem;font-weight:700;color:#fff;line-height:1.3}
+
+/* PROGRAMME */
 .br-prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
 .br-day{border-radius:10px;overflow:hidden}
 .br-day-hd{background:var(--g1);color:#fff;padding:14px 18px}
@@ -55,27 +65,41 @@ body{font-family:var(--fb);background:#e0e0e0;color:var(--gr8);line-height:1.6}
 .br-sess-n{width:22px;height:22px;background:var(--g2);border-radius:50%;color:#fff;font-size:.68rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .br-sess-title{font-size:.8rem;font-weight:600;color:var(--gr8);line-height:1.4}
 .br-sess-type{font-size:.65rem;color:var(--am);font-weight:600;margin-bottom:2px}
+
+/* AUDIENCE */
 .br-au-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
 .br-au{background:var(--mt);border-radius:10px;padding:18px 14px;text-align:center;border-left:3px solid var(--g1)}
 .br-au-ico{font-size:1.4rem;margin-bottom:6px}
 .br-au-title{font-size:.8rem;font-weight:700;color:var(--g1);line-height:1.3}
+
+/* PARTNERS */
 .br-partners-sec{background:var(--mt);padding:48px 72px}
 .br-pt-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;justify-content:center}
 .br-pt{background:#fff;border-radius:8px;padding:16px 22px;text-align:center;border-top:3px solid var(--g1);min-width:160px}
 .br-pt-name{font-size:.88rem;font-weight:700;color:var(--g1);margin-bottom:2px}
 .br-pt-role{font-size:.7rem;color:var(--gr6)}
+
+/* CTA */
 .br-cta{background:var(--nv);padding:60px 72px;text-align:center}
 .br-cta h2{font-family:var(--fh);font-size:2rem;font-weight:800;color:#fff;margin-bottom:12px}
 .br-cta p{font-size:.92rem;color:rgba(255,255,255,.6);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
 .br-cta-btn{display:inline-block;background:var(--am);color:#fff;padding:14px 36px;border-radius:50px;font-weight:700;font-size:.95rem;margin-bottom:18px}
 .br-cta-url{font-size:.9rem;color:rgba(255,255,255,.5)}
 .br-cta-url span{color:var(--am);font-weight:600}
+
 @media print{body{background:#fff}.brochure{box-shadow:none}}
-@media(max-width:680px){.br-cover,.br-sec,.br-focus-sec,.br-partners-sec,.br-cta{padding:48px 28px}.br-about-grid,.br-prog-grid,.br-focus-grid{grid-template-columns:1fr}.br-au-grid{grid-template-columns:1fr 1fr}.br-focus-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){
+.br-cover,.br-sec,.br-focus-sec,.br-partners-sec,.br-cta{padding:48px 28px}
+.br-about-grid,.br-prog-grid,.br-focus-grid{grid-template-columns:1fr}
+.br-au-grid{grid-template-columns:1fr 1fr}
+.br-focus-grid{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
 <div class="brochure">
+
+<!-- COVER -->
 <div class="br-cover">
 <div class="br-c-inner">
 <div class="br-c-label">Official Event Brochure</div>
@@ -88,6 +112,8 @@ body{font-family:var(--fb);background:#e0e0e0;color:var(--gr8);line-height:1.6}
 </div>
 </div>
 </div>
+
+<!-- ABOUT -->
 <div class="br-sec">
 <div class="br-sec-label">About the Forum</div>
 <h2 class="br-sec-title">Borneo&rsquo;s Premier ESG Dialogue</h2>
@@ -117,6 +143,8 @@ body{font-family:var(--fb);background:#e0e0e0;color:var(--gr8);line-height:1.6}
 </div>
 </div>
 </div>
+
+<!-- FOCUS AREAS -->
 <div class="br-focus-sec">
 <div class="br-sec-label">7 Forum Focus Areas</div>
 <h2 class="br-sec-title" style="margin-bottom:24px">7 Pillars of Sustainability</h2>
@@ -127,22 +155,42 @@ body{font-family:var(--fb);background:#e0e0e0;color:var(--gr8);line-height:1.6}
 <div class="br-fc"><div class="br-fc-ico">&#9878;&#65039;</div><div class="br-fc-num">04</div><div class="br-fc-title">ESG Governance &amp; Policy</div></div>
 <div class="br-fc"><div class="br-fc-ico">&#127978;</div><div class="br-fc-num">05</div><div class="br-fc-title">SMEs &amp; Community Development</div></div>
 <div class="br-fc"><div class="br-fc-ico">&#128161;</div><div class="br-fc-num">06</div><div class="br-fc-title">Innovation, Technology &amp; Data</div></div>
-<div class="br-fc" style="grid-column:span 2;text-align:left;display:flex;gap:14px;align-items:center"><div style="font-size:1.5rem">&#128269;</div><div><div class="br-fc-num">07</div><div class="br-fc-title" style="font-size:.9rem">ESG Accountability &amp; Greenwashing</div></div></div>
+<div class="br-fc" style="grid-column:span 2;text-align:left;display:flex;gap:14px;align-items:center"><div style="font-size:1.5rem">&#128269;</div><div><div class="br-fc-num">07</div><div class="br-fc-title" style="font-size:.9rem">ESG Accountability &amp; Greenwashing &mdash; Ensuring credible, transparent reporting and accountability for sustainability commitments.</div></div></div>
 </div>
 </div>
+
+<!-- PROGRAMME -->
 <div class="br-sec">
 <div class="br-sec-label">Forum Programme</div>
 <h2 class="br-sec-title">Two Days of Impact</h2>
 <div class="br-prog-grid">
-<div class="br-day"><div class="br-day-hd"><h3>Day 1 &mdash; 14 October 2026</h3><p>Policy, Governance &amp; Green Investment</p></div><div class="br-day-body"><div class="br-sess"><div class="br-sess-n">1</div><div><div class="br-sess-type">Panel</div><div class="br-sess-title">&ldquo;Bottlenecks to Green Project Success in Borneo&rdquo;</div></div></div><div class="br-sess"><div class="br-sess-n">2</div><div><div class="br-sess-type">Panel</div><div class="br-sess-title">&ldquo;Fixing the System for Green Investment in Borneo&rdquo;</div></div></div><div class="br-sess"><div class="br-sess-n">3</div><div><div class="br-sess-type">Fireside Chat</div><div class="br-sess-title">&ldquo;Financing Borneo&rsquo;s Green Economy&rdquo;</div></div></div><div class="br-sess"><div class="br-sess-n">4</div><div><div class="br-sess-type">Case Study</div><div class="br-sess-title">&ldquo;Lessons from Nature-Based and Carbon Projects&rdquo;</div></div></div></div></div>
-<div class="br-day"><div class="br-day-hd"><h3>Day 2 &mdash; 15 October 2026</h3><p>Sustainable Implementation &amp; Responsible Growth</p></div><div class="br-day-body"><div class="br-sess"><div class="br-sess-n">5</div><div><div class="br-sess-type">Panel</div><div class="br-sess-title">&ldquo;Green Growth for Jobs, SMEs, and Communities&rdquo;</div></div></div><div class="br-sess"><div class="br-sess-n">6</div><div><div class="br-sess-type">Panel</div><div class="br-sess-title">&ldquo;Scaling Energy and Sustainability Projects&rdquo;</div></div></div><div class="br-sess"><div class="br-sess-n">7</div><div><div class="br-sess-type">Xpert Insight</div><div class="br-sess-title">&ldquo;Pioneering Green Solutions for SMEs&rdquo;</div></div></div><div class="br-sess"><div class="br-sess-n">8</div><div><div class="br-sess-type">Panel</div><div class="br-sess-title">&ldquo;Unmasking Greenwashing in Borneo&rsquo;s Green Economy&rdquo;</div></div></div></div></div>
+<div class="br-day">
+<div class="br-day-hd"><h3>Day 1 &mdash; 14 October 2026</h3><p>Policy, Governance &amp; Green Investment</p></div>
+<div class="br-day-body">
+<div class="br-sess"><div class="br-sess-n">1</div><div><div class="br-sess-type">Panel Discussion</div><div class="br-sess-title">&ldquo;Bottlenecks to Green Project Success in Borneo&rdquo;</div></div></div>
+<div class="br-sess"><div class="br-sess-n">2</div><div><div class="br-sess-type">Panel Discussion</div><div class="br-sess-title">&ldquo;Fixing the System for Green Investment in Borneo&rdquo;</div></div></div>
+<div class="br-sess"><div class="br-sess-n">3</div><div><div class="br-sess-type">Fireside Chat</div><div class="br-sess-title">&ldquo;Financing Borneo&rsquo;s Green Economy: Turning Ideas into Bankable Projects&rdquo;</div></div></div>
+<div class="br-sess"><div class="br-sess-n">4</div><div><div class="br-sess-type">Case Study</div><div class="br-sess-title">&ldquo;Lessons from Nature-Based and Carbon Projects in Borneo&rdquo;</div></div></div>
 </div>
 </div>
+<div class="br-day">
+<div class="br-day-hd"><h3>Day 2 &mdash; 15 October 2026</h3><p>Sustainable Implementation &amp; Responsible Growth</p></div>
+<div class="br-day-body">
+<div class="br-sess"><div class="br-sess-n">5</div><div><div class="br-sess-type">Panel Discussion</div><div class="br-sess-title">&ldquo;Green Growth for Jobs, SMEs, and Communities&rdquo;</div></div></div>
+<div class="br-sess"><div class="br-sess-n">6</div><div><div class="br-sess-type">Panel Discussion</div><div class="br-sess-title">&ldquo;Scaling Energy and Sustainability Projects: Workforce, SMEs &amp; Operational Readiness&rdquo;</div></div></div>
+<div class="br-sess"><div class="br-sess-n">7</div><div><div class="br-sess-type">Xpert Insight</div><div class="br-sess-title">&ldquo;Pioneering Green Solutions for SMEs&rdquo;</div></div></div>
+<div class="br-sess"><div class="br-sess-n">8</div><div><div class="br-sess-type">Panel Discussion</div><div class="br-sess-title">&ldquo;Unmasking Greenwashing in Borneo&rsquo;s Green Economy&rdquo;</div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- AUDIENCE -->
 <div class="br-sec" style="background:var(--mt)">
 <div class="br-sec-label">Who Should Attend</div>
 <h2 class="br-sec-title">Built for Every Stakeholder</h2>
 <div class="br-au-grid">
-<div class="br-au"><div class="br-au-ico">&#127963;&#65039;</div><div class="br-au-title">Policymakers &amp; Government</div></div>
+<div class="br-au"><div class="br-au-ico">&#127963;&#65039;</div><div class="br-au-title">Policymakers &amp; Government Agencies</div></div>
 <div class="br-au"><div class="br-au-ico">&#128176;</div><div class="br-au-title">Investors &amp; Financial Institutions</div></div>
 <div class="br-au"><div class="br-au-ico">&#127970;</div><div class="br-au-title">Corporates &amp; Developers</div></div>
 <div class="br-au"><div class="br-au-ico">&#128722;</div><div class="br-au-title">SMEs &amp; Industry Leaders</div></div>
@@ -150,22 +198,28 @@ body{font-family:var(--fb);background:#e0e0e0;color:var(--gr8);line-height:1.6}
 <div class="br-au"><div class="br-au-ico">&#127891;</div><div class="br-au-title">Academia &amp; Researchers</div></div>
 </div>
 </div>
+
+<!-- PARTNERS -->
 <div class="br-partners-sec">
 <div class="br-sec-label" style="text-align:center">Organised By</div>
 <h2 class="br-sec-title" style="text-align:center;margin-bottom:20px">The Team Behind the Forum</h2>
 <div class="br-pt-row">
-<div class="br-pt"><div class="br-pt-name">ZAYA Consultation Group</div><div class="br-pt-role">Lead Organiser</div></div>
+<div class="br-pt"><div class="br-pt-name">ZAYN Consulting Group</div><div class="br-pt-role">Lead Organiser</div></div>
 <div class="br-pt"><div class="br-pt-name">CIC Capital Consultancy</div><div class="br-pt-role">Co-Organiser</div></div>
 <div class="br-pt" style="border-top-color:var(--am)"><div class="br-pt-name">Centre for Sustainability Research</div><div class="br-pt-role">Sustainability Partner</div></div>
 <div class="br-pt" style="border-top-color:var(--am)"><div class="br-pt-name">ESG ADR Forum</div><div class="br-pt-role">Sustainability Partner</div></div>
 </div>
 </div>
+
+<!-- CTA -->
 <div class="br-cta">
 <h2>Secure Your Place at the Table</h2>
 <p>The Borneo ESG Forum 2026 is a paid, curated event. Register your interest now for early-bird pricing and priority access.</p>
-<div><a href="index.html#register" class="br-cta-btn">Register Your Interest</a></div>
+<div><a href="#" class="br-cta-btn">Register Your Interest</a></div>
 <div class="br-cta-url">&#127760; <span>www.borneoesgconference.com</span></div>
+<div style="margin-top:24px;font-size:.78rem;color:rgba(255,255,255,.28)">&ldquo;Advancing Sustainable Growth, Creating Lasting Impact. TOGETHER.&rdquo;</div>
 </div>
+
 </div>
 </body>
 </html>
