@@ -36,7 +36,12 @@ nav.up{box-shadow:0 2px 28px rgba(0,0,0,.4)}
 .nlinks{display:flex;list-style:none}.nlinks a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:500;padding:7px 11px;border-radius:6px;transition:all .18s}.nlinks a:hover{color:#fff;background:rgba(255,255,255,.07)}
 .nr{display:flex;align-items:center;gap:8px}
 .ham{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:4px}.ham span{display:block;width:20px;height:1.5px;background:rgba(255,255,255,.8);border-radius:2px}
-@media(max-width:900px){.nlinks,.nr .bgh{display:none}.ham{display:flex}}
+@media(max-width:900px){.nlinks,.nr .bwa{display:none}.ham{display:flex}}
+@media(max-width:640px){.hproof{gap:10px}.hp{padding-right:12px;margin-right:12px}.hpn{font-size:18px}.hpl{font-size:8.5px}.hctas{flex-direction:column;align-items:stretch}}
+@media(max-width:400px){.hproof{display:grid;grid-template-columns:1fr 1fr;row-gap:14px}.hp{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding:0 0 12px}.hp:nth-child(2n){padding-left:14px;border-left:1px solid rgba(255,255,255,.08)}}
+@media(max-width:560px){.backed-inner{flex-direction:column;text-align:center;gap:10px}}
+@media(max-width:600px){.tsinner{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}.tsitem{white-space:nowrap;flex-shrink:0}}
+@media(max-width:1024px) and (min-width:821px){.fr2{gap:8px}.fg input,.fg select,.fg textarea{font-size:13px;padding:9px 11px}}
 .mob{display:none;position:fixed;top:62px;left:0;right:0;background:rgba(7,18,12,.98);z-index:999;padding:16px;flex-direction:column;gap:4px;border-bottom:2px solid var(--a)}
 .mob.open{display:flex}.mob a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px;font-weight:500;padding:12px 16px;border-radius:7px;border-bottom:1px solid rgba(255,255,255,.05)}.mob a:hover{color:#fff;background:rgba(255,255,255,.05)}.mob .btn{justify-content:center;margin-top:6px}
 .mob-ls{display:flex;gap:6px;padding:12px 16px}.mob-ls button{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);font-size:12px;font-weight:700;padding:8px;border-radius:6px;cursor:pointer;font-family:inherit}.mob-ls button.active{background:var(--a);color:#0a1a0a;border-color:var(--a)}
@@ -220,6 +225,7 @@ input[type=date]{color-scheme:light}
     <button class="active" onclick="setLang('bm',this)">BM</button>
     <button onclick="setLang('en',this)">EN</button>
     <button onclick="setLang('zh',this)">中文</button>
+    <button onclick="setLang('ib',this)">IB</button>
   </div>
   <a href="#how" onclick="cm()" data-i18n="navHow">Cara Kami</a>
   <a href="#services" onclick="cm()" data-i18n="navSvc">Perkhidmatan</a>
@@ -247,8 +253,9 @@ input[type=date]{color-scheme:light}
         <button class="ls-btn active" onclick="setLang('bm',this)">BM</button>
         <button class="ls-btn" onclick="setLang('en',this)">EN</button>
         <button class="ls-btn" onclick="setLang('zh',this)">中文</button>
+        <button class="ls-btn" onclick="setLang('ib',this)">IB</button>
       </div>
-      <a href="https://wa.me/601128465813" class="btn bgh" target="_blank">💬 WhatsApp</a>
+      <a href="https://wa.me/601128465813" class="btn bwa" target="_blank">💬 WhatsApp</a>
       <a href="#quote" class="btn ba" data-i18n="navQuote">Minta Quotation →</a>
     </div>
     <button class="ham" onclick="tm()"><span></span><span></span><span></span></button>
@@ -938,13 +945,73 @@ const T={
     ftLinkH:'快速链接',ftL1:'服务流程',ftL2:'配套与价格',ftL3:'图库',ftL4:'常见问题',ftL5:'获取报价',
     ftConH:'联系我们',ftC3:'📋 报价表格',ftRights:'版权所有。',ftPriv:'隐私政策',ftTerms:'服务条款',
     waTip:'有餐饮需求？立即联系。'
+  },
+  ib:{
+    navHow:'Chara Kami Beguai',navSvc:'Pelayan Kami',navPkg:'Pakej',navGal:'Gambar',navFaq:'Tanya Jawab',navQuote:'Minta Kos →',
+    heroBadge:'Penyeraseh Katering Profesional — Kuching, Sarawak',
+    heroH1:'Katering Pilih Nuan.',heroTag1:'Manah & Berbaloi.',heroTag2:'Lebih Penting — Pantas enggau Lalu Nyamai.',
+    heroSub:'Ari program latihan korporat datai ka acara resmi kerajaan — kami nyeraseh caterer ti pemadu manah di Kuching ke nuan. Kos dalam 1 jam aja. Lima caterer udah dipilih. Siti nombor ke semua.',
+    heroCta1:'Minta Kos Percuma →',heroCta2:'💬 WhatsApp Kami',
+    hp1:'Kos Tetap',hp2:'Kos Ngasi Pesan',hp3:'Bayar Tersembunyi',hp4:'Halal & Toyyiban',
+    formTitle:'📋 Borang Minta Pantas',formSub:'Kurang ari 60 saat',
+    fldName:'Nama Nuan',phName:'Nama / Pengawa',fldType:'Jenis Katering',fldTypePh:'Pilih jenis katering...',fldPax:'Penatai Temuai (Pax)',fldWa:'Nombor WhatsApp',fldSubmit:'Kirim Minta →',formNote:'🔒 Percuma · Nadai bewajib · Pemadah selamat',
+    howLbl:'Chara Kami Beguai',howH2:'Mudah. Pantas. Profesional.',howP:'Disediakan ke pegawai kerajaan, pengurus korporat enggau orang ke ngatur acara.',
+    s1h:'Padah Ke Kami Peminta Katering Nuan',s1p:'Isi borang pendiak tauka WhatsApp kami terus. Padah jenis katering, hari enggau penatai temuai.',s1tag:'Mudah & Pantas',
+    s2h:'Terima Kos enggau Surat Resmi',s2p:'Pengurus katering kami deka follow up dalam 1 jam — ngesahka peminta nuan enggau nyiapka surat kos berkop.',s2tag:'Surat Kos Sedia',
+    s3h:'Katering Diserahka Sigi Manah',s3p:'Pada hari katering, caterer kami datai pas masa, ngatur sigi manah enggau ngeretika pengirup ti nyamai ke semua temuai.',s3tag:'Endang Dipechaya',
+    svcLbl:'Penyiap Pelayan',svcH2:'Katering ke Semua Peminta.',svcP:'Ari acara kerajaan ti besai datai ka program latihan korporat — kami matchka tiap peminta enggau caterer ti betul.',
+    bc1n:'Katering Acara Kerajaan & Majlis Resmi',bc1d:'Acara kerajaan, majlis anugerah, dinner resmi enggau upacara jabatan. Surat kos berkop sedia ke submission LO.',
+    bc2n:'Katering Korporat & Seminar',bc2d:'AGM, annual dinner, mesyuarat pengurus, pelancar produk enggau seminar perusahaan.',
+    bc3n:'Program Latihan & Bengkel',bc3d:'Latihan dalam perusahaan, program ngembangka kakitangan, bengkel enggau orientasi.',
+    bc4n:'Konvensyen & Ekspo',bc4d:'Katering besai ke pameran, konvensyen industri enggau acara nengeri.',
+    bc5n:'Pengantin & Resepsi',bc5d:'Katering pengantin bertema, resepsi enggau banquet VIP.',
+    bc6n:'Open House & Gawai',bc6d:'Gawai Dayak, Hari Raya, Tahun Baru China, Deepavali enggau semua macham gawai.',
+    bc7n:'NGO & Koperasi',bc7d:'Program komuniti, fundraiser enggau AGM koperasi.',
+    whyLbl:'Penguntung Kami',whyH2:'Bukan Semina Pasal Ngiga Caterer.',
+    ws1:'Jam Kos',ws2:'Network Caterer',ws3:'Kos Gov',ws4:'Halal Certified',
+    wi1t:'Kos Dijamin Dalam 1 Jam',wi1d:'Kirim minta nuan lalu terima kos pemadu lengkap dalam 60 minit pas waktu beguai. Ukai pagila — dalam 1 jam.',
+    wi2t:'Lima Caterer Pilih, Endur Disemak',wi2d:'Lima caterer dalam network kami udah disemak diri kami — pemadu lalu makai, standard berasai, sijil halal enggau rekod ngirumka.',
+    wi3t:'Surat Kos Sehari Nya Juak',wi3d:'Surat kos berkop perusahaan sedia ke LO kerajaan, pembekal korporat enggau pengelulusan dalam — dikirim sehari nya juak.',
+    wi4t:'Beli Telus, Nadai Bayar Tersembunyi',wi4d:'Utai ti dipadahka dalam kos, nya juak ti dibayar nuan. Nadai tambah, nadai pengelajau pada hari katering.',
+    wi5t:'Siti Pengurus. Siti Nombor.',wi5d:'Ari minta keterubah datai ka pengujung — nuan beguai enggau siti orang aja. Nadai perlu ngulang padah.',
+    g3qt:'Tiga (3) Kos ke Peminta Jabatan Kerajaan',g3qd:'Kami ulih nyiapka tiga kos berlainan ari caterer ti enda sama dalam network kami — dalam siti minta aja. Patuh enggau polisi pembekal kerajaan.',
+    wbh:'Manah ke Klien Korporat & Kerajaan',wbp:'Kami nemu peminta dokumentasi enggau proses pengelulusan dalam ti dipakai organisasi besai.',
+    wb1:'Surat kos resmi enggau nombor rujukan',wb2:'Sijil Halal JAKIM sedia atas minta',wb3:'Tiga (3) kos ke peminta comparison Gov',wb4:'Invois korporat ke tujuan tuntutan',wb5:'Rekod booking ti tersusun ke audit dalam',wb6:'Manah ke pembekal kerajaan enggau procurement perusahaan',
+    wbct:'Sedia deka book katering?',wbcs:'Percuma · Nadai bewajib · Kos dalam <1 jam',wbBtn:'Book Diatu →',
+    pkgLbl:'Pakej & Beli',pkgH2:'Beli Jelas Ari Mula.',pkgP:'Semua beli per pax. Beli pemadu betul disahka dalam kos custom nuan. Minimum 50 pax.',
+    pk1n:'Pakej Asai',pk1d:'Katering pendiak & gathering mit',pk2n:'Pakej Korporat',pk2d:'Ke korporat, kerajaan & NGO',pk3n:'Pakej Premium',pk3d:'Pengantin, VIP & gala dinner',
+    pkFrom:'Berengkah ari',pkPop:'🔥 Pemadu Diminta',pkBtn:'Minta Kos →',
+    pk1f1:'Nasi Campur / Nasi Lemak style',pk1f2:'2–3 lauk + asi',pk1f3:'Atur & servis asai',pk1f5:'Minimum 50 pax',
+    pk2f1:'Buffet lengkap (5–7 hidang)',pk2f2:'Chafing dishes & atur meja',pk2f3:'Staff servis disertaka',pk2f4:'Surat kos resmi (LO ready)',pk2f5:'Sijil Halal atas minta',
+    pk3f1:'Buffet premium (8–10 hidang)',pk3f2:'Dessert & ai irup included',pk3f3:'Atur hiasan & staff terlatih',pk3f4:'Live cooking station (optional)',pk3f5:'Penyeraseh katering lengkap',
+    pkCustom:'Beguna pakej custom?',pkCustomLink:'Hubung kami →',
+    impH2:'Temuai nuan deka ingat pengirup nya. Pastika nya ninggalka kesan ti manah.',impP:'Lima caterer pilih. Kos dalam 1 jam. Siti pengurus ari mula datai ka pengujung.',impBtn:'Minta Kos',
+    galLbl:'Gambar Kami',galH2:'Sekilas Pelayan Kami.',galP:'Koleksi gambar ari mayuh booking katering ti udah kami kendalika di Kuching enggau seantara Sarawak.',
+    faqLbl:'Tanya Jawab',faqH2:'Tanya Ti Sering Ditanya.',
+    fq1:'Berapa penatai temuai paling mit?',fa1:'Penatai paling mit kami 50 pax. Ke gathering ti mit agi, hubung kami liwat WhatsApp lalu kami deka cuba tulung.',
+    fq2:'Berapa lama deka mantu kos?',fa2:'Kami komited ngirum kos lengkap dalam 1 jam pas waktu beguai (8 pagi–8 malam, Senin–Sabtu).',
+    fq3:'Ulih sedia 3 kos ke peminta kerajaan?',fa3:'Ulih. Kami ulih nyiapka tiga kos berlainan ari caterer ti enda sama dalam network kami — semua dalam siti minta. Surat kos berkop resmi disertaka ke tiap kos.',
+    fq4:'Bisi surat kos resmi disediaka?',fa4:'Bisi. Kami nyiapka surat kos berkop perusahaan ti manah ke submission LO kerajaan, pembekal korporat enggau pengelulusan dalam.',
+    fq5:'Semua caterer bisi sijil Halal?',fa5:'Bisi, semua caterer dalam network kami bisi sijil Halal lalu nitihka standard JAKIM.',
+    fq6:'Berapa lama awal patut book?',fa6:'Kami saraka book sekurang-kurang 3–7 hari lebih awal. Minta last-minute (48–72 jam) mega ulih dikendalika tergantung ari ketersediaan.',
+    fq7:'Kawasan ni dilayan?',fa7:'Kami nyeliup Kuching, Kota Samarahan, Samarahan, Bau enggau kawasan sekiling.',
+    fq8:'Chara bayar nama dipejalaika?',fa8:'Kami nerima pindah bank (TT), DuitNow QR enggau cek ke klien kerajaan enggau korporat. Deposit 50% diperlu ke ngesahka booking.',
+    qLbl:'Hubung Kami',qH2Span:'Aram Bejaku Pasal Katering.',qSub:'Isi borang tu lalu terima kos lengkap nadai bewajib dalam 1 jam.',
+    ci1l:'WhatsApp Resmi',ci2l:'E-mel',ci3l:'Kawasan Dilayan',ci3v:'Kuching, Kota Samarahan & seantara Sarawak',ci4l:'Waktu Beguai',ci4v:'Senin – Sabtu, 8:00 pagi – 8:00 malam',
+    qfbt:'📋 Borang Minta Kos',qfName:'Nama Lengkap *',qfWa:'Nombor WhatsApp *',qfOrg:'Organisasi / Jabatan / Perusahaan',qfType:'Jenis Katering *',qfTypePh:'Pilih jenis katering...',qfPax:'Penatai Temuai *',qfDate:'Hari Katering *',qfBudget:'Anggar Per Pax',qfBudgetPh:'Flexible / Apin pasti',qfNote:'Pemadah Tambah',qfSubmit:'Kirim Borang →',qfPrivacy:'🔒 Pemadah nuan sulit lalu enda dikongsi enggau sapa-sapa pihak ketiga.',
+    qfSucH:'Borang Udah Dikirim!',qfSucP:'Terima kasih. Pengurus kami deka hubung nuan dalam 1 jam pas waktu beguai.',qfSucBtn2:'Kirim Baru',
+    backedBy:'Dijamin olih',backedText:'Semua urusan katering tu dikendalika baroh perusahaan berdaftar Malaysia — komited ngenu pelayan ti bekualiti, telus enggau amanah.',
+    ftDesc:'Penyeraseh katering profesional di Kuching, Sarawak. Ngubung nuan enggau caterer ti diverify ke semua jenis katering.',ftSvcH:'Pelayan Kami',ftSvc1:'Katering Kerajaan',ftSvc2:'Katering Korporat',ftSvc3:'Program Latihan',ftSvc4:'Katering Pengantin',ftSvc5:'Open House & Gawai',
+    ftLinkH:'Pautan Pantas',ftL1:'Chara Kami Beguai',ftL2:'Pakej & Beli',ftL3:'Gambar',ftL4:'Tanya Jawab',ftL5:'Minta Kos',
+    ftConH:'Hubung Kami',ftC3:'📋 Borang Kos',ftRights:'Hak Cipta Terpelihara.',ftPriv:'Dasar Privasi',ftTerms:'Terma Pelayan',
+    waTip:'Beguna katering? Hubung kami diatu.'
   }
 };
 let curLang='bm';
 function setLang(l,btn){
   curLang=l;
   document.body.className=l==='zh'?'zh':'';
-  document.documentElement.lang=l==='zh'?'zh-Hans':l==='en'?'en':'ms';
+  document.documentElement.lang=l==='zh'?'zh-Hans':l==='en'?'en':l==='ib'?'iba':'ms';
   const t=T[l];
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const k=el.dataset.i18n;
@@ -956,7 +1023,7 @@ function setLang(l,btn){
   });
   // Update all lang buttons
   document.querySelectorAll('.ls-btn,.mob-ls button').forEach(b=>{
-    b.classList.toggle('active', b.textContent.trim()===({bm:'BM',en:'EN',zh:'中文'}[l]));
+    b.classList.toggle('active', b.textContent.trim()===({bm:'BM',en:'EN',zh:'中文',ib:'IB'}[l]));
   });
 }
 function tm(){document.getElementById('mn').classList.toggle('open')}
