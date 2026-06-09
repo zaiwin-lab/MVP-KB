@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTAP — Corporate TVET Advancement Program · Showcase Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0a0f1e;color:#fff;width:900px;margin:0 auto}
+.poster{width:900px;min-height:1270px;background:linear-gradient(145deg,#060c1a 0%,#0a1228 55%,#060e1c 100%);position:relative;overflow:hidden}
+.bg-circle{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.bc1{width:450px;height:450px;background:#1e3a6e;top:-80px;right:-60px;opacity:.12}
+.bc2{width:350px;height:350px;background:#c9a227;bottom:80px;left:-60px;opacity:.07}
+.bc3{width:200px;height:200px;background:#1a4a9e;top:45%;right:40px;opacity:.1}
+.grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:48px 48px}
+
+/* HEADER */
+.header{padding:44px 56px 32px;position:relative;z-index:2;border-bottom:1px solid rgba(255,255,255,.06)}
+.header-top{display:flex;align-items:center;justify-content:space-between}
+.logo-area{display:flex;align-items:center;gap:16px}
+.ctap-logo{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:#c9a227;letter-spacing:.04em;line-height:1}
+.logo-divider{width:2px;height:44px;background:rgba(201,162,39,.3)}
+.logo-text-right{display:flex;flex-direction:column}
+.logo-main{font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase;line-height:1.2}
+.logo-sub{font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:.08em;margin-top:3px}
+.hrd-badge{background:linear-gradient(135deg,#1a3068,#0d1e45);border:1px solid rgba(201,162,39,.3);border-radius:8px;padding:10px 16px;text-align:center}
+.hrd-top{font-size:.62rem;color:#c9a227;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.hrd-main{font-size:.85rem;font-weight:800;color:#fff;margin-top:2px}
+
+/* HERO */
+.hero{padding:40px 56px 32px;position:relative;z-index:2}
+.hero-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c9a227;margin-bottom:12px}
+.hero-title{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;line-height:1.15;margin-bottom:8px;color:#fff}
+.hero-title .gold{color:#c9a227}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.5);margin-bottom:28px;font-weight:300}
+
+/* STATS */
+.stats-row{display:flex;gap:0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;margin-bottom:36px}
+.stat-item{flex:1;padding:20px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.05)}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#c9a227;line-height:1;margin-bottom:4px}
+.stat-l{font-size:.65rem;color:rgba(255,255,255,.35);font-weight:500;text-transform:uppercase;letter-spacing:.07em}
+
+/* MAIN GRID */
+.main{padding:0 56px 36px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+/* CALCULATOR WIDGET */
+.browser-frame{background:#080f20;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.09);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.browser-bar{background:#0a1228;padding:9px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.05)}
+.browser-dots{display:flex;gap:5px}
+.bd{width:9px;height:9px;border-radius:50%}
+.bd-r{background:#ff5f57}.bd-y{background:#ffbd2e}.bd-g{background:#28c840}
+.browser-url{background:rgba(255,255,255,.05);border-radius:50px;padding:4px 12px;font-size:.64rem;color:rgba(255,255,255,.3);margin-left:8px;flex:1}
+.browser-nav{display:flex;gap:0;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05);background:#060c1a}
+.bnav-item{font-size:.62rem;color:rgba(255,255,255,.35);padding:4px 10px;border-bottom:2px solid transparent;cursor:pointer}
+.bnav-item.act{color:#c9a227;border-bottom-color:#c9a227}
+
+/* LEVY CALCULATOR */
+.calc-body{padding:16px}
+.calc-title{font-size:.75rem;font-weight:700;color:#c9a227;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.calc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.calc-field-label{font-size:.6rem;color:rgba(255,255,255,.4);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.calc-field-val{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:8px 12px;font-size:.8rem;color:#fff;font-weight:600}
+.calc-field-val.highlight{border-color:rgba(201,162,39,.4);color:#c9a227;font-size:.95rem;font-weight:800}
+.donut-area{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border-radius:8px;padding:12px;margin-bottom:12px}
+.donut-svg{position:relative;width:70px;height:70px;flex-shrink:0}
+.donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.6rem;color:rgba(255,255,255,.5);text-align:center;line-height:1.2}
+.donut-center strong{font-size:.75rem;color:#c9a227;font-weight:800;display:block}
+.donut-legend{flex:1}
+.dl-item{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:.65rem;color:rgba(255,255,255,.55)}
+.dl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dl-blue{background:#3b82f6}.dl-gold{background:#c9a227}
+
+/* ROI DASHBOARD */
+.roi-dashboard{background:#060c1a;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
+.roi-header{background:linear-gradient(90deg,#1a3068,#0d2450);padding:12px 16px;display:flex;align-items:center;gap:8px}
+.roi-title{font-size:.78rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.08em}
+.roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.05)}
+.roi-card{background:#080f20;padding:16px 14px;text-align:center}
+.roi-label{font-size:.58rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.roi-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;line-height:1}
+.roi-val.blue{color:#3b82f6}
+.roi-val.green{color:#22c55e}
+.roi-val.gold{color:#c9a227}
+.roi-val.white{color:#fff}
+.roi-trend{font-size:.6rem;margin-top:4px}
+.roi-trend.up{color:#22c55e}
+.roi-bar-area{padding:14px;border-top:1px solid rgba(255,255,255,.05)}
+.roi-bar-label{font-size:.62rem;color:rgba(255,255,255,.35);margin-bottom:6px;display:flex;justify-content:space-between}
+.roi-bar-track{background:rgba(255,255,255,.06);border-radius:4px;height:8px;overflow:hidden}
+.roi-bar-fill{height:100%;border-radius:4px}
+.roi-fill-blue{background:linear-gradient(90deg,#1e3a6e,#3b82f6);width:60%}
+.roi-fill-gold{background:linear-gradient(90deg,#6b4f10,#c9a227);width:40%;margin-top:4px}
+
+/* RIGHT COL */
+.features-col{display:flex;flex-direction:column;gap:16px}
+.section-title{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#c9a227;margin-bottom:12px}
+.feat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:18px}
+.feat-icon{font-size:1.5rem;margin-bottom:8px;display:block}
+.feat-title{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:5px;line-height:1.3}
+.feat-desc{font-size:.76rem;color:rgba(255,255,255,.48);line-height:1.6}
+.feat-tag{display:inline-block;background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.2);color:#c9a227;border-radius:50px;padding:3px 10px;font-size:.63rem;font-weight:600;margin-top:7px}
+
+/* TESTIMONIAL */
+.testimonial{position:relative;z-index:2;margin:0 56px;padding:26px 30px;background:linear-gradient(135deg,rgba(26,48,104,.35),rgba(201,162,39,.08));border:1px solid rgba(201,162,39,.2);border-radius:16px}
+.test-quote{font-size:.95rem;font-style:italic;color:rgba(255,255,255,.82);line-height:1.7;margin-bottom:14px;font-family:'Playfair Display',serif}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-avatar{width:38px;height:38px;background:linear-gradient(135deg,#1a3068,#3b82f6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.test-name{font-size:.8rem;font-weight:700;color:#fff}
+.test-role{font-size:.7rem;color:#c9a227}
+.stars{color:#c9a227;font-size:.88rem;margin-bottom:6px}
+.quote-mark{position:absolute;top:14px;right:22px;font-size:4rem;color:rgba(201,162,39,.1);font-family:'Playfair Display',serif;line-height:1}
+
+/* FOOTER */
+.poster-footer{padding:22px 56px 36px;position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.05);margin-top:24px}
+.footer-brand strong{color:#c9a227;display:block;font-size:.85rem;margin-bottom:2px}
+.footer-brand{font-size:.7rem;color:rgba(255,255,255,.28)}
+.footer-built{font-size:.64rem;color:rgba(255,255,255,.2);text-align:right}
+.footer-built strong{color:rgba(255,255,255,.38);display:block}
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="bg-circle bc1"></div>
+  <div class="bg-circle bc2"></div>
+  <div class="bg-circle bc3"></div>
+  <div class="grid-lines"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="logo-area">
+        <div class="ctap-logo">CTAP</div>
+        <div class="logo-divider"></div>
+        <div class="logo-text-right">
+          <div class="logo-main">Corporate TVET Advancement Program</div>
+          <div class="logo-sub">ctap-kobis.netlify.app · Official Website Showcase</div>
+        </div>
+      </div>
+      <div class="hrd-badge">
+        <div class="hrd-top">HRD Corp</div>
+        <div class="hrd-main">Claimable</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Website Showcase · Built by Zaiwin Lab</div>
+    <h1 class="hero-title"><span class="gold">Strategic TVET</span> Planning.<br>Measurable Impact. Maximum ROI.</h1>
+    <p class="hero-sub">Empowering Companies. Maximising Levy. Driving Workforce Excellence.</p>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-n">210%</div><div class="stat-l">Projected ROI</div></div>
+      <div class="stat-item"><div class="stat-n">4.2</div><div class="stat-l">Months Payback</div></div>
+      <div class="stat-item"><div class="stat-n">60%</div><div class="stat-l">Levy Utilised</div></div>
+      <div class="stat-item"><div class="stat-n">RM 186K</div><div class="stat-l">Est. Returns</div></div>
+      <div class="stat-item"><div class="stat-n">HRD</div><div class="stat-l">Corp Aligned</div></div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main">
+    <!-- LEFT MOCKUPS -->
+    <div class="mockup-col" style="display:flex;flex-direction:column;gap:16px">
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
+          <div class="browser-url">🔒 ctap-kobis.netlify.app/calculators</div>
+        </div>
+        <div class="browser-nav">
+          <div class="bnav-item">Home</div>
+          <div class="bnav-item">Solutions</div>
+          <div class="bnav-item act">Calculators</div>
+          <div class="bnav-item">Dashboard</div>
+          <div class="bnav-item">Resources</div>
+        </div>
+        <div class="calc-body">
+          <div class="calc-title">🧮 Interactive HRD Corp Levy Calculator</div>
+          <div class="calc-row">
+            <div>
+              <div class="calc-field-label">Annual Payroll (RM)</div>
+              <div class="calc-field-val">10,000,000</div>
+            </div>
+            <div>
+              <div class="calc-field-label">Levy Rate (%)</div>
+              <div class="calc-field-val">1.0</div>
+            </div>
+          </div>
+          <div>
+            <div class="calc-field-label">Levy Payable (RM) — Optimisable</div>
+            <div class="calc-field-val highlight">100,000</div>
+          </div>
+          <div style="margin-top:12px">
+            <div class="donut-area">
+              <div class="donut-svg">
+                <svg viewBox="0 0 70 70" width="70" height="70">
+                  <circle cx="35" cy="35" r="28" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="10"/>
+                  <circle cx="35" cy="35" r="28" fill="none" stroke="#3b82f6" stroke-width="10" stroke-dasharray="105 70" stroke-dashoffset="0" transform="rotate(-90 35 35)"/>
+                  <circle cx="35" cy="35" r="28" fill="none" stroke="#c9a227" stroke-width="10" stroke-dasharray="70 105" stroke-dashoffset="-105" transform="rotate(-90 35 35)"/>
+                </svg>
+                <div class="donut-center"><strong>RM100K</strong>Optimisable</div>
+              </div>
+              <div class="donut-legend">
+                <div class="dl-item"><div class="dl-dot dl-blue"></div>Utilised — RM 60,000 (60%)</div>
+                <div class="dl-item"><div class="dl-dot dl-gold"></div>Unutilised — RM 40,000 (40%)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="roi-dashboard">
+        <div class="roi-header">📊 <div class="roi-title">ROI Assessment Dashboard</div></div>
+        <div class="roi-grid">
+          <div class="roi-card">
+            <div class="roi-label">Total Investment (RM)</div>
+            <div class="roi-val blue">60,000</div>
+            <div class="roi-trend up">↑ HRD Claimable</div>
+          </div>
+          <div class="roi-card">
+            <div class="roi-label">Estimated Returns (RM)</div>
+            <div class="roi-val green">186,000</div>
+            <div class="roi-trend up">↑ 3× multiplier</div>
+          </div>
+          <div class="roi-card">
+            <div class="roi-label">ROI (%)</div>
+            <div class="roi-val gold">210%</div>
+            <div class="roi-trend up">↑ Data-driven</div>
+          </div>
+          <div class="roi-card">
+            <div class="roi-label">Payback Period</div>
+            <div class="roi-val white">4.2 <span style="font-size:.9rem">mo</span></div>
+            <div class="roi-trend up">↑ Rapid ROI</div>
+          </div>
+        </div>
+        <div class="roi-bar-area">
+          <div class="roi-bar-label"><span>Levy Utilisation</span><span style="color:#3b82f6">60% Used</span></div>
+          <div class="roi-bar-track"><div class="roi-bar-fill roi-fill-blue"></div></div>
+          <div class="roi-bar-label" style="margin-top:8px"><span>Unutilised Levy</span><span style="color:#c9a227">40% Available</span></div>
+          <div class="roi-bar-track"><div class="roi-bar-fill roi-fill-gold"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT FEATURES -->
+    <div class="features-col">
+      <div>
+        <div class="section-title">Key Website Features</div>
+        <div class="feat-card">
+          <span class="feat-icon">🧮</span>
+          <div class="feat-title">Live HRD Corp Levy Calculator</div>
+          <div class="feat-desc">Input annual payroll and levy rate to instantly calculate your optimisable levy. Visual donut chart shows utilised vs unutilised amounts — real-time, browser-side calculations.</div>
+          <span class="feat-tag">✓ Instant Automated Results</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">📊</span>
+        <div class="feat-title">ROI Assessment Dashboard</div>
+        <div class="feat-desc">Live dashboard showing Total Investment, Estimated Returns, ROI percentage, and Payback Period — giving HR leaders a crystal-clear picture of training value.</div>
+        <span class="feat-tag">✓ 210% ROI Visualised</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">🎯</span>
+        <div class="feat-title">Strategic TVET Planning Module</div>
+        <div class="feat-desc">Aligns corporate training plans with national TVET priorities and HRD Corp guidelines, helping companies unlock greater government support and levy claimability.</div>
+        <span class="feat-tag">✓ Government-Policy Aligned</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">🔗</span>
+        <div class="feat-title">Seamless HR System Integration</div>
+        <div class="feat-desc">Designed for integration with existing HR workflows — from training planning to levy submission — creating a seamless end-to-end workforce development experience.</div>
+        <span class="feat-tag">✓ HR-Ready Architecture</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">📱</span>
+        <div class="feat-title">Responsive Multi-Device Platform</div>
+        <div class="feat-desc">Fully responsive across desktop, tablet, and mobile. The dashboard and calculators adapt beautifully — built for busy HR professionals on the go.</div>
+        <span class="feat-tag">✓ Mobile Optimised</span>
+      </div>
+
+      <div style="background:rgba(26,48,104,.25);border:1px solid rgba(201,162,39,.18);border-radius:10px;padding:14px;margin-top:2px">
+        <div style="font-size:.62rem;color:#c9a227;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">Data-Driven Outcomes</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <span style="font-size:.68rem;background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.15);color:rgba(255,255,255,.7);border-radius:4px;padding:4px 10px">📈 Data-Driven Insights</span>
+          <span style="font-size:.68rem;background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.15);color:rgba(255,255,255,.7);border-radius:4px;padding:4px 10px">💰 Maximise Levy</span>
+          <span style="font-size:.68rem;background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.15);color:rgba(255,255,255,.7);border-radius:4px;padding:4px 10px">📊 Measurable ROI</span>
+          <span style="font-size:.68rem;background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.15);color:rgba(255,255,255,.7);border-radius:4px;padding:4px 10px">🌱 Sustainable Growth</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="testimonial">
+    <div class="quote-mark">"</div>
+    <div class="stars">★★★★★</div>
+    <p class="test-quote">"We had no idea how much HRD Corp levy we were leaving on the table until we saw this platform. The live calculator showed us exactly our RM 40,000 in unutilised levy — instantly. The ROI dashboard made it trivial to justify our training investments to the board. This website transformed how we approach workforce development."</p>
+    <div class="test-author">
+      <div class="test-avatar">💼</div>
+      <div>
+        <div class="test-name">Corporate HR Director</div>
+        <div class="test-role">CTAP Platform Client · KOBIS Programme · Malaysia</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="poster-footer">
+    <div>
+      <div class="footer-brand"><strong>CTAP — Corporate TVET Advancement Program</strong>ctap-kobis.netlify.app</div>
+      <div style="font-size:.63rem;color:rgba(255,255,255,.22);margin-top:4px">Empowering Companies. Maximising Levy. Driving Workforce Excellence.</div>
+    </div>
+    <div style="text-align:center">
+      <div style="background:linear-gradient(90deg,rgba(201,162,39,.15),rgba(201,162,39,.05));border:1px solid rgba(201,162,39,.25);border-radius:8px;padding:8px 16px">
+        <div style="font-size:.65rem;color:#c9a227;font-weight:700">Turn Your Levy Into a Strategic Advantage</div>
+        <div style="font-size:.62rem;color:rgba(255,255,255,.35);margin-top:2px">Plan. Optimise. Grow. All in One Platform.</div>
+      </div>
+    </div>
+    <div class="footer-built"><strong>Built by Zaiwin Lab</strong><span>Precision. Creativity. Impact.</span></div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borneo ESG Forum 2026 — Showcase Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0a1628;color:#fff;width:900px;margin:0 auto;min-height:1270px}
+.poster{width:900px;min-height:1270px;background:linear-gradient(145deg,#0a1628 0%,#0f1e35 50%,#0a1628 100%);position:relative;overflow:hidden;padding:0}
+
+/* BG DECORATIONS */
+.bg-circle{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.bc1{width:500px;height:500px;background:#1a9e6e;top:-100px;right:-80px;opacity:.08}
+.bc2{width:350px;height:350px;background:#d97706;bottom:100px;left:-80px;opacity:.06}
+.bc3{width:250px;height:250px;background:#0f4c35;top:50%;right:50px;opacity:.12}
+.grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:50px 50px}
+
+/* HEADER */
+.header{padding:48px 56px 36px;position:relative;z-index:2;border-bottom:1px solid rgba(255,255,255,.07)}
+.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.logo-area{display:flex;align-items:center;gap:14px}
+.logo-icon{width:52px;height:52px;background:linear-gradient(135deg,#0f4c35,#1a9e6e);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.logo-text{font-family:'Playfair Display',serif}
+.logo-main{font-size:1rem;font-weight:800;color:#fff;letter-spacing:.02em;line-height:1}
+.logo-sub{font-size:.65rem;color:#d97706;letter-spacing:.14em;text-transform:uppercase;margin-top:3px}
+.badge-live{background:rgba(43,196,138,.12);border:1px solid rgba(43,196,138,.3);border-radius:50px;padding:8px 18px;display:flex;align-items:center;gap:8px}
+.dot-pulse{width:8px;height:8px;background:#2bc48a;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+.badge-live span{font-size:.78rem;color:#2bc48a;font-weight:600}
+
+/* HERO SECTION */
+.hero{padding:44px 56px 40px;position:relative;z-index:2}
+.hero-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#d97706;margin-bottom:14px}
+.hero-title{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:900;line-height:1.05;margin-bottom:16px}
+.hero-title .accent{color:#d97706}
+.hero-title .yr{color:rgba(255,255,255,.2)}
+.hero-theme{font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.6);margin-bottom:8px;font-family:'Playfair Display',serif}
+.hero-date{display:flex;align-items:center;gap:20px;margin-bottom:32px}
+.hero-date-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(255,255,255,.55)}
+.hero-date-item strong{color:#2bc48a;font-weight:600}
+.hero-divider{width:1px;height:16px;background:rgba(255,255,255,.15)}
+
+/* STATS ROW */
+.stats-row{display:flex;gap:0;margin-bottom:40px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden}
+.stat-item{flex:1;padding:22px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#2bc48a;line-height:1;margin-bottom:5px}
+.stat-l{font-size:.72rem;color:rgba(255,255,255,.4);font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+
+/* MAIN CONTENT */
+.main{padding:0 56px 44px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+
+/* WEBSITE MOCKUP */
+.mockup-col{display:flex;flex-direction:column;gap:16px}
+.browser-frame{background:#0d1f3c;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.browser-bar{background:#111d33;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.06)}
+.browser-dots{display:flex;gap:5px}
+.bd{width:10px;height:10px;border-radius:50%}
+.bd-r{background:#ff5f57}
+.bd-y{background:#ffbd2e}
+.bd-g{background:#28c840}
+.browser-url{background:rgba(255,255,255,.06);border-radius:50px;padding:4px 12px;font-size:.68rem;color:rgba(255,255,255,.35);margin-left:8px;flex:1}
+.browser-body{padding:0}
+
+/* COUNTDOWN WIDGET */
+.countdown-widget{background:linear-gradient(135deg,#0f2d1f,#0a1a10);padding:18px;border-bottom:1px solid rgba(255,255,255,.06)}
+.cw-label{font-size:.62rem;color:#2bc48a;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.cw-nums{display:flex;gap:8px;align-items:center}
+.cw-unit{text-align:center}
+.cw-n{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;background:rgba(255,255,255,.07);border-radius:6px;padding:6px 12px;display:block;min-width:46px;text-align:center}
+.cw-l{font-size:.55rem;color:rgba(255,255,255,.35);text-transform:uppercase;margin-top:4px;text-align:center}
+.cw-sep{font-size:1.2rem;color:rgba(255,255,255,.2);margin-bottom:14px}
+
+/* PROGRAMME TABS */
+.prog-widget{padding:16px}
+.prog-tabs{display:flex;gap:4px;background:rgba(255,255,255,.05);border-radius:8px;padding:4px;margin-bottom:12px}
+.prog-tab{flex:1;padding:8px;border-radius:6px;font-size:.68rem;font-weight:600;text-align:center;color:rgba(255,255,255,.35)}
+.prog-tab.act{background:#0f4c35;color:#fff}
+.prog-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
+.prog-time{font-size:.6rem;color:rgba(255,255,255,.3);width:64px;flex-shrink:0;padding-top:3px}
+.prog-dot-s{width:7px;height:7px;border-radius:50%;background:#1a9e6e;flex-shrink:0;margin-top:4px}
+.prog-dot-s.gold{background:#d97706}
+.prog-text{font-size:.68rem;color:rgba(255,255,255,.65);line-height:1.4}
+.prog-text .type{font-size:.58rem;color:#d97706;font-weight:700;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px}
+
+/* PILLARS GRID */
+.pillars-widget{background:#0a1628;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.pw-header{background:linear-gradient(90deg,#0f4c35,#1a9e6e);padding:12px 16px}
+.pw-title{font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase}
+.pw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05)}
+.pw-item{background:#0d1f3c;padding:12px 10px;text-align:center}
+.pw-icon{font-size:1.2rem;margin-bottom:5px;display:block}
+.pw-num{font-size:.55rem;color:#d97706;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.pw-name{font-size:.62rem;color:rgba(255,255,255,.65);line-height:1.3}
+
+/* FORM WIDGET */
+.form-widget{background:#0d1f3c;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.fw-header{background:#0f4c35;padding:12px 16px}
+.fw-title{font-size:.82rem;font-weight:700;color:#fff}
+.fw-body{padding:14px}
+.fw-field{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:8px 12px;margin-bottom:8px;font-size:.68rem;color:rgba(255,255,255,.4)}
+.fw-select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:8px 12px;margin-bottom:8px;font-size:.68rem;color:rgba(255,255,255,.55);display:flex;justify-content:space-between;align-items:center}
+.fw-btn{background:linear-gradient(90deg,#0f4c35,#1a9e6e);border-radius:6px;padding:10px;text-align:center;font-size:.72rem;font-weight:700;color:#fff;margin-top:4px}
+
+/* RIGHT COL - FEATURES */
+.features-col{display:flex;flex-direction:column;gap:18px}
+.section-title{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#d97706;margin-bottom:14px}
+
+/* FEATURE CARDS */
+.feat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:20px;transition:.3s}
+.feat-card:hover{border-color:rgba(26,158,110,.3)}
+.feat-icon{font-size:1.6rem;margin-bottom:10px;display:block}
+.feat-title{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:6px;line-height:1.3}
+.feat-desc{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6}
+.feat-tag{display:inline-block;background:rgba(43,196,138,.1);border:1px solid rgba(43,196,138,.2);color:#2bc48a;border-radius:50px;padding:3px 10px;font-size:.65rem;font-weight:600;margin-top:8px}
+
+/* TESTIMONIAL */
+.testimonial{position:relative;z-index:2;margin:0 56px 0;padding:28px 32px;background:linear-gradient(135deg,rgba(15,76,53,.4),rgba(26,158,110,.15));border:1px solid rgba(26,158,110,.25);border-radius:16px}
+.test-quote{font-size:1rem;font-style:italic;color:rgba(255,255,255,.85);line-height:1.72;margin-bottom:16px;font-family:'Playfair Display',serif}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-avatar{width:40px;height:40px;background:linear-gradient(135deg,#0f4c35,#1a9e6e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.test-name{font-size:.82rem;font-weight:700;color:#fff}
+.test-role{font-size:.72rem;color:#d97706}
+.stars{color:#d97706;font-size:.9rem;margin-bottom:6px}
+.quote-mark{position:absolute;top:16px;right:24px;font-size:4rem;color:rgba(26,158,110,.15);font-family:'Playfair Display',serif;line-height:1}
+
+/* FOOTER */
+.poster-footer{padding:24px 56px 40px;position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06);margin-top:28px}
+.footer-brand{font-size:.72rem;color:rgba(255,255,255,.3)}
+.footer-brand strong{color:#d97706;display:block;font-size:.85rem;margin-bottom:2px}
+.footer-url{font-size:.78rem;color:rgba(26,158,110,.8);font-weight:600}
+.footer-built{font-size:.65rem;color:rgba(255,255,255,.2);text-align:right}
+.footer-built strong{color:rgba(255,255,255,.4);display:block}
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="bg-circle bc1"></div>
+  <div class="bg-circle bc2"></div>
+  <div class="bg-circle bc3"></div>
+  <div class="grid-lines"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="logo-area">
+        <div class="logo-icon">🌿</div>
+        <div class="logo-text">
+          <div class="logo-main">BORNEO ESG FORUM 2026</div>
+          <div class="logo-sub">Official Website · borneoesgforum2026.netlify.app</div>
+        </div>
+      </div>
+      <div class="badge-live">
+        <div class="dot-pulse"></div>
+        <span>Live Website</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Website Showcase · Built by Zaiwin Lab</div>
+    <h1 class="hero-title">Borneo <span class="accent">ESG</span><br>Forum <span class="yr">2026</span></h1>
+    <p class="hero-theme">"Scaling Borneo's Green Economy for Sustainable Growth"</p>
+    <div class="hero-date">
+      <div class="hero-date-item">📅 <strong>14–15 October 2026</strong></div>
+      <div class="hero-divider"></div>
+      <div class="hero-date-item">📍 <strong>Kuching, Sarawak, Malaysia</strong></div>
+      <div class="hero-divider"></div>
+      <div class="hero-date-item">🏢 <strong>ZAYN Consulting Group & CIC Capital Consultancy</strong></div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-n">2</div><div class="stat-l">Conference Days</div></div>
+      <div class="stat-item"><div class="stat-n">8</div><div class="stat-l">Expert Sessions</div></div>
+      <div class="stat-item"><div class="stat-n">7</div><div class="stat-l">ESG Pillars</div></div>
+      <div class="stat-item"><div class="stat-n">200+</div><div class="stat-l">Expected Delegates</div></div>
+      <div class="stat-item"><div class="stat-n">6</div><div class="stat-l">Stakeholder Groups</div></div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main">
+    <!-- LEFT: MOCKUPS -->
+    <div class="mockup-col">
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
+          <div class="browser-url">🔒 borneoesgforum2026.netlify.app</div>
+        </div>
+        <div class="browser-body">
+          <div class="countdown-widget">
+            <div class="cw-label">⏱ Live Event Countdown</div>
+            <div class="cw-nums">
+              <div class="cw-unit"><span class="cw-n">127</span><div class="cw-l">Days</div></div>
+              <div class="cw-sep">:</div>
+              <div class="cw-unit"><span class="cw-n">14</span><div class="cw-l">Hours</div></div>
+              <div class="cw-sep">:</div>
+              <div class="cw-unit"><span class="cw-n">37</span><div class="cw-l">Min</div></div>
+              <div class="cw-sep">:</div>
+              <div class="cw-unit"><span class="cw-n">58</span><div class="cw-l">Sec</div></div>
+            </div>
+          </div>
+          <div class="prog-widget">
+            <div class="prog-tabs">
+              <div class="prog-tab act">Day 1 · 14 Oct 2026</div>
+              <div class="prog-tab">Day 2 · 15 Oct 2026</div>
+            </div>
+            <div class="prog-item">
+              <div class="prog-time">9:00–9:30am</div>
+              <div class="prog-dot-s gold"></div>
+              <div class="prog-text"><span class="type">Opening Ceremony</span>Welcome Address · Official Opening</div>
+            </div>
+            <div class="prog-item">
+              <div class="prog-time">9:30–10:45am</div>
+              <div class="prog-dot-s"></div>
+              <div class="prog-text"><span class="type">Session 1 — Panel</span>"Bottlenecks to Green Project Success in Borneo"</div>
+            </div>
+            <div class="prog-item">
+              <div class="prog-time">11:00–12:15pm</div>
+              <div class="prog-dot-s"></div>
+              <div class="prog-text"><span class="type">Session 2 — Panel</span>"Fixing the System for Green Investment in Borneo"</div>
+            </div>
+            <div class="prog-item">
+              <div class="prog-time">1:30–2:45pm</div>
+              <div class="prog-dot-s"></div>
+              <div class="prog-text"><span class="type">Session 3 — Fireside</span>"Financing Borneo's Green Economy"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillars-widget">
+        <div class="pw-header"><div class="pw-title">🌱 7 Pillars of Sustainability</div></div>
+        <div class="pw-grid">
+          <div class="pw-item"><span class="pw-icon">🌿</span><div class="pw-num">01</div><div class="pw-name">Green Economy & Investment</div></div>
+          <div class="pw-item"><span class="pw-icon">⚡</span><div class="pw-num">02</div><div class="pw-name">Renewable Energy Transition</div></div>
+          <div class="pw-item"><span class="pw-icon">🌳</span><div class="pw-num">03</div><div class="pw-name">Nature & Carbon Solutions</div></div>
+          <div class="pw-item"><span class="pw-icon">⚖️</span><div class="pw-num">04</div><div class="pw-name">ESG Governance & Policy</div></div>
+          <div class="pw-item"><span class="pw-icon">🏘</span><div class="pw-num">05</div><div class="pw-name">SMEs & Community Dev.</div></div>
+          <div class="pw-item"><span class="pw-icon">💡</span><div class="pw-num">06</div><div class="pw-name">Innovation, Tech & Data</div></div>
+          <div class="pw-item"><span class="pw-icon">🔍</span><div class="pw-num">07</div><div class="pw-name">ESG Accountability</div></div>
+          <div class="pw-item" style="background:rgba(15,76,53,.3)"><span class="pw-icon" style="font-size:.8rem">+</span><div class="pw-name" style="font-size:.58rem;color:#d97706">Anti-Greenwashing Focus</div></div>
+        </div>
+      </div>
+
+      <div class="form-widget">
+        <div class="fw-header"><div class="fw-title">📋 Register Your Interest</div></div>
+        <div class="fw-body">
+          <div class="fw-field">Full Name *</div>
+          <div class="fw-field">Email *</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div class="fw-field">Organisation *</div>
+            <div class="fw-field">Job Title</div>
+          </div>
+          <div class="fw-select">I am interested as... <span>▼</span></div>
+          <div class="fw-btn">Submit Registration of Interest →</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FEATURES -->
+    <div class="features-col">
+      <div>
+        <div class="section-title">Key Website Features</div>
+        <div class="feat-card">
+          <span class="feat-icon">⏱</span>
+          <div class="feat-title">Real-Time Live Countdown</div>
+          <div class="feat-desc">Dynamically counts down to 14 October 2026, updating every second. Builds anticipation and urgency for delegates to register early.</div>
+          <span class="feat-tag">✓ Live on Website</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">📅</span>
+        <div class="feat-title">Interactive Day-by-Day Programme</div>
+        <div class="feat-desc">Tabbed programme viewer showing full Day 1 (Policy & Green Investment) and Day 2 (Sustainable Implementation) schedules with session types, timing, and speaker context.</div>
+        <span class="feat-tag">✓ 8 Curated Sessions</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">🌱</span>
+        <div class="feat-title">7 Pillars of Sustainability</div>
+        <div class="feat-desc">Interactive focus area cards covering Borneo's most critical sustainability challenges — from green finance to anti-greenwashing accountability.</div>
+        <span class="feat-tag">✓ Sarawak Blueprint Aligned</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">📋</span>
+        <div class="feat-title">Smart Registration System</div>
+        <div class="feat-desc">Role-based interest registration (Delegate, Speaker, Sponsor, Partner, Media, Exhibitor) with success confirmation and speaker notify-me email capture.</div>
+        <span class="feat-tag">✓ 6 Stakeholder Pathways</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">📱</span>
+        <div class="feat-title">Fully Responsive & Animated</div>
+        <div class="feat-desc">Smooth scroll-triggered animations, floating particle effects, mobile hamburger menu, and adaptive layouts — pixel-perfect on all devices.</div>
+        <span class="feat-tag">✓ Mobile Optimised</span>
+      </div>
+
+      <div style="background:rgba(15,76,53,.2);border:1px solid rgba(26,158,110,.2);border-radius:12px;padding:18px;margin-top:4px">
+        <div style="font-size:.68rem;color:#d97706;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Quote from the Forum</div>
+        <p style="font-size:.82rem;font-style:italic;color:rgba(255,255,255,.75);line-height:1.65">"We do not see sustainability and economic growth as opposing forces. In Sarawak, they are two sides of the same coin — and we are building the policy ecosystem to prove it."</p>
+        <div style="font-size:.72rem;color:#d97706;margin-top:8px;font-weight:600">YB Datuk Dr Hazland Abang Hipni · Deputy Minister, MEESty Sarawak</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="testimonial">
+    <div class="quote-mark">"</div>
+    <div class="stars">★★★★★</div>
+    <p class="test-quote">"The website they built for the Borneo ESG Forum 2026 is extraordinary. The live countdown, the day-by-day interactive programme, and the seamless interest registration form made everything so professional. Delegates immediately understood the event's gravity. It wasn't just a website — it was our conference's first impression, and it was flawless."</p>
+    <div class="test-author">
+      <div class="test-avatar">🌿</div>
+      <div>
+        <div class="test-name">Borneo ESG Forum 2026 Organising Team</div>
+        <div class="test-role">ZAYN Consulting Group & CIC Capital Consultancy · Kuching, Sarawak</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="poster-footer">
+    <div>
+      <div class="footer-brand"><strong>Borneo ESG Forum 2026</strong>borneoesgforum2026.netlify.app</div>
+      <div style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:4px">14–15 October 2026 · Kuching, Sarawak, Malaysia</div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-size:.65rem;color:rgba(26,158,110,.6);font-weight:600;text-transform:uppercase;letter-spacing:.1em">Partners</div>
+      <div style="font-size:.68rem;color:rgba(255,255,255,.3);margin-top:4px">Centre for Sustainability Research · ESG ADR Forum</div>
+    </div>
+    <div class="footer-built">
+      <strong>Built by Zaiwin Lab</strong>
+      <span>Precision. Creativity. Impact.</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

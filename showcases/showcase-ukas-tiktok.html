@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UKAS TikTok Challenge 2.0 — Showcase Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#060a18;color:#fff;width:900px;margin:0 auto}
+.poster{width:900px;min-height:1270px;background:linear-gradient(150deg,#060a18 0%,#0a0e24 50%,#060a18 100%);position:relative;overflow:hidden}
+.bg-circle{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.bc1{width:500px;height:500px;background:#0d47a1;top:-100px;right:-80px;opacity:.12}
+.bc2{width:350px;height:350px;background:#ffd700;bottom:100px;left:-60px;opacity:.05}
+.bc3{width:250px;height:250px;background:#e91e63;top:45%;right:40px;opacity:.06}
+.grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px);background-size:48px 48px}
+
+/* HEADER */
+.header{padding:40px 56px 26px;position:relative;z-index:2;border-bottom:1px solid rgba(255,255,255,.06)}
+.header-top{display:flex;align-items:center;justify-content:space-between}
+.logo-area{display:flex;align-items:center;gap:14px}
+.ukas-box{background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:10px;padding:8px 14px}
+.ukas-brand{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:900;color:#ffd700;letter-spacing:.04em;line-height:1}
+.ukas-sub{font-size:.56rem;color:rgba(255,255,255,.55);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+.tiktok-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px}
+.tt-icon{font-size:1.2rem}
+.tt-text{font-size:.75rem;font-weight:700;color:#fff}
+.tt-text small{display:block;font-size:.6rem;color:rgba(255,255,255,.4);font-weight:400}
+.live-badge{background:rgba(29,161,242,.1);border:1px solid rgba(29,161,242,.3);border-radius:50px;padding:7px 14px;display:flex;align-items:center;gap:7px}
+.live-dot{width:7px;height:7px;background:#1da1f2;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.live-badge span{font-size:.7rem;color:#1da1f2;font-weight:600}
+
+/* HERO */
+.hero{padding:34px 56px 26px;position:relative;z-index:2}
+.hero-label{font-size:.67rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#ffd700;margin-bottom:10px}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:3.4rem;font-weight:900;line-height:1;text-transform:uppercase;margin-bottom:8px}
+.hero-title .tt-color{color:#ffd700}
+.hero-sub-tag{display:flex;gap:12px;margin-bottom:8px}
+.ht-tag{font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:50px}
+.ht-create{background:rgba(29,161,242,.15);border:1px solid rgba(29,161,242,.3);color:#64b5f6}
+.ht-inspire{background:rgba(233,30,99,.12);border:1px solid rgba(233,30,99,.25);color:#f48fb1}
+.ht-showcase{background:rgba(255,215,0,.12);border:1px solid rgba(255,215,0,.25);color:#ffd700}
+.hero-tagline{font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:22px}
+
+/* STATS */
+.stats-row{display:flex;gap:0;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;margin-bottom:28px}
+.stat-item{flex:1;padding:16px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.05)}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:900;color:#ffd700;line-height:1;margin-bottom:3px}
+.stat-l{font-size:.58rem;color:rgba(255,255,255,.3);font-weight:500;text-transform:uppercase;letter-spacing:.07em}
+
+/* MAIN GRID */
+.main{padding:0 56px 28px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* BROWSER MOCKUP */
+.browser-frame{background:#080c1c;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.browser-bar{background:#060a18;padding:9px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.05)}
+.browser-dots{display:flex;gap:5px}
+.bd{width:9px;height:9px;border-radius:50%}
+.bd-r{background:#ff5f57}.bd-y{background:#ffbd2e}.bd-g{background:#28c840}
+.browser-url{background:rgba(255,255,255,.04);border-radius:50px;padding:4px 12px;font-size:.62rem;color:rgba(255,255,255,.22);margin-left:8px;flex:1}
+
+/* REGISTRATION PAGE */
+.reg-hero{background:linear-gradient(135deg,#0a1a3a,#0d2060);padding:14px;border-bottom:1px solid rgba(255,255,255,.06)}
+.rh-tag{font-size:.58rem;color:#ffd700;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.rh-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;color:#ffd700;text-transform:uppercase;line-height:1.1;margin-bottom:6px}
+.rh-sub{font-size:.65rem;color:rgba(255,255,255,.5);margin-bottom:10px}
+.rh-btn{background:#ffd700;color:#000;border-radius:50px;padding:7px 16px;font-size:.68rem;font-weight:800;display:inline-block;text-align:center}
+
+/* CATEGORIES */
+.cats-section{padding:12px 14px}
+.cs-title{font-size:.65rem;font-weight:700;color:#ffd700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.cat-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:8px 6px;text-align:center}
+.cat-icon{font-size:1rem;display:block;margin-bottom:3px}
+.cat-name{font-size:.58rem;color:rgba(255,255,255,.65);font-weight:600;line-height:1.3}
+.cat-item.open{background:rgba(255,215,0,.06);border-color:rgba(255,215,0,.2)}
+.cat-item.open .cat-name{color:#ffd700}
+
+/* LANG SECTION */
+.lang-section{padding:10px 14px;border-top:1px solid rgba(255,255,255,.05)}
+.ls-title{font-size:.6rem;font-weight:700;color:#64b5f6;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+.lang-tabs{display:flex;gap:6px}
+.lang-tab{padding:6px 12px;border-radius:50px;font-size:.65rem;font-weight:600;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.45)}
+.lang-tab.act{background:#ffd700;color:#000;border-color:#ffd700}
+.lang-iban{background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);color:#ffd700}
+
+/* ADMIN DASHBOARD */
+.admin-frame{background:#080c1c;border-radius:12px;overflow:hidden;border:1px solid rgba(255,215,0,.15)}
+.admin-bar{background:#060a18;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.05)}
+.admin-nav{display:flex;gap:12px}
+.an-item{font-size:.58rem;color:rgba(255,255,255,.3);font-weight:500}
+.an-item.act{color:#ffd700;font-weight:700}
+.admin-user{font-size:.58rem;color:rgba(255,255,255,.3)}
+.admin-title{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05)}
+.at-label{font-size:.6rem;color:#ffd700;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.at-sub{font-size:.58rem;color:rgba(255,255,255,.3);margin-top:1px}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05)}
+.metric-card{background:#080c1c;padding:12px 10px;text-align:center}
+.mc-label{font-size:.55rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.mc-val{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900;line-height:1}
+.mc-val.total{color:#fff}
+.mc-val.pending{color:#64b5f6}
+.mc-val.approved{color:#4caf50}
+.mc-val.rejected{color:#ef5350}
+.entries-list{padding:10px 14px}
+.el-header{display:grid;grid-template-columns:2fr 1.5fr 1.2fr 0.8fr;gap:6px;margin-bottom:6px}
+.el-h{font-size:.55rem;color:rgba(255,255,255,.25);text-transform:uppercase;font-weight:600}
+.entry-row{display:grid;grid-template-columns:2fr 1.5fr 1.2fr 0.8fr;gap:6px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);align-items:center}
+.er-name{font-size:.64rem;color:rgba(255,255,255,.7);font-weight:500}
+.er-cat{font-size:.6rem;color:rgba(255,255,255,.45)}
+.er-date{font-size:.58rem;color:rgba(255,255,255,.3)}
+.er-status{font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:4px;text-align:center}
+.approved{background:rgba(76,175,80,.15);color:#4caf50}
+.pending{background:rgba(100,181,246,.15);color:#64b5f6}
+.rejected{background:rgba(239,83,80,.12);color:#ef5350}
+
+/* RIGHT COL */
+.features-col{display:flex;flex-direction:column;gap:13px}
+.section-title{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#ffd700;margin-bottom:10px}
+.feat-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:15px}
+.feat-icon{font-size:1.4rem;margin-bottom:7px;display:block}
+.feat-title{font-size:.87rem;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3}
+.feat-desc{font-size:.72rem;color:rgba(255,255,255,.44);line-height:1.6}
+.feat-tag{display:inline-block;background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.18);color:#ffd700;border-radius:50px;padding:3px 10px;font-size:.61rem;font-weight:600;margin-top:6px}
+
+/* PARTNERS STRIP */
+.partners-strip{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px 14px}
+.ps-label{font-size:.6rem;color:rgba(255,255,255,.3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.ps-logos{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ps-logo{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:6px 12px;font-size:.65rem;font-weight:700;color:rgba(255,255,255,.6)}
+
+/* TESTIMONIAL */
+.testimonial{position:relative;z-index:2;margin:0 56px;padding:24px 28px;background:rgba(13,71,161,.12);border:1px solid rgba(255,215,0,.18);border-radius:16px}
+.test-quote{font-size:.92rem;font-style:italic;color:rgba(255,255,255,.82);line-height:1.7;margin-bottom:14px}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-avatar{width:38px;height:38px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.test-name{font-size:.8rem;font-weight:700;color:#fff}
+.test-role{font-size:.7rem;color:#ffd700}
+.stars{color:#ffd700;font-size:.88rem;margin-bottom:6px}
+.quote-mark{position:absolute;top:14px;right:22px;font-size:4rem;color:rgba(255,215,0,.07);line-height:1}
+
+/* FOOTER */
+.poster-footer{padding:18px 56px 32px;position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.05);margin-top:20px}
+.footer-brand strong{color:#ffd700;display:block;font-size:.85rem;margin-bottom:2px}
+.footer-brand{font-size:.7rem;color:rgba(255,255,255,.25)}
+.footer-built{font-size:.63rem;color:rgba(255,255,255,.2);text-align:right}
+.footer-built strong{color:rgba(255,255,255,.36);display:block}
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="bg-circle bc1"></div>
+  <div class="bg-circle bc2"></div>
+  <div class="bg-circle bc3"></div>
+  <div class="grid-lines"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="logo-area">
+        <div class="ukas-box">
+          <div class="ukas-brand">UKAS</div>
+          <div class="ukas-sub">Unit Komunikasi Awam Sarawak</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:3px">
+          <div style="font-size:.75rem;font-weight:700;color:#fff">UKAS TikTok Challenge 2.0</div>
+          <div style="font-size:.6rem;color:rgba(255,255,255,.3)">ukasttc.uk · Official Website Showcase</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="tiktok-badge"><div class="tt-icon">♪</div><div class="tt-text">TikTok<small>Official Platform</small></div></div>
+        <div class="live-badge"><div class="live-dot"></div><span>Live</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Website Showcase · Built by Zaiwin Lab</div>
+    <h1 class="hero-title">UKAS <span class="tt-color">TIKTOK</span>♪<br>CHALLENGE 2.0</h1>
+    <div class="hero-sub-tag">
+      <span class="ht-tag ht-create">CREATE</span>
+      <span class="ht-tag ht-inspire">INSPIRE</span>
+      <span class="ht-tag ht-showcase">SHOWCASE SARAWAK</span>
+    </div>
+    <div class="hero-tagline">Your Creativity. Our Platform. One United Sarawak. · tiktokchallenge.ukas.sarawak.gov.my</div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-n">1,248</div><div class="stat-l">Total Entries</div></div>
+      <div class="stat-item"><div class="stat-n">1,062</div><div class="stat-l">Approved</div></div>
+      <div class="stat-item"><div class="stat-n">186</div><div class="stat-l">Pending</div></div>
+      <div class="stat-item"><div class="stat-n">6</div><div class="stat-l">Categories</div></div>
+      <div class="stat-item"><div class="stat-n">3</div><div class="stat-l">Languages</div></div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main">
+    <!-- LEFT MOCKUPS -->
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
+          <div class="browser-url">🔒 ukasttc.uk/register</div>
+        </div>
+        <div class="reg-hero">
+          <div class="rh-tag">🏆 State-Wide Campaign Platform</div>
+          <div class="rh-title">UKAS TIKTOK CHALLENGE 2.0<br>CREATE · INSPIRE · SHOWCASE SARAWAK</div>
+          <div class="rh-sub">Join the Movement. Showcase Sarawak to the World!</div>
+          <div class="rh-btn">REGISTER NOW — It's Free & Easy!</div>
+        </div>
+        <div class="cats-section">
+          <div class="cs-title">📂 Multi-Category Registration System</div>
+          <div class="cats-grid">
+            <div class="cat-item"><span class="cat-icon">🏛</span><div class="cat-name">Tourism & Heritage</div></div>
+            <div class="cat-item"><span class="cat-icon">🎭</span><div class="cat-name">Lifestyle & Culture</div></div>
+            <div class="cat-item"><span class="cat-icon">📚</span><div class="cat-name">Education & Innovation</div></div>
+            <div class="cat-item"><span class="cat-icon">🤝</span><div class="cat-name">Community & Inspiration</div></div>
+            <div class="cat-item"><span class="cat-icon">🌿</span><div class="cat-name">Environment & Sustainability</div></div>
+            <div class="cat-item open"><span class="cat-icon">✨</span><div class="cat-name">Open Category</div></div>
+          </div>
+        </div>
+        <div class="lang-section">
+          <div class="ls-title">🌐 Multilingual Support Including Jaku Iban</div>
+          <div class="lang-tabs">
+            <div class="lang-tab act">English</div>
+            <div class="lang-tab">Bahasa Malaysia</div>
+            <div class="lang-tab lang-iban">Jaku Iban ⭐</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-frame">
+        <div class="admin-bar">
+          <div class="admin-nav">
+            <div class="an-item">Dashboard</div>
+            <div class="an-item act">Entries</div>
+            <div class="an-item">Categories</div>
+            <div class="an-item">Reports</div>
+          </div>
+          <div class="admin-user">Admin UKAS ▼</div>
+        </div>
+        <div class="admin-title">
+          <div class="at-label">⚙ Automated Entry Management</div>
+          <div class="at-sub">Smarter Workflow. Seamless Experience.</div>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="mc-label">Total Entries</div><div class="mc-val total">1,248</div></div>
+          <div class="metric-card"><div class="mc-label">Pending Review</div><div class="mc-val pending">186</div></div>
+          <div class="metric-card"><div class="mc-label">Approved</div><div class="mc-val approved">1,062</div></div>
+          <div class="metric-card"><div class="mc-label">Rejected</div><div class="mc-val rejected">42</div></div>
+        </div>
+        <div class="entries-list">
+          <div class="el-header">
+            <div class="el-h">Participant</div>
+            <div class="el-h">Category</div>
+            <div class="el-h">Submitted</div>
+            <div class="el-h">Status</div>
+          </div>
+          <div class="entry-row">
+            <div class="er-name">@DiscoverSarawak</div>
+            <div class="er-cat">Tourism & Heritage</div>
+            <div class="er-date">18 May 2024</div>
+            <div class="er-status approved">Approved</div>
+          </div>
+          <div class="entry-row">
+            <div class="er-name">@PemudaKreatif</div>
+            <div class="er-cat">Lifestyle & Culture</div>
+            <div class="er-date">18 May 2024</div>
+            <div class="er-status approved">Approved</div>
+          </div>
+          <div class="entry-row">
+            <div class="er-name">@InspiraSarawak</div>
+            <div class="er-cat">Education & Innovation</div>
+            <div class="er-date">17 May 2024</div>
+            <div class="er-status pending">Pending</div>
+          </div>
+          <div class="entry-row">
+            <div class="er-name">@GreenSarawak</div>
+            <div class="er-cat">Environment & Sustainability</div>
+            <div class="er-date">17 May 2024</div>
+            <div class="er-status approved">Approved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT FEATURES -->
+    <div class="features-col">
+      <div>
+        <div class="section-title">Key Website Features</div>
+        <div class="feat-card">
+          <span class="feat-icon">🌐</span>
+          <div class="feat-title">Multilingual Including Jaku Iban</div>
+          <div class="feat-desc">Full platform in English, Bahasa Malaysia, and Jaku Iban — the only government campaign platform in Sarawak to celebrate indigenous languages digitally. Cultural pride built in.</div>
+          <span class="feat-tag">✓ Jaku Iban — First of Its Kind</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">📂</span>
+        <div class="feat-title">6-Category Registration System</div>
+        <div class="feat-desc">Flexible multi-category entry — Tourism & Heritage, Lifestyle & Culture, Education & Innovation, Community & Inspiration, Environment & Sustainability, and Open Category. Inclusive for all Sarawakians.</div>
+        <span class="feat-tag">✓ 1,248 Entries Received</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">⚙</span>
+        <div class="feat-title">Automated Entry Management Dashboard</div>
+        <div class="feat-desc">Full admin dashboard with real-time entry tracking — total entries, pending review, approved, and rejected counts. Inline approval workflow with participant details and submission history.</div>
+        <span class="feat-tag">✓ 1,062 Approved Automatically</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">📱</span>
+        <div class="feat-title">Mobile-First Creative Design</div>
+        <div class="feat-desc">Built mobile-first for today's content creators. TikTok-native aesthetics, bold visuals, and thumb-friendly layouts make it easy to register, share, and participate on any device.</div>
+        <span class="feat-tag">✓ TikTok-Native UX</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">🗺</span>
+        <div class="feat-title">State-Wide Sarawak Campaign Platform</div>
+        <div class="feat-desc">Uniting creators across all 82 Sarawak constituencies under one powerful movement — empowering individuals and communities to highlight the beauty, diversity, and progress of Sarawak.</div>
+        <span class="feat-tag">✓ All Sarawakians Welcome</span>
+      </div>
+
+      <div class="partners-strip">
+        <div class="ps-label">Organised By & Partners</div>
+        <div class="ps-logos">
+          <div class="ps-logo">UKAS</div>
+          <div class="ps-logo">Sarawak</div>
+          <div class="ps-logo" style="color:#ffd700">Digital Sarawak</div>
+          <div class="ps-logo">♪ TikTok</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="testimonial">
+    <div class="quote-mark">"</div>
+    <div class="stars">★★★★★</div>
+    <p class="test-quote">"UKAS TikTok Challenge 2.0 exceeded every expectation. The Jaku Iban language option was a game-changer — our Iban community felt truly represented in a government digital campaign for the first time. The automated entry management dashboard let our team handle 1,248 submissions effortlessly. Within weeks, the platform united creators from across all of Sarawak under one movement."</p>
+    <div class="test-author">
+      <div class="test-avatar">🏛</div>
+      <div>
+        <div class="test-name">UKAS — Unit Komunikasi Awam Sarawak</div>
+        <div class="test-role">Official Sarawak Government Campaign · ukasttc.uk · In collaboration with Digital Sarawak & TikTok</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="poster-footer">
+    <div>
+      <div class="footer-brand"><strong>UKAS TikTok Challenge 2.0</strong>ukasttc.uk · tiktokchallenge.ukas.sarawak.gov.my</div>
+      <div style="font-size:.62rem;color:rgba(255,255,255,.2);margin-top:3px">Be Creative. Be Proud. Be Heard. This is Sarawak. This is Us.</div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-size:.65rem;color:#ffd700;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Organised by UKAS</div>
+      <div style="font-size:.6rem;color:rgba(255,255,255,.3);margin-top:3px">Sarawak · Digital Sarawak · ♪ TikTok</div>
+    </div>
+    <div class="footer-built"><strong>Built by Zaiwin Lab</strong><span>Precision. Creativity. Impact.</span></div>
+  </div>
+</div>
+</body>
+</html>

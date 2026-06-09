@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuching Catering Co. — Showcase Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f9f6f0;color:#1a1208;width:900px;margin:0 auto}
+.poster{width:900px;min-height:1270px;background:linear-gradient(155deg,#fdfaf5 0%,#f5ede0 40%,#fdf8f2 100%);position:relative;overflow:hidden}
+
+/* BG DECORATIONS */
+.bg-circle{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.bc1{width:400px;height:400px;background:#c8a96e;top:-100px;right:-60px;opacity:.07}
+.bc2{width:300px;height:300px;background:#1a3a1a;bottom:100px;left:-60px;opacity:.04}
+.bc3{width:200px;height:200px;background:#c8a96e;top:55%;left:50%;opacity:.05}
+
+/* HEADER */
+.header{padding:44px 56px 30px;position:relative;z-index:2;border-bottom:1px solid rgba(139,103,47,.12)}
+.header-top{display:flex;align-items:center;justify-content:space-between}
+.logo-area{display:flex;align-items:center;gap:16px}
+.logo-icon{width:56px;height:56px;border-radius:50%;border:2px solid #c8a96e;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:#fff}
+.logo-text-area{display:flex;flex-direction:column}
+.logo-main{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#1a1208;letter-spacing:.12em;text-transform:uppercase;line-height:1}
+.logo-sub{font-size:.6rem;color:#c8a96e;letter-spacing:.2em;text-transform:uppercase;margin-top:2px}
+.logo-divider{width:100%;height:1px;background:#c8a96e;margin:4px 0}
+.trusted-badge{background:#1a3a1a;border-radius:8px;padding:10px 16px;text-align:center}
+.tb-top{font-size:.6rem;color:#c8a96e;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.tb-main{font-size:.85rem;font-weight:700;color:#fff;margin-top:2px}
+
+/* HERO */
+.hero{padding:36px 56px 28px;position:relative;z-index:2}
+.hero-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c8a96e;margin-bottom:12px}
+.hero-title{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;line-height:1.1;margin-bottom:10px;color:#1a1208}
+.hero-sub{font-size:.95rem;color:#5a4a2a;margin-bottom:6px;font-style:italic;font-family:'Playfair Display',serif}
+.hero-tagline{font-size:.8rem;color:#8b7355;margin-bottom:24px}
+
+/* STATS */
+.stats-row{display:flex;gap:0;background:#fff;border:1px solid rgba(200,169,110,.25);border-radius:12px;overflow:hidden;margin-bottom:32px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.stat-item{flex:1;padding:18px 14px;text-align:center;border-right:1px solid rgba(200,169,110,.15)}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:#1a3a1a;line-height:1;margin-bottom:4px}
+.stat-l{font-size:.62rem;color:#8b7355;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+
+/* MAIN GRID */
+.main{padding:0 56px 32px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+/* BROWSER MOCKUP */
+.browser-frame{background:#fff;border-radius:12px;overflow:hidden;border:1px solid rgba(200,169,110,.25);box-shadow:0 12px 40px rgba(0,0,0,.1)}
+.browser-bar{background:#f4ede0;padding:9px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(200,169,110,.15)}
+.browser-dots{display:flex;gap:5px}
+.bd{width:9px;height:9px;border-radius:50%}
+.bd-r{background:#ff5f57}.bd-y{background:#ffbd2e}.bd-g{background:#28c840}
+.browser-url{background:rgba(0,0,0,.05);border-radius:50px;padding:4px 12px;font-size:.64rem;color:#8b7355;margin-left:8px;flex:1}
+
+/* QUOTE ENGINE MOCKUP */
+.quote-hero{background:linear-gradient(135deg,#1a3a1a,#2d5a2d);padding:16px;border-bottom:1px solid rgba(200,169,110,.2)}
+.qh-tag{font-size:.6rem;color:#c8a96e;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.qh-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:4px}
+.qh-sub{font-size:.68rem;color:rgba(255,255,255,.55)}
+.qh-timer{background:rgba(200,169,110,.15);border:1px solid rgba(200,169,110,.3);border-radius:6px;padding:6px 10px;margin-top:8px;display:inline-flex;align-items:center;gap:6px}
+.qh-timer-text{font-size:.65rem;color:#c8a96e;font-weight:600}
+
+/* QUOTE FORM */
+.quote-form{padding:14px}
+.qf-steps{display:flex;gap:0;margin-bottom:14px;background:rgba(0,0,0,.04);border-radius:8px;overflow:hidden}
+.qf-step{flex:1;padding:6px;font-size:.58rem;text-align:center;color:#8b7355;border-right:1px solid rgba(0,0,0,.06)}
+.qf-step:last-child{border-right:none}
+.qf-step.act{background:#1a3a1a;color:#c8a96e;font-weight:700}
+.qf-label{font-size:.6rem;font-weight:600;color:#5a4a2a;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em}
+.qf-field{background:rgba(0,0,0,.04);border:1px solid rgba(200,169,110,.2);border-radius:6px;padding:8px 10px;margin-bottom:8px;font-size:.72rem;color:#1a1208;display:flex;justify-content:space-between;align-items:center}
+.qf-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.qf-btn{background:#c8a96e;border-radius:6px;padding:10px;text-align:center;font-size:.72rem;font-weight:700;color:#fff;margin-top:6px}
+
+/* MULTILINGUAL WIDGET */
+.lang-widget{background:#fff;border-radius:12px;overflow:hidden;border:1px solid rgba(200,169,110,.2);box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.lw-header{background:linear-gradient(90deg,#1a3a1a,#2d5a2d);padding:10px 14px;display:flex;align-items:center;gap:6px}
+.lw-title{font-size:.75rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.08em}
+.lw-langs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(200,169,110,.1)}
+.lw-lang{background:#fff;padding:12px 8px;text-align:center}
+.lw-flag{font-size:1.3rem;display:block;margin-bottom:4px}
+.lw-name{font-size:.65rem;font-weight:600;color:#1a3a1a}
+.lw-native{font-size:.6rem;color:#8b7355;margin-top:1px}
+.lw-sample{padding:14px;border-top:1px solid rgba(200,169,110,.1)}
+.lws-label{font-size:.58rem;color:#c8a96e;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.lws-text{font-size:.78rem;color:#1a1208;line-height:1.5}
+
+/* SERVICES STRIP */
+.services-strip{background:#fff;border-radius:10px;border:1px solid rgba(200,169,110,.2);overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+.ss-header{background:#f4ede0;padding:10px 14px;border-bottom:1px solid rgba(200,169,110,.12)}
+.ss-title{font-size:.72rem;font-weight:700;color:#1a3a1a;text-transform:uppercase;letter-spacing:.08em}
+.ss-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.ss-item{padding:14px 8px;text-align:center;border-right:1px solid rgba(200,169,110,.08)}
+.ss-item:last-child{border-right:none}
+.ss-icon{font-size:1.3rem;display:block;margin-bottom:6px}
+.ss-name{font-size:.65rem;font-weight:600;color:#1a3a1a;line-height:1.3}
+
+/* RIGHT FEATURES */
+.features-col{display:flex;flex-direction:column;gap:14px}
+.section-title{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#c8a96e;margin-bottom:12px}
+.feat-card{background:#fff;border:1px solid rgba(200,169,110,.2);border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.feat-icon{font-size:1.4rem;margin-bottom:7px;display:block}
+.feat-title{font-size:.88rem;font-weight:700;color:#1a3a1a;margin-bottom:5px;line-height:1.3}
+.feat-desc{font-size:.74rem;color:#5a4a2a;line-height:1.6}
+.feat-tag{display:inline-block;background:rgba(26,58,26,.08);border:1px solid rgba(26,58,26,.15);color:#1a3a1a;border-radius:50px;padding:3px 10px;font-size:.62rem;font-weight:600;margin-top:6px}
+
+/* WHATSAPP WIDGET */
+.wa-widget{background:#25d366;border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.wa-icon{font-size:1.6rem}
+.wa-text div:first-child{font-size:.8rem;font-weight:700;color:#fff}
+.wa-text div:last-child{font-size:.68rem;color:rgba(255,255,255,.8);margin-top:2px}
+
+/* TESTIMONIAL */
+.testimonial{position:relative;z-index:2;margin:0 56px;padding:26px 30px;background:linear-gradient(135deg,rgba(26,58,26,.06),rgba(200,169,110,.08));border:1px solid rgba(200,169,110,.3);border-radius:16px}
+.test-quote{font-size:.95rem;font-style:italic;color:#2a1f0a;line-height:1.72;margin-bottom:14px;font-family:'Playfair Display',serif}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-avatar{width:38px;height:38px;background:linear-gradient(135deg,#1a3a1a,#2d5a2d);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.test-name{font-size:.8rem;font-weight:700;color:#1a1208}
+.test-role{font-size:.7rem;color:#c8a96e}
+.stars{color:#c8a96e;font-size:.88rem;margin-bottom:6px}
+.quote-mark{position:absolute;top:14px;right:22px;font-size:4rem;color:rgba(200,169,110,.15);font-family:'Playfair Display',serif;line-height:1}
+
+/* FOOTER */
+.poster-footer{padding:20px 56px 36px;position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(200,169,110,.15);margin-top:22px}
+.footer-brand strong{color:#1a3a1a;display:block;font-size:.85rem;margin-bottom:2px}
+.footer-brand{font-size:.7rem;color:#8b7355}
+.footer-built{font-size:.64rem;color:#8b7355;text-align:right}
+.footer-built strong{color:#1a3a1a;display:block}
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="bg-circle bc1"></div>
+  <div class="bg-circle bc2"></div>
+  <div class="bg-circle bc3"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="logo-area">
+        <div class="logo-icon">🍽</div>
+        <div class="logo-text-area">
+          <div class="logo-main">Kuching Catering Co.</div>
+          <div class="logo-divider"></div>
+          <div class="logo-sub">kuching-catering-co.netlify.app · Official Showcase</div>
+        </div>
+      </div>
+      <div class="trusted-badge">
+        <div class="tb-top">Trusted by</div>
+        <div class="tb-main">1,000+ Clients</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Website Showcase · Built by Zaiwin Lab</div>
+    <h1 class="hero-title">Catering, Made Effortless.</h1>
+    <p class="hero-sub">Smart technology. Exceptional experiences. Seamless from enquiry to event.</p>
+    <div class="hero-tagline">Weddings · Corporate Events · Private Parties · Full Catering Services · Proudly serving Sarawak</div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-n">&lt; 1hr</div><div class="stat-l">Quote Delivery</div></div>
+      <div class="stat-item"><div class="stat-n">1,000+</div><div class="stat-l">Clients Served</div></div>
+      <div class="stat-item"><div class="stat-n">4</div><div class="stat-l">Languages</div></div>
+      <div class="stat-item"><div class="stat-n">4</div><div class="stat-l">Service Types</div></div>
+      <div class="stat-item"><div class="stat-n">WhatsApp</div><div class="stat-l">Integrated</div></div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main">
+    <!-- LEFT MOCKUPS -->
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
+          <div class="browser-url">🔒 kuching-catering-co.netlify.app/quote</div>
+        </div>
+        <div class="quote-hero">
+          <div class="qh-tag">⚡ Powered by Smart Quotation Engine</div>
+          <div class="qh-title">Get Your Quote in Under 1 Hour</div>
+          <div class="qh-sub">Accurate quotes — fast. Powered by data, tailored to your needs.</div>
+          <div class="qh-timer">⏱ <span class="qh-timer-text">Our Smart Quotation Engine delivers accurate quotes — fast.</span></div>
+        </div>
+        <div class="quote-form">
+          <div class="qf-steps">
+            <div class="qf-step act">① Event Details</div>
+            <div class="qf-step">② Requirements</div>
+            <div class="qf-step">③ Review</div>
+            <div class="qf-step">④ Quote</div>
+          </div>
+          <div class="qf-label">Event Type</div>
+          <div class="qf-field">Wedding <span>▼</span></div>
+          <div class="qf-row">
+            <div>
+              <div class="qf-label">Event Date</div>
+              <div class="qf-field">24/08/2025 📅</div>
+            </div>
+            <div>
+              <div class="qf-label">Est. Guest Count</div>
+              <div class="qf-field">150 <span>▼</span></div>
+            </div>
+          </div>
+          <div class="qf-label">Location</div>
+          <div class="qf-field">Kuching, Sarawak</div>
+          <div class="qf-btn">NEXT STEP →</div>
+        </div>
+      </div>
+
+      <div class="lang-widget">
+        <div class="lw-header">🌐 <div class="lw-title">Multilingual Interface</div></div>
+        <div class="lw-langs">
+          <div class="lw-lang"><span class="lw-flag">🇬🇧</span><div class="lw-name">English</div><div class="lw-native">EN</div></div>
+          <div class="lw-lang"><span class="lw-flag">🇲🇾</span><div class="lw-name">Bahasa Malaysia</div><div class="lw-native">BM</div></div>
+          <div class="lw-lang"><span class="lw-flag">🇨🇳</span><div class="lw-name">中文</div><div class="lw-native">Chinese</div></div>
+          <div class="lw-lang"><span class="lw-flag">🇸🇦</span><div class="lw-name">عربي</div><div class="lw-native">Arabic</div></div>
+        </div>
+        <div class="lw-sample">
+          <div class="lws-label">Website in Chinese (中文)</div>
+          <div class="lws-text" style="font-size:.82rem;color:#1a3a1a;font-weight:500">精致时刻，美食相伴。从亲密聚会到盛大庆典，我们一一服务。</div>
+        </div>
+      </div>
+
+      <div class="services-strip">
+        <div class="ss-header"><div class="ss-title">Our Services</div></div>
+        <div class="ss-grid">
+          <div class="ss-item"><span class="ss-icon">💍</span><div class="ss-name">Weddings</div></div>
+          <div class="ss-item"><span class="ss-icon">🏢</span><div class="ss-name">Corporate Events</div></div>
+          <div class="ss-item"><span class="ss-icon">🎉</span><div class="ss-name">Private Parties</div></div>
+          <div class="ss-item"><span class="ss-icon">🍽</span><div class="ss-name">Full Catering Services</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT FEATURES -->
+    <div class="features-col">
+      <div>
+        <div class="section-title">Key Website Features</div>
+        <div class="feat-card">
+          <span class="feat-icon">⚡</span>
+          <div class="feat-title">Smart Quotation Engine (&lt;1 Hour)</div>
+          <div class="feat-desc">Multi-step quote wizard collects event type, date, guest count, and location — then generates accurate, data-powered quotes without any human delay. Fastest in Sarawak.</div>
+          <span class="feat-tag">✓ Automated & Instant</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">🌐</span>
+        <div class="feat-title">4-Language Multilingual Platform</div>
+        <div class="feat-desc">Full website experience in English, Bahasa Malaysia, 中文 (Chinese), and عربي (Arabic) — serving every client in Sarawak and beyond in their preferred language.</div>
+        <span class="feat-tag">✓ EN · BM · 中文 · عربي</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">💬</span>
+        <div class="feat-title">Integrated WhatsApp Support</div>
+        <div class="feat-desc">Chat with the team instantly via WhatsApp — get real-time updates, ask questions, confirm bookings, and receive your quote notification directly in your phone.</div>
+        <span class="feat-tag">✓ Direct WhatsApp Link</span>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">📸</span>
+        <div class="feat-title">Gallery, Packages & FAQ Pages</div>
+        <div class="feat-desc">Full-featured site with About Us, Services, Gallery, Packages, FAQ, and Contact pages — everything a catering client needs to make a confident booking decision.</div>
+        <span class="feat-tag">✓ Complete Multi-Page Site</span>
+      </div>
+
+      <div class="wa-widget">
+        <div class="wa-icon">💬</div>
+        <div class="wa-text">
+          <div>Chat Directly via WhatsApp</div>
+          <div>+60 11-5500 2008 · Instant Response</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid rgba(200,169,110,.2);border-radius:10px;padding:14px">
+        <div style="font-size:.62rem;color:#c8a96e;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Why Clients Choose Us</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:8px;font-size:.72rem;color:#5a4a2a"><span>✅</span> Quality Ingredients — Fresh & Premium</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.72rem;color:#5a4a2a"><span>✅</span> Professional Team — Experienced & Dedicated</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.72rem;color:#5a4a2a"><span>✅</span> On-time Delivery — Reliable & Hassle-free</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.72rem;color:#5a4a2a"><span>✅</span> Custom Menus — Tailored for Every Occasion</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="testimonial">
+    <div class="quote-mark">"</div>
+    <div class="stars">★★★★★</div>
+    <p class="test-quote">"The website they built us is stunning — and it actually works. Within the first week, customers were generating their own quotes without even calling us. The multilingual support means our Chinese and Arabic-speaking clients feel right at home. The WhatsApp button alone has brought us 30% more enquiries. It's our best business investment."</p>
+    <div class="test-author">
+      <div class="test-avatar">🍽</div>
+      <div>
+        <div class="test-name">Kuching Catering Co. Management Team</div>
+        <div class="test-role">Kuching Catering Co. · Kuching, Sarawak · kuching-catering-co.netlify.app</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="poster-footer">
+    <div>
+      <div class="footer-brand"><strong>Kuching Catering Co.</strong>www.kuchingcateringco.com</div>
+      <div style="font-size:.62rem;color:#8b7355;margin-top:4px">We don't just cater. We create memorable experiences.</div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-size:.65rem;color:#8b7355">📞 +60 11-5500 2008</div>
+      <div style="font-size:.62rem;color:#c8a96e;margin-top:3px">Kuching Catering Co. on Facebook & Instagram</div>
+    </div>
+    <div class="footer-built"><strong>Built by Zaiwin Lab</strong><span>Precision. Creativity. Impact.</span></div>
+  </div>
+</div>
+</body>
+</html>
